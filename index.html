@@ -1,140 +1,249 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ngô Văn Trường | Dịch vụ & Sản phẩm</title>
-    <!-- Logo nhỏ trên tab trình duyệt -->
-    <link rel="icon" type="image/png" href="favicon-32x32.png">
-    
-    <style>
-        /* Cài đặt chung cho website */
-        * { box-sizing: border-box; }
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            color: #222;
-            background-color: #fafafa;
+<style>
+        /* Khai báo Font chữ */
+        @font-face {
+            font-family: 'BNTFONT';
+            src: url('BNTFONT-Regular.otf') format('opentype'),
+                 url('BNTFONT-Regular.ttf') format('truetype');
         }
-        
-        /* Phần Header (Menu) */
-        header { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 20px 8%; 
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .logo img { height: 45px; }
-        nav a { 
-            margin: 0 15px; 
-            text-decoration: none; 
-            color: #555; 
-            font-weight: 600; 
-            font-size: 15px;
-        }
-        nav a:hover { color: #d32f2f; }
-        .btn-start { 
-            background: #222; 
-            color: #fff; 
-            padding: 12px 24px; 
-            border-radius: 30px; 
-            text-decoration: none; 
-        }
-        .btn-start:hover { background: #d32f2f; }
 
-        /* Phần Banner chính */
-        .hero { 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            padding: 80px 8%; 
-            max-width: 1400px; 
-            margin: auto;
-            flex-wrap: wrap;
+        :root {
+            --brand-red: #e02120;
+            --brand-black: #191c1e;
+            --text-grey: #6b6b6b;
+            --light-grey: #f4f6f7;
+            --pure-white: #ffffff;
         }
-        .hero-text { flex: 1; min-width: 300px; padding-right: 40px; }
-        .subtitle { 
-            color: #666; 
-            font-size: 13px; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-            margin-bottom: 20px; 
-            display: block; 
-            font-weight: bold;
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .hero-text h1 { 
-            font-size: 3.5rem; 
-            margin: 0 0 25px 0; 
-            line-height: 1.1; 
-            font-weight: 800; 
+
+        body {
+            font-family: 'BNTFONT', 'Inter', 'Montserrat', sans-serif;
+            background-color: var(--pure-white);
+            color: var(--brand-black);
+            overflow-x: hidden;
         }
-        .hero-text p { 
-            color: #555; 
-            line-height: 1.8; 
-            font-size: 1.1rem; 
+
+        /* ================= HEADER ================= */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: var(--pure-white);
+        }
+
+        .logo img {
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-grey);
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--brand-black);
+        }
+
+        .btn-start {
+            background-color: var(--brand-black);
+            color: var(--pure-white);
+            padding: 10px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-start:hover {
+            background-color: var(--brand-red);
+        }
+
+        /* ================= HERO SECTION ================= */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px 8% 80px;
+            min-height: calc(100vh - 100px);
+            position: relative;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .tagline {
+            color: var(--text-grey);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero-content h1 {
+            font-size: 4.2rem;
+            line-height: 1.1;
+            font-weight: 800;
+            color: #222;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--text-grey);
+            line-height: 1.6;
             max-width: 450px;
         }
-        
-        /* Hình ảnh bên phải */
-        .hero-image { flex: 1; text-align: right; min-width: 300px; }
-        .hero-image img { 
-            max-width: 100%; 
-            border-radius: 15px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+
+        /* --- SLIDER ẢNH --- */
+        .hero-slider-container {
+            flex: 1;
+            height: 550px;
+            position: relative;
+            display: flex;
+            justify-content: center;
         }
 
-        /* Phần Sản phẩm thêm */
-        .products {
-            padding: 50px 8%;
-            text-align: center;
-            background: #fff;
+        .slider {
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            background-color: var(--pure-white);
         }
-        .products h2 { font-size: 2rem; margin-bottom: 40px;}
-        .products img {
-            max-width: 350px;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+
+        .slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 10;
+            transition: background-color 0.3s;
+        }
+
+        .slider-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev-btn { left: 0; border-radius: 0 5px 5px 0; }
+        .next-btn { right: 0; border-radius: 5px 0 0 5px; }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 9px;
+            height: 9px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background-color: var(--brand-red);
+            width: 11px;
+            height: 11px;
+        }
+
+        /* ================= RESPONSIVE CHO ĐIỆN THOẠI ================= */
+        @media (max-width: 900px) {
+            header {
+                padding: 15px 5%;
+            }
+            nav ul {
+                display: none; /* Ẩn menu chữ trên mobile nếu muốn gọn, hoặc giữ lại tùy ý bạn */
+            }
+            .hero {
+                flex-direction: column;
+                height: auto;
+                min-height: auto;
+                padding: 30px 5% 60px;
+                text-align: center;
+                gap: 40px;
+            }
+            .hero-content {
+                max-width: 100%;
+            }
+            .hero-content h1 {
+                font-size: 2.8rem; /* Thu nhỏ chữ tiêu đề để không bị tràn màn hình điện thoại */
+                margin-bottom: 20px;
+            }
+            .hero-content p {
+                margin: 0 auto;
+                font-size: 1rem;
+            }
+            .hero-slider-container {
+                width: 100%;
+                height: 420px; /* Thu nhỏ chiều cao slider trên mobile */
+            }
+            .slider {
+                max-width: 300px; /* Vừa vặn với màn hình điện thoại dọc */
+            }
         }
     </style>
-</head>
-<body>
-
-    <!-- Menu Điều Hướng -->
-    <header>
-        <div class="logo">
-            <!-- Ảnh logo -->
-            <img src="logo-ch-original.png" alt="Logo Ngô Văn Trường">
-        </div>
-        <nav>
-            <a href="#">Về</a>
-            <a href="#">Dịch vụ</a>
-            <a href="#">Liên hệ</a>
-            <a href="#" class="btn-start">Bắt đầu ➔</a>
-        </nav>
-    </header>
-
-    <!-- Khu vực Nội dung chính -->
-    <section class="hero">
-        <div class="hero-text">
-            <span class="subtitle">Ý TƯỞNG / SẢN PHẨM / DỊCH VỤ</span>
-            <h1>không gian sáng tạo không giới hạn.</h1>
-            <p>từ những bộ font độc quyền, thời trang cá tính đến các dịch vụ thiết kế theo yêu cầu. một trạm dừng chân cho mọi ý tưởng của bạn.</p>
-        </div>
-        <div class="hero-image">
-            <!-- Ảnh banner Font chữ -->
-            <img src="banner font bnt do 5.png" alt="Banner Font BNT">
-        </div>
-    </section>
-
-    <!-- Khu vực Quần áo -->
-    <section class="products">
-        <h2>Sản Phẩm Thời Trang</h2>
-        <!-- Ảnh Áo -->
-        <img src="aos dau nvt.png" alt="Áo NVT">
-    </section>
-
-</body>
-</html>
