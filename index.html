@@ -3,349 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ngô Văn Trường - Trang chủ</title>
-    <link rel="icon" href="ng-v-n-tr-ng-logo-export/favicon/favicon-32x32.png" type="image/png">
-
+    <title>Ngô Văn Trường | Dịch vụ & Sản phẩm</title>
+    <!-- Logo nhỏ trên tab trình duyệt -->
+    <link rel="icon" type="image/png" href="favicon-32x32.png">
+    
     <style>
-        /* Khai báo Font chữ */
-        @font-face {
-            font-family: 'BNTFONT';
-            src: url('BNTFONT-Regular.otf') format('opentype'),
-                 url('BNTFONT-Regular.ttf') format('truetype');
-        }
-
-        :root {
-            --brand-red: #e02120;
-            --brand-black: #191c1e;
-            --text-grey: #6b6b6b;
-            --light-grey: #f4f6f7;
-            --pure-white: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'BNTFONT', 'Inter', 'Montserrat', sans-serif;
-            background-color: var(--pure-white);
-            color: var(--brand-black);
-            overflow-x: hidden;
-        }
-
-        /* ================= HEADER ================= */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background-color: var(--pure-white);
-        }
-
-        .logo img {
-            height: 70px;
-            object-fit: contain;
-        }
-
-        .nav-container {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-grey);
-            font-weight: 600;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--brand-black);
-        }
-
-        .btn-start {
-            background-color: var(--brand-black);
-            color: var(--pure-white);
-            padding: 12px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: background-color 0.3s;
-        }
-
-        .btn-start:hover {
-            background-color: var(--brand-red);
-        }
-
-        /* ================= HERO SECTION ================= */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 40px 8% 100px;
-            height: calc(100vh - 110px);
-            min-height: 700px;
-            position: relative;
-        }
-
-        /* --- Cột bên trái (Văn bản) --- */
-        .hero-content {
-            flex: 1;
-            max-width: 500px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .tagline {
-            color: var(--text-grey);
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-        }
-
-        .hero-content h1 {
-            font-size: 5rem;
-            line-height: 1.1;
-            font-weight: 800;
+        /* Cài đặt chung cho website */
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
             color: #222;
-            margin-bottom: 30px;
-            letter-spacing: -1px;
-            position: relative;
-        }
-
-        .play-icon-bg {
-            position: absolute;
-            top: -20px;
-            right: 0px;
-            width: 80px;
-            height: 80px;
-            opacity: 0.05;
-            z-index: -1;
+            background-color: #fafafa;
         }
         
-        .play-icon-bg::after {
-            content: "▶";
-            font-size: 80px;
-            color: var(--brand-black);
+        /* Phần Header (Menu) */
+        header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 20px 8%; 
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
+        .logo img { height: 45px; }
+        nav a { 
+            margin: 0 15px; 
+            text-decoration: none; 
+            color: #555; 
+            font-weight: 600; 
+            font-size: 15px;
+        }
+        nav a:hover { color: #d32f2f; }
+        .btn-start { 
+            background: #222; 
+            color: #fff; 
+            padding: 12px 24px; 
+            border-radius: 30px; 
+            text-decoration: none; 
+        }
+        .btn-start:hover { background: #d32f2f; }
 
-        .hero-content p {
-            font-size: 1.25rem;
-            color: var(--text-grey);
-            line-height: 1.6;
+        /* Phần Banner chính */
+        .hero { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 80px 8%; 
+            max-width: 1400px; 
+            margin: auto;
+            flex-wrap: wrap;
+        }
+        .hero-text { flex: 1; min-width: 300px; padding-right: 40px; }
+        .subtitle { 
+            color: #666; 
+            font-size: 13px; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            margin-bottom: 20px; 
+            display: block; 
+            font-weight: bold;
+        }
+        .hero-text h1 { 
+            font-size: 3.5rem; 
+            margin: 0 0 25px 0; 
+            line-height: 1.1; 
+            font-weight: 800; 
+        }
+        .hero-text p { 
+            color: #555; 
+            line-height: 1.8; 
+            font-size: 1.1rem; 
             max-width: 450px;
         }
-
-        /* --- Cột bên phải (SLIDER ẢNH) --- */
-        .hero-slider-container {
-            flex: 1;
-            /* Tăng chiều cao để phù hợp với ảnh dọc (A4) */
-            height: 650px; 
-            position: relative;
-            display: flex;
-            justify-content: center; /* Căn giữa khung slider */
+        
+        /* Hình ảnh bên phải */
+        .hero-image { flex: 1; text-align: right; min-width: 300px; }
+        .hero-image img { 
+            max-width: 100%; 
+            border-radius: 15px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
-        .slider {
-            width: 100%;
-            /* Thu hẹp chiều ngang lại để tạo thành khung chữ nhật đứng tỉ lệ A4 */
-            max-width: 460px; 
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15); /* Thêm bóng đổ để poster nổi lên */
-            background-color: var(--pure-white);
+        /* Phần Sản phẩm thêm */
+        .products {
+            padding: 50px 8%;
+            text-align: center;
+            background: #fff;
         }
-
-        .slides {
-            display: flex;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .slide {
-            min-width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 100%;
-            /* ĐỔI THÀNH CONTAIN: Ép ảnh thu lại vừa khít khung, hiển thị 100% nguyên gốc không bị cắt */
-            object-fit: contain; 
-        }
-
-        /* Mũi tên điều hướng */
-        .slider-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.4);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 60px;
-            cursor: pointer;
-            font-size: 24px;
-            z-index: 10;
-            transition: background-color 0.3s;
-        }
-
-        .slider-btn:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .prev-btn { left: 0; border-radius: 0 5px 5px 0; }
-        .next-btn { right: 0; border-radius: 5px 0 0 5px; }
-
-        /* Dấu chấm tròn */
-        .slider-dots {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            z-index: 10;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            background-color: rgba(0, 0, 0, 0.3); /* Chấm mờ màu xám đen để dễ nhìn trên mọi nền */
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .dot.active {
-            background-color: var(--brand-red); /* Chấm đỏ cho ảnh hiện tại */
-            width: 12px;
-            height: 12px;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero { flex-direction: column; height: auto; text-align: center; justify-content: center; gap: 50px; }
-            .hero-content h1 { font-size: 4rem; }
-            .hero-content p { margin: 0 auto; }
-            .hero-slider-container { width: 100%; height: 500px; }
-            .slider { max-width: 350px; } /* Thu nhỏ poster lại trên màn hình nhỏ */
+        .products h2 { font-size: 2rem; margin-bottom: 40px;}
+        .products img {
+            max-width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 <body>
 
+    <!-- Menu Điều Hướng -->
     <header>
         <div class="logo">
-            <img src="ng-v-n-tr-ng-logo-export/png/2160px/logo-ch-original.png" alt="Ngô Văn Trường Logo">
+            <!-- Ảnh logo -->
+            <img src="logo-ch-original.png" alt="Logo Ngô Văn Trường">
         </div>
-        <div class="nav-container">
-            <nav>
-                <ul>
-                    <li><a href="#">Về</a></li>
-                    <li><a href="#">Dịch vụ</a></li>
-                    <li><a href="#">Liên hệ</a></li>
-                </ul>
-            </nav>
-            <a href="#" class="btn-start">Bắt đầu &rarr;</a>
-        </div>
+        <nav>
+            <a href="#">Về</a>
+            <a href="#">Dịch vụ</a>
+            <a href="#">Liên hệ</a>
+            <a href="#" class="btn-start">Bắt đầu ➔</a>
+        </nav>
     </header>
 
-    <main class="hero">
-        
-        <div class="hero-content">
-            <p class="tagline">Ý TƯỞNG / SẢN PHẨM / DỊCH VỤ</p>
-            <h1>
-                Không gian<br>sáng tạo<br>tương lai.
-                <div class="play-icon-bg"></div>
-            </h1>
-            <p>Cung cấp đa dạng các sản phẩm thiết kế, từ áo thun, phông chữ đến dịch vụ sáng tạo chuyên nghiệp dành riêng cho những ai mong đợi nhiều hơn..</p>
+    <!-- Khu vực Nội dung chính -->
+    <section class="hero">
+        <div class="hero-text">
+            <span class="subtitle">Ý TƯỞNG / SẢN PHẨM / DỊCH VỤ</span>
+            <h1>không gian sáng tạo không giới hạn.</h1>
+            <p>từ những bộ font độc quyền, thời trang cá tính đến các dịch vụ thiết kế theo yêu cầu. một trạm dừng chân cho mọi ý tưởng của bạn.</p>
         </div>
-
-        <div class="hero-slider-container">
-            <div class="slider">
-                <div class="slides" id="slideTrack">
-                    <!-- Ảnh 1 -->
-                    <div class="slide">
-                        <img src="aos dau nvt.png" alt="Áo Đấu NVT">
-                    </div>
-                    <!-- Ảnh 2 -->
-                    <div class="slide">
-                        <img src="banner font bnt do 5.png" alt="Font BNT">
-                    </div>
-                </div>
-
-                <button class="slider-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
-                <button class="slider-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
-
-                <div class="slider-dots">
-                    <div class="dot active" onclick="currentSlide(0)"></div>
-                    <div class="dot" onclick="currentSlide(1)"></div>
-                </div>
-            </div>
+        <div class="hero-image">
+            <!-- Ảnh banner Font chữ -->
+            <img src="banner font bnt do 5.png" alt="Banner Font BNT">
         </div>
+    </section>
 
-    </main>
+    <!-- Khu vực Quần áo -->
+    <section class="products">
+        <h2>Sản Phẩm Thời Trang</h2>
+        <!-- Ảnh Áo -->
+        <img src="aos dau nvt.png" alt="Áo NVT">
+    </section>
 
-    <script>
-        let slideIndex = 0;
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        const slideTrack = document.getElementById('slideTrack');
-        const totalSlides = slides.length;
-
-        function updateSlider() {
-            slideTrack.style.transform = `translateX(-${slideIndex * 100}%)`;
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[slideIndex].classList.add('active');
-        }
-
-        function moveSlide(n) {
-            slideIndex += n;
-            if (slideIndex >= totalSlides) slideIndex = 0;
-            if (slideIndex < 0) slideIndex = totalSlides - 1;
-            updateSlider();
-            resetTimer(); 
-        }
-
-        function currentSlide(n) {
-            slideIndex = n;
-            updateSlider();
-            resetTimer();
-        }
-
-        let autoSlideInterval = setInterval(() => {
-            moveSlide(1);
-        }, 3000);
-
-        function resetTimer() {
-            clearInterval(autoSlideInterval);
-            autoSlideInterval = setInterval(() => {
-                moveSlide(1);
-            }, 3000);
-        }
-    </script>
 </body>
 </html>
