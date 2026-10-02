@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ngô Văn Trường - Trang chủ</title>
     
-    <!-- Cập nhật ảnh Icon web -->
-    <link rel="icon" href="icon.svg" type="image/png">
+    <link rel="icon" href="iconlink3232.png" type="image/png">
 
     <style>
         /* Khai báo Font chữ */
@@ -22,6 +21,11 @@
             --text-grey: #6b6b6b;
             --light-grey: #f4f6f7;
             --pure-white: #ffffff;
+        }
+
+        /* Thêm cuộn mượt cho toàn bộ trang */
+        html {
+            scroll-behavior: smooth;
         }
 
         * {
@@ -44,6 +48,10 @@
             align-items: center;
             padding: 20px 8%;
             background-color: var(--pure-white);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
         .logo img {
@@ -57,10 +65,20 @@
             gap: 40px;
         }
 
+        /* Căn chỉnh thẳng hàng tuyệt đối cho menu */
         nav ul {
             list-style: none;
             display: flex;
             gap: 30px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: flex;
+            align-items: center;
+            position: relative;
         }
 
         nav a {
@@ -69,6 +87,8 @@
             font-weight: 600;
             font-size: 16px;
             transition: color 0.3s;
+            display: flex;
+            align-items: center;
         }
 
         nav a:hover {
@@ -90,6 +110,69 @@
             background-color: var(--brand-red);
         }
 
+        /* ================= MENU DROPDOWN LIÊN HỆ ================= */
+        .dropdown {
+            /* Đã xóa padding-bottom gây lệch chữ */
+            position: relative;
+            cursor: pointer;
+        }
+
+        /* Khối cầu nối tàng hình để giữ menu không bị tắt khi rê chuột xuống */
+        .dropdown::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -25px;
+            width: 100%;
+            height: 25px;
+            background: transparent;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--pure-white);
+            min-width: 180px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            z-index: 100;
+            top: 40px; 
+            left: 50%;
+            transform: translateX(-50%);
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+        }
+
+        .dropdown-content::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 0 5px 5px 5px;
+            border-style: solid;
+            border-color: transparent transparent var(--pure-white) transparent;
+        }
+
+        .dropdown-content a {
+            color: var(--brand-black);
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 14.5px;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--light-grey);
+            color: var(--brand-red);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
         /* ================= HERO SECTION ================= */
         .hero {
             display: flex;
@@ -101,7 +184,6 @@
             position: relative;
         }
 
-        /* --- Cột bên trái (Văn bản) --- */
         .hero-content {
             flex: 1;
             max-width: 500px;
@@ -192,7 +274,6 @@
             object-fit: contain; 
         }
 
-        /* Mũi tên điều hướng */
         .slider-btn {
             position: absolute;
             top: 50%;
@@ -215,7 +296,6 @@
         .prev-btn { left: 0; border-radius: 0 5px 5px 0; }
         .next-btn { right: 0; border-radius: 5px 0 0 5px; }
 
-        /* Dấu chấm tròn */
         .slider-dots {
             position: absolute;
             bottom: 20px;
@@ -241,22 +321,137 @@
             height: 12px;
         }
 
-        /* ================= RESPONSIVE ĐIỆN THOẠI (TỐI ƯU HÓA) ================= */
+        /* ================= ABOUT SECTION (VỀ TÔI) ================= */
+        .about-section {
+            padding: 100px 8%;
+            background-color: var(--light-grey);
+            scroll-margin-top: 80px; 
+        }
+
+        .about-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+            max-width: 450px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 50%;
+            height: 50%;
+            background-color: var(--brand-red);
+            border-radius: 20px;
+            z-index: 1;
+        }
+
+        .about-text {
+            flex: 1.5;
+        }
+
+        .about-text h2 {
+            font-size: 4rem;
+            color: var(--brand-black);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .about-text .intro {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--brand-red);
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .about-text h3 {
+            font-size: 1.4rem;
+            color: var(--brand-black);
+            margin: 35px 0 15px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .about-text h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 3px;
+            bottom: 3px;
+            width: 4px;
+            background-color: var(--brand-red);
+            border-radius: 2px;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-grey);
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .about-text .outro {
+            font-weight: 600;
+            color: var(--brand-black);
+            margin-top: 40px;
+            padding: 20px 25px;
+            background-color: var(--pure-white);
+            border-left: 4px solid var(--brand-black);
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            font-style: italic;
+        }
+
+        /* ================= RESPONSIVE ĐIỆN THOẠI ================= */
         @media (max-width: 1024px) {
             header {
-                padding: 15px 5%;
+                flex-direction: column; 
+                padding: 20px 5%;
+                gap: 20px;
             }
             .logo img {
-                height: 50px; 
+                height: 55px; 
+            }
+            .nav-container {
+                flex-direction: column;
+                width: 100%;
+                gap: 20px;
             }
             nav ul {
-                display: none; 
+                display: flex; 
+                width: 100%;
+                justify-content: center;
+                gap: 30px;
+                flex-wrap: wrap;
+            }
+            .dropdown-content {
+                top: 40px; 
             }
             .hero { 
                 flex-direction: column; 
                 height: auto; 
                 min-height: auto; 
-                padding: 40px 5% 60px;
+                padding: 20px 5% 60px;
                 text-align: center; 
                 justify-content: center; 
                 gap: 40px; 
@@ -281,6 +476,29 @@
             .slider { 
                 max-width: 320px; 
             } 
+
+            /* Responsive cho phần Về Tôi */
+            .about-section {
+                padding: 60px 5%;
+            }
+            .about-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+            .about-image {
+                max-width: 80%;
+            }
+            .about-text h2 {
+                font-size: 3rem;
+                text-align: center;
+            }
+            .about-text .intro {
+                text-align: center;
+            }
+            .about-text p {
+                text-align: left;
+            }
         }
     </style>
 </head>
@@ -293,12 +511,20 @@
         <div class="nav-container">
             <nav>
                 <ul>
-                    <li><a href="#">Về</a></li>
+                    <li><a href="#about">Về</a></li>
                     <li><a href="#">Dịch vụ</a></li>
-                    <li><a href="#">Liên hệ</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="#contact" class="dropbtn">Liên hệ ▾</a>
+                        <div class="dropdown-content">
+                            <a href="https://web.facebook.com/truong.bapngo.2k6" target="_blank">Facebook</a>
+                            <a href="https://zalo.me/0337439799" target="_blank">Zalo</a>
+                            <a href="https://www.tiktok.com/@ngotruong2406" target="_blank">TikTok</a>
+                        </div>
+                    </li>
                 </ul>
             </nav>
-            <a href="#" class="btn-start">Bắt đầu &rarr;</a>
+            <a href="#about" class="btn-start">Bắt đầu &rarr;</a>
         </div>
     </header>
 
@@ -310,17 +536,15 @@
                 KHÔNG GIAN<br>SÁNG TẠO<br>TƯƠNG LAI.
                 <div class="play-icon-bg"></div>
             </h1>
-            <p>Từ những bộ font độc quyền, thời trang cá tính đến các dịch vụ thiết kế theo yêu cầu. một trạm dừng chân cho mọi ý tưởng của bạn.</p>
+            <p>Kỷ luật của thể thao, sự bay bổng của nghệ thuật, và một trạm dừng chân cho mọi ý tưởng của bạn.</p>
         </div>
 
         <div class="hero-slider-container">
             <div class="slider">
                 <div class="slides" id="slideTrack">
-                    <!-- Ảnh 1 -->
                     <div class="slide">
                         <img src="aos dau nvt.png" alt="Áo Đấu NVT">
                     </div>
-                    <!-- Ảnh 2 -->
                     <div class="slide">
                         <img src="banner font bnt do 5.png" alt="Font BNT">
                     </div>
@@ -335,8 +559,31 @@
                 </div>
             </div>
         </div>
-
     </main>
+
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-image">
+                <!-- Đã cập nhật lại đuôi .jpg như bạn yêu cầu -->
+                <img src="chan dung nvt.jpg" alt="Chân dung Ngô Văn Trường">
+            </div>
+            <div class="about-text">
+                <h2>Ngô Văn Trường</h2>
+                <p class="intro">Chào bạn, mình là Ngô Văn Trường – người đứng sau không gian sáng tạo này.</p>
+                <p>Xuất phát điểm là một sinh viên Thiết kế Đồ họa tại FPT Polytechnic Hà Nội, mình luôn tin rằng thiết kế không chỉ là việc sắp xếp màu sắc hay hình khối, mà là quá trình giải mã tâm lý và truyền tải thông điệp. Chào mừng bạn bước vào "Không gian sáng tạo tương lai" – nơi những ý tưởng thô sơ nhất sẽ được nhào nặn thành những sản phẩm hoàn chỉnh và mang đậm dấu ấn cá nhân.</p>
+
+                <h3>Từ tư duy hình ảnh đến những thiết kế thực chiến</h3>
+                <p>Như bạn có thể thấy qua những mẫu thiết kế thời trang cá tính hay các dự án nhận diện thương hiệu tại đây, mình đam mê việc tạo ra sự khác biệt. Mình sử dụng sự nhạy bén với hệ sinh thái Adobe (Illustrator, InDesign, After Effects) để cung cấp các dịch vụ thiết kế theo yêu cầu. Dù đó là việc sáng tạo ra những bộ font độc quyền, xây dựng concept nhận diện cho một thương hiệu lớn (như dự án BMW M4 GT3 EVO), hay dàn trang những ấn phẩm phức tạp, mọi thứ đều được thực hiện với tiêu chuẩn khắt khe nhất.</p>
+                <p>Hơn thế nữa, các sản phẩm của mình luôn được khai thác dưới lăng kính tâm lý học, giúp hình ảnh không chỉ đẹp mắt mà còn chạm đến cảm xúc và hành vi của người xem.</p>
+
+                <h3>Kỷ luật thép làm nên một nhà sáng tạo bền bỉ</h3>
+                <p>Khác với suy nghĩ nghệ thuật là phải luôn ngẫu hứng, triết lý làm việc của mình được xây dựng trên nền tảng của sự kỷ luật. Là một người theo đuổi mục tiêu Marathon Sub-3, rèn luyện kỹ năng trên sân cầu lông, bơi lội và thấm nhuần tinh thần của Vovinam, mình mang nguyên vẹn ý chí của một "vận động viên" vào công việc.</p>
+                <p>Thể thao dạy mình cách kiểm soát nhịp độ, quản lý thời gian và vượt qua giới hạn của bản thân. Sự bền bỉ ấy giúp mình luôn vững vàng trước mọi deadline, làm việc nhóm hiệu quả cùng những người cộng sự, và liên tục tối ưu hóa trải nghiệm trên chính website này.</p>
+
+                <p class="outro">"Dù bạn đang tìm kiếm một thiết kế thời trang thể thao bùng nổ, một bộ font chữ mang đậm cái tôi, hay một chiến lược hình ảnh có chiều sâu – đây chính là trạm dừng chân cuối cùng cho mọi ý tưởng của bạn."</p>
+            </div>
+        </div>
+    </section>
 
     <script>
         let slideIndex = 0;
