@@ -156,8 +156,14 @@
             color: var(--brand-red);
         }
 
+        /* Hover để mở trên PC */
         .dropdown:hover .dropdown-content {
             display: block;
+        }
+
+        /* Class để mở menu bằng sự kiện Click/Tap trên Điện thoại & PC */
+        .dropdown-content.show {
+            display: block !important;
         }
 
         .hero {
@@ -670,7 +676,7 @@
                     </li>
                     
                     <li class="dropdown">
-                        <a href="#" class="dropbtn">Dịch vụ ▾</a>
+                        <a href="#service" class="dropbtn">Dịch vụ ▾</a>
                         <div class="dropdown-content">
                             <a href="bapngotruong.thietke">Thiết Kế Theo Yêu Cầu</a>
                             <a href="bapngotruong.thoitrang">Thời Trang Cá Tính</a>
@@ -710,7 +716,7 @@
                         <img src="aos dau nvt.png" alt="Áo Đấu NVT">
                     </div>
                     <div class="slide">
-                        <img src="banner font bnt do 5.png" alt="Font BNT">
+                        <img src="banner font bnt 4.png" alt="Font BNT">
                     </div>
                 </div>
 
@@ -848,11 +854,14 @@
         </div>
     </section>
 
-    <footer style="padding: 60px 8%; text-align: center; background-color: var(--light-grey); border-top: 1px solid #eaeaea;">
-        <p style="font-size: 1.1rem; color: var(--text-grey); font-style: italic; font-weight: 500;">"Sự tự tin dám thể hiện bản thân không phải là khao khát sự chú ý, mà là quyền được cất lên tiếng nói của riêng mình."<br>---Ngô Văn Trường---</p>
+    <footer id="contact" style="padding: 60px 8%; text-align: center; background-color: var(--light-grey); border-top: 1px solid #eaeaea;">
+        <p style="font-size: 1.1rem; color: var(--text-grey); font-style: italic; font-weight: 500;">
+            "Sự tự tin dám thể hiện bản thân không phải là khao khát sự chú ý, mà là quyền được cất lên tiếng nói của riêng mình."<br>---Ngô Văn Trường---
+        </p>
     </footer>
 
     <script>
+        // --- 1. LOGIC CHUYỂN SLIDE HERO ---
         let slideIndex = 0;
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.dot');
@@ -860,9 +869,12 @@
         const totalSlides = slides.length;
 
         function updateSlider() {
+            if (!slideTrack) return;
             slideTrack.style.transform = `translateX(-${slideIndex * 100}%)`;
             dots.forEach(dot => dot.classList.remove('active'));
-            dots[slideIndex].classList.add('active');
+            if (dots[slideIndex]) {
+                dots[slideIndex].classList.add('active');
+            }
         }
 
         function moveSlide(n) {
@@ -890,6 +902,8 @@
             }, 6000);
         }
 
+
+        // --- 2. LOGIC ACCORDION (MỞ / GẬP DỰ ÁN) ---
         const accordions = document.querySelectorAll('.accordion-header');
 
         accordions.forEach(acc => {
@@ -915,16 +929,66 @@
                 const header = item.querySelector('.accordion-header');
                 const content = item.querySelector('.accordion-content');
                 
-                if (!header.classList.contains('active')) {
-                    header.classList.add('active');
-                    content.style.maxHeight = content.scrollHeight + "px";
+                if (header && content) {
+                    if (!header.classList.contains('active')) {
+                        header.classList.add('active');
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
                 }
-                
+
                 setTimeout(() => {
-                    item.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
+                    const headerOffset = 100;
+                    const elementPosition = item.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }, 50);
             }
         }
+
+
+        // --- 3. LOGIC DROPDOWN MENU (CHẠY TỐT CẢ TRÊN MOBILE VÀ PC) ---
+        // Bấm vào nút Menu chính (dropbtn) để bật/tắt (Toggle)
+        document.querySelectorAll('.dropbtn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault(); // Ngăn trình duyệt nhảy trang tức thì
+                const parentDropdown = this.closest('.dropdown');
+                const content = parentDropdown.querySelector('.dropdown-content');
+
+                // Đóng các menu con khác đang mở
+                document.querySelectorAll('.dropdown-content').forEach(other => {
+                    if (other !== content) {
+                        other.classList.remove('show');
+                    }
+                });
+
+                // Bật / Tắt menu được bấm
+                if (content) {
+                    content.classList.toggle('show');
+                }
+            });
+        });
+
+        // Đóng dropdown khi bấm vào bất kỳ đâu ngoài Menu
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown-content').forEach(content => {
+                    content.classList.remove('show');
+                });
+            }
+        });
+
+        // Đóng dropdown sau khi bấm chọn 1 mục con
+        document.querySelectorAll('.dropdown-content a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.dropdown-content').forEach(content => {
+                    content.classList.remove('show');
+                });
+            });
+        });
     </script>
 </body>
 </html>
