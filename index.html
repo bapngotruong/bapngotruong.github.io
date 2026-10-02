@@ -111,13 +111,12 @@
             background-color: var(--brand-red);
         }
 
-        /* ================= MENU DROPDOWN CHUNG (DỊCH VỤ & LIÊN HỆ) ================= */
+        /* ================= MENU DROPDOWN CHUNG ================= */
         .dropdown {
             position: relative;
             cursor: pointer;
         }
 
-        /* Khối cầu nối tàng hình để giữ menu không bị tắt khi rê chuột xuống */
         .dropdown::after {
             content: '';
             position: absolute;
@@ -233,7 +232,7 @@
             max-width: 450px;
         }
 
-        /* --- Cột bên phải (SLIDER ẢNH) --- */
+        /* ================= SLIDER ================= */
         .hero-slider-container {
             flex: 1;
             height: 650px; 
@@ -422,6 +421,167 @@
             font-style: italic;
         }
 
+        /* ================= JOURNEY SECTION (HÀNH TRÌNH) ================= */
+        .journey-section {
+            padding: 100px 8%;
+            background-color: var(--pure-white);
+            scroll-margin-top: 80px;
+        }
+
+        .journey-title {
+            text-align: center;
+            font-size: 3.5rem;
+            color: var(--brand-black);
+            margin-bottom: 50px;
+            letter-spacing: -1px;
+        }
+
+        .accordion-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+            scroll-margin-top: 120px; /* Giúp khi cuộn xuống không bị che bởi Menu */
+        }
+
+        .accordion-header {
+            width: 100%;
+            background-color: var(--light-grey);
+            color: var(--brand-black);
+            padding: 25px 30px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-align: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: inherit;
+        }
+
+        .accordion-header:hover {
+            background-color: #ebeef0;
+        }
+
+        .accordion-header.active {
+            background-color: var(--brand-red);
+            color: var(--pure-white);
+        }
+
+        /* Dấu cộng / trừ */
+        .accordion-header::after {
+            content: '\002B'; /* Dấu + */
+            font-size: 1.8rem;
+            font-weight: normal;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active::after {
+            content: '\2212'; /* Dấu - */
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            background-color: var(--pure-white);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .accordion-inner {
+            padding: 30px;
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            border-top: 1px solid #eee;
+        }
+
+        /* Đảo ngược bố cục cho xen kẽ đẹp mắt */
+        .reverse-layout {
+            flex-direction: row-reverse;
+        }
+
+        .accordion-img {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .accordion-img img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            display: block;
+            object-fit: cover;
+        }
+
+        .accordion-text {
+            flex: 1.5;
+        }
+
+        .accordion-text p {
+            font-size: 1.05rem;
+            color: var(--text-grey);
+            line-height: 1.7;
+            text-align: justify;
+            margin-bottom: 12px;
+        }
+
+        .accordion-text strong {
+            color: var(--brand-black);
+        }
+
+        /* THIẾT KẾ PHẦN LINK THEO DÕI HÀNH TRÌNH (KHUNG ĐỎ) */
+        .social-follow-box {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #d5d5d5;
+        }
+
+        .social-follow-title {
+            font-size: 0.95rem !important;
+            font-weight: 700;
+            color: var(--brand-black) !important;
+            margin-bottom: 10px !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background-color: var(--light-grey);
+            color: var(--brand-black);
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .social-btn:hover {
+            background-color: var(--brand-red);
+            color: var(--pure-white);
+            border-color: var(--brand-red);
+            transform: translateY(-2px);
+        }
+
         /* ================= RESPONSIVE ĐIỆN THOẠI ================= */
         @media (max-width: 1024px) {
             header {
@@ -477,8 +637,8 @@
                 max-width: 320px; 
             } 
 
-            /* Responsive cho phần Về Tôi */
-            .about-section {
+            /* Responsive cho Về Tôi & Hành Trình */
+            .about-section, .journey-section {
                 padding: 60px 5%;
             }
             .about-container {
@@ -489,7 +649,7 @@
             .about-image {
                 max-width: 80%;
             }
-            .about-text h2 {
+            .about-text h2, .journey-title {
                 font-size: 3rem;
                 text-align: center;
             }
@@ -498,6 +658,13 @@
             }
             .about-text p {
                 text-align: left;
+            }
+            .accordion-inner {
+                flex-direction: column !important;
+                padding: 20px;
+            }
+            .accordion-img {
+                width: 100%;
             }
         }
     </style>
@@ -513,17 +680,28 @@
                 <ul>
                     <li><a href="#about">Về</a></li>
                     
-                    <!-- Menu Dịch Vụ dạng Dropdown với 3 dòng yêu cầu -->
+                    <!-- MENU HÀNH TRÌNH DẠNG DROPDOWN SỔ XUỐNG -->
                     <li class="dropdown">
-                        <a href="#" class="dropbtn">Dịch vụ ▾</a>
+                        <a href="#journey" class="dropbtn">Hành trình ▾</a>
                         <div class="dropdown-content">
-                            <a href="#about">Thiết Kế Theo Yêu Cầu</a>
-                            <a href="#about">Thời Trang Cá Tính</a>
-                            <a href="#about">Bộ Font Độc Quyền</a>
+                            <a href="#journey-badminton" onclick="openAndScrollJourney('journey-badminton')">Cầu Lông</a>
+                            <a href="#journey-running" onclick="openAndScrollJourney('journey-running')">Chạy Bộ</a>
+                            <a href="#journey-ironman" onclick="openAndScrollJourney('journey-ironman')">Ironman</a>
+                            <a href="#journey-psychology" onclick="openAndScrollJourney('journey-psychology')">Phân Tích Tâm Lý</a>
                         </div>
                     </li>
                     
-                    <!-- Menu Liên Hệ dạng Dropdown -->
+                    <!-- MENU DỊCH VỤ DẠNG DROPDOWN -->
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Dịch vụ ▾</a>
+                        <div class="dropdown-content">
+                            <a href="#journey">Thiết Kế Theo Yêu Cầu</a>
+                            <a href="#journey">Thời Trang Cá Tính</a>
+                            <a href="#journey">Bộ Font Độc Quyền</a>
+                        </div>
+                    </li>
+                    
+                    <!-- MENU LIÊN HỆ DẠNG DROPDOWN -->
                     <li class="dropdown">
                         <a href="#contact" class="dropbtn">Liên hệ ▾</a>
                         <div class="dropdown-content">
@@ -539,7 +717,6 @@
     </header>
 
     <main class="hero">
-        
         <div class="hero-content">
             <p class="tagline">ý tưởng / sản phẩm / dịch vụ</p>
             <h1>
@@ -571,6 +748,7 @@
         </div>
     </main>
 
+    <!-- PHẦN VỀ TÔI -->
     <section id="about" class="about-section">
         <div class="about-container">
             <div class="about-image">
@@ -594,7 +772,117 @@
         </div>
     </section>
 
+    <!-- PHẦN HÀNH TRÌNH & DỰ ÁN (ĐÃ CÓ CÁC MỤC ID ĐỂ DI CHUYỂN KHI BẤM MENU) -->
+    <section id="journey" class="journey-section">
+        <h2 class="journey-title">Hành trình & Dự án</h2>
+        
+        <div class="accordion-container">
+            
+            <!-- 1. CẦU LÔNG -->
+            <div class="accordion-item" id="journey-badminton">
+                <button class="accordion-header">Tinh thần Thể thao & Cầu lông</button>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <div class="accordion-text">
+                            <p><strong>Kỷ luật tạo nên sự sáng tạo.</strong> Không chỉ dừng lại ở đam mê, cầu lông rèn luyện cho mình tính kiên nhẫn, khả năng quan sát và phản xạ nhạy bén. Những cú đập cầu quyết đoán trên sân cũng giống như cách mình đưa ra quyết định thiết kế: nhanh, chuẩn xác và mang đậm dấu ấn cá nhân.</p>
+                            <p>Sự am hiểu về thể thao giúp mình tạo ra những thiết kế áo đấu, nhận diện thương hiệu thể thao thực tế, năng động và bùng nổ năng lượng.</p>
+                            
+                            <!-- THEO DÕI HÀNH TRÌNH CẦU LÔNG (KHUNG ĐỎ) -->
+                            <div class="social-follow-box">
+                                <p class="social-follow-title">Theo dõi hành trình:</p>
+                                <div class="social-buttons">
+                                    <a href="https://www.tiktok.com/@ngotruong2406" target="_blank" class="social-btn">TikTok</a>
+                                    <a href="https://web.facebook.com/profile.php?id=61593709695105" target="_blank" class="social-btn">Page</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-img">
+                            <img src="2.jpg" alt="Áo đấu thể thao Ngô Văn Trường">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. CHẠY BỘ -->
+            <div class="accordion-item" id="journey-running">
+                <button class="accordion-header">Hành trình Chạy bộ & Sub-3 Marathon</button>
+                <div class="accordion-content">
+                    <div class="accordion-inner reverse-layout">
+                        <div class="accordion-text">
+                            <p><strong>Chinh phục từng kilomet.</strong> Chạy bộ không đơn thuần là một môn thể thao, đó là quá trình giao tiếp với chính bản thân. Từng bước chạy trên đường ray rèn luyện ý chí không bỏ cuộc và sự kiên trì theo đuổi mục tiêu Marathon Sub-3.</p>
+                            <p>Sự tập trung và tính nhất quán từ việc chạy bộ giúp mình luôn giữ được ngọn lửa đam mê và sự chỉn chu trong từng sản phẩm sáng tạo.</p>
+
+                            <!-- THEO DÕI HÀNH TRÌNH (KHUNG ĐỎ) -->
+                            <div class="social-follow-box">
+                                <p class="social-follow-title">Theo dõi hành trình Chạy bộ:</p>
+                                <div class="social-buttons">
+                                    <a href="https://www.tiktok.com/@truongsub3" target="_blank" class="social-btn">TikTok</a>
+                                    <a href="https://web.facebook.com/profile.php?id=61589027391344" target="_blank" class="social-btn">Page</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-img">
+                            <img src="3.jpg" alt="Chạy bộ Trường Sub3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. IRONMAN -->
+            <div class="accordion-item" id="journey-ironman">
+                <button class="accordion-header">Thách thức Ironman & 3 Môn Phối Hợp</button>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <div class="accordion-text">
+                            <p><strong>Bền bỉ như một vận động viên Ironman.</strong> Kết hợp bơi lội, đạp xe và chạy bộ đòi hỏi sự phân bổ thể lực thông minh và một tinh thần thép. Vượt qua những giới hạn khắc nghiệt nhất là cách mình chứng minh không gì là không thể.</p>
+                            <p>Hoàn thiện một dự án lớn từ khâu lên concept đến khi xuất xưởng là một đường chạy Ironman dài. Tinh thần thép giúp mình luôn vững vàng trước mọi bài toán khó từ khách hàng.</p>
+                            
+                            <!-- THEO DÕI HÀNH TRÌNH -->
+                            <div class="social-follow-box">
+                                <p class="social-follow-title">Theo dõi hành trình Thể thao:</p>
+                                <div class="social-buttons">
+                                    <a href="https://www.tiktok.com/@truongsub3" target="_blank" class="social-btn">TikTok</a>
+                                    <a href="https://web.facebook.com/profile.php?id=61589027391344" target="_blank" class="social-btn">Page</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-img">
+                            <img src="4.png" alt="Hành trình Ironman">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. PHÂN TÍCH TÂM LÝ (ÔENG) -->
+            <div class="accordion-item" id="journey-psychology">
+                <button class="accordion-header">Phân tích Tâm lý học Hành vi (Ôeng)</button>
+                <div class="accordion-content">
+                    <div class="accordion-inner reverse-layout">
+                        <div class="accordion-text">
+                            <p><strong>Giải mã tư duy, thao túng thị giác.</strong> Một thiết kế đẹp là chưa đủ, nó còn phải biết cách kể chuyện và chạm đúng vào "Insight" (sự thật ngầm hiểu) của người xem.</p>
+                            <p>Bằng việc đào sâu vào Tâm lý học hành vi, dự án Ôeng (series "Ác quỷ Dopamine: Yêu người hay yêu Dopamine") được tạo ra không chỉ để ngắm, mà để điều hướng cảm xúc và hành vi người dùng, biến hình ảnh thành công cụ truyền thông sắc bén.</p>
+
+                            <!-- THEO DÕI HÀNH TRÌNH ÔENG (KHUNG ĐỎ) -->
+                            <div class="social-follow-box">
+                                <p class="social-follow-title">Theo dõi kênh Ôeng:</p>
+                                <div class="social-buttons">
+                                    <a href="https://web.facebook.com/profile.php?id=61592343882009" target="_blank" class="social-btn">Page</a>
+                                    <a href="https://www.youtube.com/@oeng287" target="_blank" class="social-btn">YouTube</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-img">
+                            <img src="Thumbnail yeu nguoi or yeu dopamine 2.png" alt="Bìa Tâm lý học hành vi: Yêu người hay yêu Dopamine">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <script>
+        // ================= SLIDER LOGIC =================
         let slideIndex = 0;
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.dot');
@@ -630,6 +918,46 @@
             autoSlideInterval = setInterval(() => {
                 moveSlide(1);
             }, 6000);
+        }
+
+        // ================= ACCORDION LOGIC & SCROLL MENU =================
+        const accordions = document.querySelectorAll('.accordion-header');
+
+        accordions.forEach(acc => {
+            acc.addEventListener('click', function() {
+                toggleAccordion(this);
+            });
+        });
+
+        function toggleAccordion(headerElement) {
+            headerElement.classList.toggle('active');
+            const content = headerElement.nextElementSibling;
+            
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        }
+
+        // Hàm khi click chọn từ Menu Dropdown "Hành trình": Tự cuộn xuống và Mở Accordion đó ra
+        function openAndScrollJourney(targetId) {
+            const item = document.getElementById(targetId);
+            if (item) {
+                const header = item.querySelector('.accordion-header');
+                const content = item.querySelector('.accordion-content');
+                
+                // Mở accordion nếu chưa mở
+                if (!header.classList.contains('active')) {
+                    header.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+                
+                // Cuộn mượt đến phần đó
+                setTimeout(() => {
+                    item.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
         }
     </script>
 </body>
