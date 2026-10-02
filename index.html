@@ -259,6 +259,12 @@
             align-items: center;
         }
 
+        .slide a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
         .slide img {
             width: 100%;
             height: 100%;
@@ -678,9 +684,9 @@
                     <li class="dropdown">
                         <a href="#service" class="dropbtn">Dịch vụ ▾</a>
                         <div class="dropdown-content">
-                            <a href="bapngotruong.thietke">Thiết Kế Theo Yêu Cầu</a>
-                            <a href="bapngotruong.thoitrang">Thời Trang Cá Tính</a>
-                            <a href="bapngotruong.font">Bộ Font Độc Quyền</a>
+                            <a href="https://bapngotruong.github.io/bapngotruong.thietke/">Thiết Kế Theo Yêu Cầu</a>
+                            <a href="https://bapngotruong.github.io/bapngotruong.aodau/">Áo đấu</a>
+                            <a href="https://bapngotruong.github.io/bapngotruong.font/">Bộ Font Độc Quyền</a>
                         </div>
                     </li>
                     
@@ -713,10 +719,14 @@
             <div class="slider">
                 <div class="slides" id="slideTrack">
                     <div class="slide">
-                        <img src="aos dau nvt.png" alt="Áo Đấu NVT">
+                        <a href="https://bapngotruong.github.io/bapngotruong.aodau/" target="_blank">
+                            <img src="aos dau nvt.png" alt="Áo Đấu NVT">
+                        </a>
                     </div>
                     <div class="slide">
-                        <img src="banner font bnt do 5.png" alt="Font BNT">
+                        <a href="https://bapngotruong.github.io/bapngotruong.font/" target="_blank">
+                            <img src="banner font bnt do 5.png" alt="Font BNT">
+                        </a>
                     </div>
                 </div>
 
@@ -951,28 +961,24 @@
 
 
         // --- 3. LOGIC DROPDOWN MENU (CHẠY TỐT CẢ TRÊN MOBILE VÀ PC) ---
-        // Bấm vào nút Menu chính (dropbtn) để bật/tắt (Toggle)
         document.querySelectorAll('.dropbtn').forEach(btn => {
             btn.addEventListener('click', function(e) {
-                e.preventDefault(); // Ngăn trình duyệt nhảy trang tức thì
+                e.preventDefault(); 
                 const parentDropdown = this.closest('.dropdown');
                 const content = parentDropdown.querySelector('.dropdown-content');
 
-                // Đóng các menu con khác đang mở
                 document.querySelectorAll('.dropdown-content').forEach(other => {
                     if (other !== content) {
                         other.classList.remove('show');
                     }
                 });
 
-                // Bật / Tắt menu được bấm
                 if (content) {
                     content.classList.toggle('show');
                 }
             });
         });
 
-        // Đóng dropdown khi bấm vào bất kỳ đâu ngoài Menu
         document.addEventListener('click', function(e) {
             if (!e.target.closest('.dropdown')) {
                 document.querySelectorAll('.dropdown-content').forEach(content => {
@@ -981,7 +987,6 @@
             }
         });
 
-        // Đóng dropdown sau khi bấm chọn 1 mục con
         document.querySelectorAll('.dropdown-content a').forEach(link => {
             link.addEventListener('click', function() {
                 document.querySelectorAll('.dropdown-content').forEach(content => {
