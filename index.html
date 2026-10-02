@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ngô Văn Trường - Trang chủ</title>
     
-    <link rel="icon" href="iconlink3232.png" type="image/png">
+    <!-- Cập nhật icon website thành icon.svg -->
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
 
     <style>
         /* Khai báo Font chữ */
@@ -110,9 +111,8 @@
             background-color: var(--brand-red);
         }
 
-        /* ================= MENU DROPDOWN LIÊN HỆ ================= */
+        /* ================= MENU DROPDOWN CHUNG (DỊCH VỤ & LIÊN HỆ) ================= */
         .dropdown {
-            /* Đã xóa padding-bottom gây lệch chữ */
             position: relative;
             cursor: pointer;
         }
@@ -132,7 +132,7 @@
             display: none;
             position: absolute;
             background-color: var(--pure-white);
-            min-width: 180px;
+            min-width: 210px;
             box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
             border-radius: 10px;
             z-index: 100;
@@ -512,8 +512,18 @@
             <nav>
                 <ul>
                     <li><a href="#about">Về</a></li>
-                    <li><a href="#">Dịch vụ</a></li>
                     
+                    <!-- Menu Dịch Vụ dạng Dropdown với 3 dòng yêu cầu -->
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Dịch vụ ▾</a>
+                        <div class="dropdown-content">
+                            <a href="#about">Thiết Kế Theo Yêu Cầu</a>
+                            <a href="#about">Thời Trang Cá Tính</a>
+                            <a href="#about">Bộ Font Độc Quyền</a>
+                        </div>
+                    </li>
+                    
+                    <!-- Menu Liên Hệ dạng Dropdown -->
                     <li class="dropdown">
                         <a href="#contact" class="dropbtn">Liên hệ ▾</a>
                         <div class="dropdown-content">
@@ -564,7 +574,6 @@
     <section id="about" class="about-section">
         <div class="about-container">
             <div class="about-image">
-                <!-- Đã cập nhật lại đuôi .jpg như bạn yêu cầu -->
                 <img src="chan dung nvt.jpg" alt="Chân dung Ngô Văn Trường">
             </div>
             <div class="about-text">
