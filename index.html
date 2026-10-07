@@ -8,7 +8,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Ngô Văn Trường - Không gian sáng tạo tương lai">
     <meta property="og:description" content="Kỷ luật của thể thao, sự bay bổng của nghệ thuật, và một trạm dừng chân cho mọi ý tưởng của bạn.">
-    <meta property="og:image" content="chan dung nvt.jpg"><!-- Nên đổi thành URL đầy đủ, ví dụ https://tenmien.com/chan-dung-nvt.jpg -->
+    <meta property="og:image" content="chan dung nvt.jpg">
     <link rel="icon" href="icon.svg" type="image/svg+xml">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,7 +59,7 @@
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 18px 8%;
-            line-height: 1.6; /* giống các trang con để nút "Xem hành trình" cao bằng nhau */
+            line-height: 1.6;
             background: var(--pure-white);
             position: sticky; top: 0; z-index: 999;
             box-shadow: 0 2px 10px rgba(0,0,0,0.04);
@@ -123,7 +123,6 @@
         .dropdown-content a:hover { background: var(--light-grey); color: var(--brand-red); }
         .dropdown-content.show { display: block; }
 
-        /* Desktop có chuột: hover hoặc focus bằng bàn phím để mở */
         @media (hover: hover) and (min-width: 1025px) {
             .dropdown:hover .dropdown-content,
             .dropdown:focus-within .dropdown-content { display: block; }
@@ -421,6 +420,8 @@
                             <a href="mailto:truonglofi006@gmail.com">Gmail</a>
                         </div>
                     </li>
+                    <!-- Thêm nút Đăng nhập ở đây -->
+                    <li><a href="/taikhoan.html" id="navAuth">Đăng nhập</a></li>
                 </ul>
             </nav>
             <a href="#journey" class="btn-start">Xem hành trình &rarr;</a>
@@ -596,6 +597,19 @@
             <a class="social-btn" href="mailto:truonglofi006@gmail.com">Gmail</a>
         </div>
     </footer>
+
+    <!-- Script kiểm tra trạng thái đăng nhập để đổi tên nút "Đăng nhập" thành "Tài khoản" -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Token định dạng chuẩn của Supabase lưu trong localStorage
+            const isLoggedIn = localStorage.getItem('sb-yhwmzmyzcnbwqnlbygcd-auth-token');
+            const authBtn = document.getElementById('navAuth'); 
+            
+            if (isLoggedIn && authBtn) {
+                authBtn.textContent = 'Tài khoản';
+            }
+        });
+    </script>
 
     <script>
         // ---------- 1. SLIDER ----------
