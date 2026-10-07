@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài khoản | Ngô Văn Trường</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'BNTFONT';
+            src: url('BNTFONT-Regular.otf') format('opentype'), url('BNTFONT-Regular.ttf') format('truetype');
+            font-weight: normal; font-style: normal; font-display: swap;
+        }
+        :root {
+            --brand-red: #e02120; --brand-black: #191c1e; --text-grey: #5f5f5f;
+            --light-grey: #f4f6f7; --pure-white: #fff; --border: #e5e7eb;
+        }
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            background: var(--light-grey); color: var(--brand-black);
+            overflow-x: hidden; line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh;
+        }
+        a { text-decoration: none; color: inherit; }
+        a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--brand-red); outline-offset: 3px; }
+        [hidden] { display: none !important; }
+
+        /* ---------- HEADER ---------- */
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 18px 8%; background: var(--pure-white);
+            position: sticky; top: 0; z-index: 999; box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+        .logo img { height: 70px; width: auto; display: block; }
+        .nav-container { display: flex; align-items: center; gap: 40px; }
+        nav ul { list-style: none; display: flex; gap: 30px; align-items: center; }
+        nav li { display: flex; align-items: center; position: relative; }
+        nav a, .dropbtn {
+            color: var(--text-grey); font: inherit; font-weight: 600; font-size: 16px;
+            background: none; border: none; cursor: pointer; transition: color 0.3s; display: flex; align-items: center;
+        }
+        nav a:hover, .dropbtn:hover, nav a[aria-current] { color: var(--brand-black); }
+        .btn-start {
+            background: var(--brand-black); color: var(--pure-white); padding: 12px 28px;
+            border-radius: 30px; font-weight: 600; font-size: 16px; transition: background-color 0.3s; white-space: nowrap;
+        }
+        .btn-start:hover { background: var(--brand-red); }
+        .menu-toggle {
+            display: none; background: none; border: none; cursor: pointer; width: 44px; height: 44px;
+            flex-direction: column; justify-content: center; align-items: center; gap: 6px;
+        }
+        .menu-toggle span { display: block; width: 26px; height: 3px; background: var(--brand-black); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+        .menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+        .dropdown::after { content: ''; position: absolute; left: 0; bottom: -25px; width: 100%; height: 25px; }
+        .dropdown-content {
+            display: none; position: absolute; background: var(--pure-white); min-width: 210px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-radius: 10px; z-index: 100;
+            top: 40px; left: 50%; transform: translateX(-50%); overflow: hidden; border: 1px solid #eaeaea;
+        }
+        .dropdown-content a { color: var(--brand-black); padding: 14px 20px; display: block; font-size: 14.5px; text-align: center; transition: background-color 0.3s, color 0.3s; }
+        .dropdown-content a:hover { background: var(--light-grey); color: var(--brand-red); }
+        .dropdown-content.show { display: block; }
+        @media (hover: hover) and (min-width: 1025px) {
+            .dropdown:hover .dropdown-content, .dropdown:focus-within .dropdown-content { display: block; }
+        }
+
+        /* ---------- TÀI KHOẢN ---------- */
+        main { flex-grow: 1; padding: 50px 5% 80px; }
+        .card { background: var(--pure-white); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); padding: 32px; }
+        .auth-card { max-width: 440px; margin: 0 auto; }
+        .auth-card h1, .acct-head h1 { font-family: 'BNTFONT', 'Montserrat', sans-serif; font-weight: normal; font-size: 2.6rem; line-height: 1.1; color: var(--brand-red); margin-bottom: 20px; }
+        .seg { display: flex; background: var(--light-grey); border-radius: 30px; padding: 4px; margin-bottom: 22px; }
+        .seg button { flex: 1; border: none; background: none; padding: 10px; border-radius: 26px; font: inherit; font-weight: 600; cursor: pointer; color: var(--text-grey); }
+        .seg button[aria-selected="true"] { background: var(--brand-black); color: #fff; }
+        label { display: block; font-weight: 600; font-size: 0.9rem; margin: 14px 0 6px; }
+        input { width: 100%; padding: 12px 14px; border: 1px solid #cfd3d8; border-radius: 10px; font: inherit; }
+        .btn-main, .btn-ghost {
+            width: 100%; margin-top: 20px; padding: 14px; border-radius: 30px; font: inherit; font-weight: 700;
+            cursor: pointer; transition: background-color 0.3s, color 0.3s; border: 2px solid var(--brand-black);
+        }
+        .btn-main { background: var(--brand-black); color: #fff; }
+        .btn-main:hover { background: var(--brand-red); border-color: var(--brand-red); }
+        .btn-ghost { background: none; color: var(--brand-black); margin-top: 12px; }
+        .btn-ghost:hover { background: var(--brand-black); color: #fff; }
+        .btn-main:disabled { opacity: 0.6; cursor: wait; }
+        .msg { margin-top: 16px; padding: 12px 14px; border-radius: 10px; font-size: 0.95rem; background: #fff0f0; color: #a61716; }
+        .msg.ok { background: #eaf7ee; color: #1b6b36; }
+        .demo-note { margin-top: 20px; padding: 14px; background: var(--light-grey); border-radius: 10px; font-size: 0.88rem; color: var(--text-grey); }
+        .demo-note button { margin-top: 10px; padding: 8px 16px; border-radius: 20px; border: 1px solid var(--border); background: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+
+        .dash { max-width: 900px; margin: 0 auto; }
+        .acct-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+        .acct-head h1 { margin-bottom: 4px; }
+        .acct-head p { color: var(--text-grey); }
+        .btn-out { padding: 10px 22px; border-radius: 30px; border: 2px solid var(--brand-black); background: none; font: inherit; font-weight: 600; cursor: pointer; }
+        .btn-out:hover { background: var(--brand-black); color: #fff; }
+        .tabs { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+        .tab {
+            padding: 12px 22px; border-radius: 10px; border: none; background: var(--pure-white);
+            font: inherit; font-weight: 700; cursor: pointer; transition: background-color 0.3s, color 0.3s;
+        }
+        .tab:hover, .tab[aria-selected="true"] { background: var(--brand-black); color: #fff; }
+        .item { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding: 18px 0; border-bottom: 1px solid var(--border); }
+        .item:last-child { border-bottom: none; }
+        .item h3 { font-size: 1.05rem; }
+        .item small { color: var(--text-grey); }
+        .item .right { display: flex; align-items: center; gap: 14px; }
+        .price { font-weight: 700; }
+        .badge { padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; white-space: nowrap; background: #fff4d6; color: #7a5600; }
+        .badge.paid, .badge.confirmed, .badge.done { background: #eaf7ee; color: #1b6b36; }
+        .badge.cancelled { background: #eee; color: #555; }
+        .empty { text-align: center; color: var(--text-grey); padding: 30px 10px; }
+        .empty a { color: var(--brand-red); font-weight: 600; text-decoration: underline; }
+        .btn-dl { padding: 10px 22px; border-radius: 30px; border: none; background: var(--brand-red); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+        .btn-dl:hover { background: #b01514; }
+        .btn-dl:disabled { background: #cfd3d8; color: #666; cursor: not-allowed; }
+
+        footer { padding: 40px 8%; text-align: center; background: var(--pure-white); border-top: 1px solid #eaeaea; }
+        footer p { color: var(--text-grey); font-style: italic; font-weight: 500; }
+
+        @media (max-width: 1024px) {
+            header { padding: 12px 5%; }
+            .logo img { height: 50px; }
+            .menu-toggle { display: flex; }
+            .nav-container {
+                display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column;
+                align-items: stretch; gap: 20px; background: var(--pure-white); padding: 20px 5% 30px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.08); max-height: calc(100vh - 80px); overflow-y: auto;
+            }
+            .nav-container.open { display: flex; }
+            nav ul { flex-direction: column; align-items: stretch; gap: 0; }
+            nav li { flex-direction: column; align-items: stretch; border-bottom: 1px solid #eee; }
+            nav a, .dropbtn { padding: 14px 4px; justify-content: space-between; width: 100%; }
+            .dropdown::after { display: none; }
+            .dropdown-content { position: static; transform: none; box-shadow: none; border: none; border-radius: 0; background: var(--light-grey); min-width: 0; }
+            .dropdown-content a { text-align: left; padding: 12px 20px; }
+            .btn-start { text-align: center; }
+        }
+        @media (max-width: 600px) { .card { padding: 22px; } .item .right { width: 100%; justify-content: space-between; } }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html" aria-label="Về trang chủ"><img src="png/2160px/logo-ch-original.png" alt="Ngô Văn Trường Logo" width="140" height="70"></a>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Mở menu" aria-expanded="false" aria-controls="navContainer"><span></span><span></span><span></span></button>
+        <div class="nav-container" id="navContainer">
+            <nav aria-label="Menu chính">
+                <ul>
+                    <li><a href="index.html#about">Về</a></li>
+                    <li class="dropdown">
+                        <button type="button" class="dropbtn" aria-expanded="false" aria-haspopup="true">Hành trình ▾</button>
+                        <div class="dropdown-content">
+                            <a href="index.html#journey-badminton">Cầu Lông</a>
+                            <a href="index.html#journey-running">Chạy Bộ</a>
+                            <a href="index.html#journey-ironman">Ironman</a>
+                            <a href="index.html#journey-psychology">Phân Tích Tâm Lý</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <button type="button" class="dropbtn" aria-expanded="false" aria-haspopup="true">Dịch vụ ▾</button>
+                        <div class="dropdown-content">
+                            <a href="https://bapngotruong.github.io/bapngotruong.thietke/">Thiết Kế Theo Yêu Cầu</a>
+                            <a href="https://bapngotruong.github.io/bapngotruong.tuvan/">Tư Vấn Tình Cảm</a>
+                            <a href="https://bapngotruong.github.io/bapngotruong.aodau/">Áo Đấu</a>
+                            <a href="https://bapngotruong.github.io/bapngotruong.font/">Bộ Font Độc Quyền</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <button type="button" class="dropbtn" aria-expanded="false" aria-haspopup="true">Liên hệ ▾</button>
+                        <div class="dropdown-content">
+                            <a href="https://web.facebook.com/truong.bapngo.2k6" target="_blank" rel="noopener noreferrer">Facebook</a>
+                            <a href="https://zalo.me/0337439799" target="_blank" rel="noopener noreferrer">Zalo</a>
+                            <a href="https://www.tiktok.com/@ngotruong2406" target="_blank" rel="noopener noreferrer">TikTok</a>
+                            <a href="mailto:truonglofi006@gmail.com">Gmail</a>
+                        </div>
+                    </li>
+                    <li><a href="tai-khoan.html" id="navAuth" aria-current="page">Đăng nhập</a></li>
+                </ul>
+            </nav>
+            <a href="index.html#journey" class="btn-start">Xem hành trình &rarr;</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- ĐĂNG NHẬP / ĐĂNG KÝ -->
+        <section class="card auth-card" id="authView" hidden>
+            <h1 id="authTitle">Đăng nhập</h1>
+            <div class="seg" role="tablist" aria-label="Chọn hành động">
+                <button type="button" role="tab" id="segIn" aria-selected="true">Đăng nhập</button>
+                <button type="button" role="tab" id="segUp" aria-selected="false">Đăng ký</button>
+            </div>
+            <form id="authForm" novalidate>
+                <div id="nameWrap" hidden>
+                    <label for="fName">Tên của bạn</label>
+                    <input id="fName" type="text" autocomplete="name">
+                </div>
+                <label for="fEmail">Email</label>
+                <input id="fEmail" type="email" autocomplete="email" required>
+                <label for="fPass">Mật khẩu (ít nhất 6 ký tự)</label>
+                <input id="fPass" type="password" autocomplete="current-password" required minlength="6">
+                <button class="btn-main" id="btnSubmit" type="submit">Đăng nhập</button>
+            </form>
+            <button class="btn-ghost" id="btnGoogle" type="button" hidden>Tiếp tục với Google</button>
+            <div class="msg" id="authMsg" role="alert" hidden></div>
+        </section>
+
+        <!-- BẢNG ĐIỀU KHIỂN -->
+        <section class="dash" id="dashView" hidden>
+            <div class="acct-head">
+                <div><h1>Tài khoản của bạn</h1><p id="who"></p></div>
+                <button class="btn-out" id="btnOut" type="button">Đăng xuất</button>
+            </div>
+            <div class="tabs" role="tablist" aria-label="Mục tài khoản">
+                <button class="tab" role="tab" id="t-orders" aria-selected="true" aria-controls="p-orders">Đơn hàng</button>
+                <button class="tab" role="tab" id="t-book" aria-selected="false" aria-controls="p-book" tabindex="-1">Lịch tư vấn</button>
+                <button class="tab" role="tab" id="t-dl" aria-selected="false" aria-controls="p-dl" tabindex="-1">Tải font</button>
+            </div>
+            <div class="card" role="tabpanel" id="p-orders" aria-labelledby="t-orders"></div>
+            <div class="card" role="tabpanel" id="p-book" aria-labelledby="t-book" hidden></div>
+            <div class="card" role="tabpanel" id="p-dl" aria-labelledby="t-dl" hidden></div>
+        </section>
+
+        <p class="empty" id="loading">Đang tải...</p>
+    </main>
+
+    <footer><p>"Sự tự tin dám thể hiện bản thân không phải là khao khát sự chú ý, mà là quyền được cất lên tiếng nói của riêng mình."<br>— Ngô Văn Trường —</p></footer>
+
+    <script>
+    const SUPABASE_URL = 'https://yhwmzmyzcnbwqnlbygcd.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_6smDpnX4yROemNgAbXMmoA_Ss0aQn1R';
+    const FONT_FILE = 'BNTFONT-Regular.otf'; 
+
+    const $ = id => document.getElementById(id);
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const money = n => Number(n).toLocaleString('vi-VN') + 'đ';
+    const day = d => d ? new Date(d).toLocaleDateString('vi-VN') : '';
+    const dayTime = d => d ? new Date(d).toLocaleString('vi-VN', { dateStyle: 'short', timeStyle: 'short' }) : 'Chưa xếp lịch';
+    const ORDER_ST = { pending: 'Chờ xác nhận', paid: 'Đã thanh toán', cancelled: 'Đã hủy' };
+    const BOOK_ST = { pending: 'Chờ xác nhận', confirmed: 'Đã xác nhận', done: 'Đã hoàn thành', cancelled: 'Đã hủy' };
+
+    let sb = null;
+    const api = {
+        async user() { const { data } = await sb.auth.getUser(); const u = data && data.user; return u ? { email: u.email, name: u.user_metadata && u.user_metadata.name } : null; },
+        async signIn(email, pw) { const { error } = await sb.auth.signInWithPassword({ email, password: pw }); if (error) throw error; },
+        async signUp(email, pw, name) {
+            const { data, error } = await sb.auth.signUp({ email, password: pw, options: { data: { name } } });
+            if (error) throw error;
+            if (!data.session) return 'confirm';
+        },
+        async signOut() { await sb.auth.signOut(); },
+        async orders() {
+            const { data, error } = await sb.from('orders').select('*').order('created_at', { ascending: false });
+            if (error) throw error;
+            return data.map(o => ({ id: o.id, kind: o.kind, item: o.item, amount: o.amount, status: o.status, date: o.created_at }));
+        },
+        async bookings() {
+            const { data, error } = await sb.from('bookings').select('*').order('created_at', { ascending: false });
+            if (error) throw error;
+            return data.map(b => ({ id: b.id, plan: b.plan, date: b.scheduled_at, status: b.status }));
+        },
+        async download() {
+            const { data, error } = await sb.storage.from('fonts').createSignedUrl(FONT_FILE, 60);
+            if (error) throw error;
+            location.href = data.signedUrl;
+        }
+    };
+
+    let mode = 'in';
+    function setMode(m) {
+        mode = m;
+        $('segIn').setAttribute('aria-selected', m === 'in');
+        $('segUp').setAttribute('aria-selected', m === 'up');
+        $('authTitle').textContent = m === 'in' ? 'Đăng nhập' : 'Tạo tài khoản';
+        $('btnSubmit').textContent = m === 'in' ? 'Đăng nhập' : 'Đăng ký';
+        $('nameWrap').hidden = m === 'in';
+        $('fPass').autocomplete = m === 'in' ? 'current-password' : 'new-password';
+        showMsg('');
+    }
+    function showMsg(text, ok) {
+        const el = $('authMsg');
+        el.hidden = !text; el.textContent = text || ''; el.className = 'msg' + (ok ? ' ok' : '');
+    }
+    function friendly(e) {
+        const m = (e && e.message) || '';
+        if (/Invalid login/i.test(m)) return 'Sai email hoặc mật khẩu.';
+        if (/already registered/i.test(m)) return 'Email này đã có tài khoản. Hãy đăng nhập.';
+        if (/Email not confirmed/i.test(m)) return 'Bạn chưa xác nhận email. Hãy kiểm tra hộp thư.';
+        return m || 'Có lỗi xảy ra. Vui lòng thử lại.';
+    }
+
+    $('segIn').onclick = () => setMode('in');
+    $('segUp').onclick = () => setMode('up');
+
+    $('authForm').addEventListener('submit', async e => {
+        e.preventDefault();
+        const email = $('fEmail').value.trim(), pw = $('fPass').value, name = $('fName').value.trim();
+        if (!/^\S+@\S+\.\S+$/.test(email)) return showMsg('Email chưa đúng định dạng.');
+        if (pw.length < 6) return showMsg('Mật khẩu cần ít nhất 6 ký tự.');
+        $('btnSubmit').disabled = true;
+        try {
+            if (mode === 'in') await api.signIn(email, pw);
+            else if (await api.signUp(email, pw, name) === 'confirm') {
+                showMsg('Đã gửi email xác nhận. Hãy bấm vào link trong email rồi quay lại đăng nhập.', true);
+                return;
+            }
+            await boot();
+        } catch (err) { showMsg(friendly(err)); }
+        finally { $('btnSubmit').disabled = false; }
+    });
+
+    function badge(map, st) { return '<span class="badge ' + esc(st) + '">' + esc(map[st] || st) + '</span>'; }
+
+    async function renderDash(user) {
+        $('who').textContent = (user.name ? user.name + ' · ' : '') + user.email;
+        $('navAuth').textContent = 'Tài khoản';
+        let orders = [], books = [];
+        try { [orders, books] = await Promise.all([api.orders(user), api.bookings(user)]); }
+        catch (e) { $('p-orders').innerHTML = '<p class="empty">Không tải được dữ liệu bảng (Do chưa tạo Bảng Orders/Bookings trong Supabase).</p>'; }
+
+        $('p-orders').innerHTML = orders.length ? orders.map(o =>
+            '<div class="item"><div><h3>' + esc(o.item) + '</h3><small>Mã đơn ' + esc(o.id) + ' · ' + day(o.date) + '</small></div>' +
+            '<div class="right"><span class="price">' + money(o.amount) + '</span>' + badge(ORDER_ST, o.status) + '</div></div>').join('')
+            : '<p class="empty">Bạn chưa có đơn hàng nào.</p>';
+
+        $('p-book').innerHTML = books.length ? books.map(b =>
+            '<div class="item"><div><h3>' + esc(b.plan) + '</h3><small>' + dayTime(b.date) + '</small></div>' +
+            '<div class="right">' + badge(BOOK_ST, b.status) + '</div></div>').join('')
+            : '<p class="empty">Bạn chưa có lịch tư vấn nào.</p>';
+
+        const hasFont = orders.some(o => o.kind === 'font' && o.status === 'paid');
+        $('p-dl').innerHTML = '<div class="item"><div><h3>BNT FONT</h3><small>' +
+            (hasFont ? 'Đơn font của bạn đã được xác nhận. Link tải có hiệu lực 60 giây mỗi lần bấm.' : 'Cần có đơn font đã thanh toán và được xác nhận để tải.') +
+            '</small></div><div class="right"><button class="btn-dl" id="btnDl" type="button"' + (hasFont ? '' : ' disabled') + '>Tải font</button></div></div>';
+        const dl = $('btnDl');
+        if (dl) dl.onclick = async () => { try { await api.download(); } catch (e) { alert('Không tải được font.'); } };
+    }
+
+    const tabs = [['t-orders', 'p-orders'], ['t-book', 'p-book'], ['t-dl', 'p-dl']];
+    function selectTab(id, focus) {
+        tabs.forEach(([t, p]) => {
+            const on = t === id;
+            $(t).setAttribute('aria-selected', on); $(t).tabIndex = on ? 0 : -1; $(p).hidden = !on;
+            if (on && focus) $(t).focus();
+        });
+    }
+    tabs.forEach(([t], i) => {
+        $(t).onclick = () => selectTab(t);
+        $(t).onkeydown = e => {
+            if (e.key === 'ArrowRight') selectTab(tabs[(i + 1) % 3][0], true);
+            if (e.key === 'ArrowLeft') selectTab(tabs[(i + 2) % 3][0], true);
+        };
+    });
+    $('btnOut').onclick = async () => { await api.signOut(); $('navAuth').textContent = 'Đăng nhập'; await boot(); };
+
+    async function boot() {
+        const user = await api.user();
+        $('loading').hidden = true;
+        $('authView').hidden = !!user;
+        $('dashView').hidden = !user;
+        if (user) { selectTab('t-orders'); await renderDash(user); }
+        else { $('fPass').value = ''; }
+    }
+    function loadScript(src) { return new Promise((ok, no) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = no; document.head.appendChild(s); }); }
+
+    (async function init() {
+        try {
+            await loadScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2');
+            sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        } catch (e) {
+            $('loading').textContent = 'Không kết nối được dịch vụ đăng nhập.';
+            return;
+        }
+        await boot();
+    })();
+
+    const menuToggle = $('menuToggle'), navContainer = $('navContainer');
+    const needsClick = () => matchMedia('(hover: none), (max-width: 1024px)').matches;
+    function closeDropdowns(except) {
+        document.querySelectorAll('.dropdown').forEach(dd => {
+            if (dd === except) return;
+            dd.querySelector('.dropdown-content').classList.remove('show');
+            dd.querySelector('.dropbtn').setAttribute('aria-expanded', 'false');
+        });
+    }
+    function closeMenu() {
+        navContainer.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false'); menuToggle.setAttribute('aria-label', 'Mở menu');
+        closeDropdowns();
+    }
+    menuToggle.onclick = () => {
+        const open = navContainer.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', open); menuToggle.setAttribute('aria-label', open ? 'Đóng menu' : 'Mở menu');
+    };
+    document.querySelectorAll('.dropbtn').forEach(btn => btn.addEventListener('click', () => {
+        if (!needsClick()) return;
+        const dd = btn.closest('.dropdown');
+        closeDropdowns(dd);
+        btn.setAttribute('aria-expanded', dd.querySelector('.dropdown-content').classList.toggle('show'));
+    }));
+    document.addEventListener('click', e => { if (!e.target.closest('.dropdown')) closeDropdowns(); if (!e.target.closest('header')) closeMenu(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+    addEventListener('resize', () => { if (innerWidth > 1024) closeMenu(); });
+    </script>
+</body>
+</html>
