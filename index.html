@@ -1,681 +1,380 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-        <!-- Google tag (gtag.js) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngô Văn Trường - Không gian sáng tạo tương lai</title>
+    <meta name="description" content="Ngô Văn Trường - sinh viên Thiết kế Đồ họa FPT Polytechnic Hà Nội. Thiết kế theo yêu cầu, áo đấu, bộ font độc quyền, tư vấn tình cảm và hành trình thể thao.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ngô Văn Trường - Không gian sáng tạo tương lai">
+    <meta property="og:description" content="Kỷ luật của thể thao, sự bay bổng của nghệ thuật, và một trạm dừng chân cho mọi ý tưởng của bạn.">
+    <meta property="og:image" content="chan dung nvt.jpg"><!-- Nên đổi thành URL đầy đủ, ví dụ https://tenmien.com/chan-dung-nvt.jpg -->
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JM5VVPJ3H"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-8JM5VVPJ3H');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8JM5VVPJ3H');
     </script>
-    
     <!-- Microsoft Clarity tag -->
-    <script type="text/javascript">
+    <script>
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "yrsd07ghmy");
     </script>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ngô Văn Trường - Trang chủ</title>
-    
-    <link rel="icon" href="icon.svg" type="image/svg+xml">
 
     <style>
         :root {
             --brand-red: #e02120;
             --brand-black: #191c1e;
-            --text-grey: #6b6b6b;
+            --text-grey: #5f5f5f;
             --light-grey: #f4f6f7;
             --pure-white: #ffffff;
+            --header-h: 110px;
         }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Inter', 'Montserrat', sans-serif;
-            background-color: var(--pure-white);
+            font-family: 'Inter', 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            background: var(--pure-white);
             color: var(--brand-black);
             overflow-x: hidden;
         }
+        img { max-width: 100%; }
+        a:focus-visible, button:focus-visible {
+            outline: 3px solid var(--brand-red);
+            outline-offset: 3px;
+        }
 
+        /* ---------- HEADER ---------- */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background-color: var(--pure-white);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 18px 8%;
+            line-height: 1.6; /* giống các trang con để nút "Xem hành trình" cao bằng nhau */
+            background: var(--pure-white);
+            position: sticky; top: 0; z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
         }
-
-        .logo img {
-            height: 70px;
-            object-fit: contain;
-        }
-
-        .nav-container {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            align-items: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav li {
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-grey);
-            font-weight: 600;
-            font-size: 16px;
+        .logo img { height: 70px; width: auto; object-fit: contain; display: block; }
+        .nav-container { display: flex; align-items: center; gap: 40px; }
+        nav ul { list-style: none; display: flex; gap: 30px; align-items: center; }
+        nav li { display: flex; align-items: center; position: relative; }
+        nav a, .dropbtn {
+            text-decoration: none; color: var(--text-grey);
+            font: inherit; font-weight: 600; font-size: 16px;
+            background: none; border: none; cursor: pointer;
             transition: color 0.3s;
-            display: flex;
-            align-items: center;
+            display: flex; align-items: center;
         }
-
-        nav a:hover {
-            color: var(--brand-black);
-        }
+        nav a:hover, .dropbtn:hover { color: var(--brand-black); }
 
         .btn-start {
-            background-color: var(--brand-black);
-            color: var(--pure-white);
-            padding: 12px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
+            background: var(--brand-black); color: var(--pure-white);
+            padding: 12px 28px; border-radius: 30px;
+            text-decoration: none; font-weight: 600; font-size: 16px;
             transition: background-color 0.3s;
+            white-space: nowrap;
         }
+        .btn-start:hover { background: var(--brand-red); }
 
-        .btn-start:hover {
-            background-color: var(--brand-red);
-        }
-
-        .dropdown {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .dropdown::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -25px;
-            width: 100%;
-            height: 25px;
-            background: transparent;
-        }
-
-        .dropdown-content {
+        .menu-toggle {
             display: none;
-            position: absolute;
-            background-color: var(--pure-white);
+            background: none; border: none; cursor: pointer;
+            width: 44px; height: 44px;
+            flex-direction: column; justify-content: center; align-items: center; gap: 6px;
+        }
+        .menu-toggle span {
+            display: block; width: 26px; height: 3px;
+            background: var(--brand-black); border-radius: 2px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        .menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+        .dropdown { position: relative; }
+        .dropdown::after {
+            content: ''; position: absolute; left: 0; bottom: -25px;
+            width: 100%; height: 25px; background: transparent;
+        }
+        .dropdown-content {
+            display: none; position: absolute;
+            background: var(--pure-white);
             min-width: 210px;
-            box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            z-index: 100;
-            top: 40px; 
-            left: 50%;
-            transform: translateX(-50%);
-            overflow: hidden;
-            border: 1px solid #eaeaea;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 10px; z-index: 100;
+            top: 40px; left: 50%; transform: translateX(-50%);
+            overflow: hidden; border: 1px solid #eaeaea;
         }
-
-        .dropdown-content::before {
-            content: "";
-            position: absolute;
-            top: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-width: 0 5px 5px 5px;
-            border-style: solid;
-            border-color: transparent transparent var(--pure-white) transparent;
-        }
-
         .dropdown-content a {
-            color: var(--brand-black);
-            padding: 14px 20px;
-            text-decoration: none;
-            display: block;
-            font-size: 14.5px;
-            text-align: center;
+            color: var(--brand-black); padding: 14px 20px;
+            display: block; font-size: 14.5px; text-align: center;
             transition: background-color 0.3s, color 0.3s;
         }
+        .dropdown-content a:hover { background: var(--light-grey); color: var(--brand-red); }
+        .dropdown-content.show { display: block; }
 
-        .dropdown-content a:hover {
-            background-color: var(--light-grey);
-            color: var(--brand-red);
+        /* Desktop có chuột: hover hoặc focus bằng bàn phím để mở */
+        @media (hover: hover) and (min-width: 1025px) {
+            .dropdown:hover .dropdown-content,
+            .dropdown:focus-within .dropdown-content { display: block; }
         }
 
-        /* Hover để mở trên PC */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        /* Class để mở menu bằng sự kiện Click/Tap trên Điện thoại & PC */
-        .dropdown-content.show {
-            display: block !important;
-        }
-
+        /* ---------- HERO ---------- */
         .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            display: flex; align-items: center; justify-content: space-between;
             padding: 40px 8% 100px;
-            height: calc(100vh - 110px);
-            min-height: 700px;
-            position: relative;
+            min-height: max(700px, calc(100vh - var(--header-h)));
         }
-
-        .hero-content {
-            flex: 1;
-            max-width: 500px;
-            position: relative;
-            z-index: 10;
+        .hero-content { flex: 1; max-width: 500px; position: relative; z-index: 10; }
+        .hero-content .tagline {
+            color: var(--text-grey); font-size: 14px; font-weight: 600;
+            letter-spacing: 1.5px; margin-bottom: 30px; text-transform: uppercase;
+            line-height: 1.4; max-width: none;
         }
-
-        .tagline {
-            color: var(--text-grey);
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-        }
-
         .hero-content h1 {
-            font-size: 5rem;
-            line-height: 1.1;
-            font-weight: 800;
-            color: #222;
-            margin-bottom: 30px;
-            letter-spacing: -1px;
+            font-size: 5rem; line-height: 1.1; font-weight: 800;
+            color: #222; margin-bottom: 30px; letter-spacing: -1px;
             position: relative;
         }
-
         .play-icon-bg {
-            position: absolute;
-            top: -20px;
-            right: 0px;
-            width: 80px;
-            height: 80px;
-            opacity: 0.05;
-            z-index: -1;
+            display: block; position: absolute; top: -20px; right: 0;
+            width: 80px; height: 80px; opacity: 0.05; z-index: -1;
         }
-        
-        .play-icon-bg::after {
-            content: "▶";
-            font-size: 80px;
-            color: var(--brand-black);
-        }
-
-        .hero-content p {
-            font-size: 1.25rem;
-            color: var(--text-grey);
-            line-height: 1.6;
-            max-width: 450px;
+        .play-icon-bg::after { content: "▶"; font-size: 80px; color: var(--brand-black); }
+        .hero-content .lead {
+            font-size: 1.25rem; color: var(--text-grey);
+            line-height: 1.6; max-width: 450px;
         }
 
         .hero-slider-container {
-            flex: 1;
-            height: 650px; 
-            position: relative;
-            display: flex;
-            justify-content: center;
+            flex: 1; height: 650px; position: relative;
+            display: flex; justify-content: center;
         }
-
         .slider {
-            width: 100%;
-            max-width: 460px; 
-            height: 100%;
-            position: relative;
-            overflow: hidden;
+            width: 100%; max-width: 460px; height: 100%;
+            position: relative; overflow: hidden;
             border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15); 
-            background-color: var(--pure-white);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            background: var(--pure-white);
+            touch-action: pan-y;
         }
-
-        .slides {
-            display: flex;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .slide {
-            min-width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .slide a {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; 
-        }
+        .slides { display: flex; width: 100%; height: 100%; transition: transform 0.5s ease-in-out; }
+        .slide { min-width: 100%; height: 100%; }
+        .slide a { display: block; width: 100%; height: 100%; }
+        .slide img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
         .slider-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.4);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 60px;
-            cursor: pointer;
-            font-size: 24px;
-            z-index: 10;
-            transition: background-color 0.3s;
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(0,0,0,0.4); color: #fff; border: none;
+            width: 40px; height: 60px; cursor: pointer;
+            font-size: 24px; z-index: 10; transition: background-color 0.3s;
         }
-
-        .slider-btn:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
+        .slider-btn:hover { background: rgba(0,0,0,0.8); }
         .prev-btn { left: 0; border-radius: 0 5px 5px 0; }
         .next-btn { right: 0; border-radius: 5px 0 0 5px; }
 
         .slider-dots {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            z-index: 10;
+            position: absolute; bottom: 20px; width: 100%;
+            display: flex; justify-content: center; gap: 10px; z-index: 10;
         }
-
         .dot {
-            width: 10px;
-            height: 10px;
-            background-color: rgba(0, 0, 0, 0.3); 
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s;
+            width: 12px; height: 12px; padding: 0; border: none;
+            background: rgba(0,0,0,0.3); border-radius: 50%;
+            cursor: pointer; transition: background-color 0.3s, transform 0.3s;
         }
+        .dot.active { background: var(--brand-red); transform: scale(1.2); }
 
-        .dot.active {
-            background-color: var(--brand-red); 
-            width: 12px;
-            height: 12px;
-        }
-
+        /* ---------- ABOUT ---------- */
         .about-section {
-            padding: 100px 8%;
-            background-color: var(--light-grey);
-            scroll-margin-top: 80px; 
+            padding: 100px 8%; background: var(--light-grey);
+            scroll-margin-top: var(--header-h);
         }
-
         .about-container {
-            display: flex;
-            align-items: flex-start;
-            gap: 80px;
-            max-width: 1200px;
-            margin: 0 auto;
+            display: flex; align-items: flex-start; gap: 80px;
+            max-width: 1200px; margin: 0 auto;
         }
-
-        .about-image {
-            flex: 1;
-            position: relative;
-            max-width: 450px;
-        }
-
+        .about-image { flex: 1; position: relative; max-width: 450px; }
         .about-image img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            object-fit: cover;
-            position: relative;
-            z-index: 2;
+            width: 100%; height: auto; display: block;
+            border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            object-fit: cover; position: relative; z-index: 2;
         }
-
         .about-image::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            width: 50%;
-            height: 50%;
-            background-color: var(--brand-red);
-            border-radius: 20px;
-            z-index: 1;
+            content: ''; position: absolute; top: -20px; left: -20px;
+            width: 50%; height: 50%;
+            background: var(--brand-red); border-radius: 20px; z-index: 1;
         }
-
-        .about-text {
-            flex: 1.5;
-        }
-
+        .about-text { flex: 1.5; }
         .about-text h2 {
-            font-size: 4rem;
-            color: var(--brand-black);
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-            line-height: 1;
+            font-size: 4rem; margin-bottom: 20px;
+            letter-spacing: -1px; line-height: 1;
         }
-
         .about-text .intro {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--brand-red);
-            margin-bottom: 25px;
-            line-height: 1.5;
+            font-size: 1.3rem; font-weight: 600; color: var(--brand-red);
+            margin-bottom: 25px; line-height: 1.5;
         }
-
         .about-text h3 {
-            font-size: 1.4rem;
-            color: var(--brand-black);
-            margin: 35px 0 15px;
-            position: relative;
-            padding-left: 15px;
+            font-size: 1.4rem; margin: 35px 0 15px;
+            position: relative; padding-left: 15px;
         }
-
         .about-text h3::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 3px;
-            bottom: 3px;
-            width: 4px;
-            background-color: var(--brand-red);
-            border-radius: 2px;
+            content: ''; position: absolute; left: 0; top: 3px; bottom: 3px;
+            width: 4px; background: var(--brand-red); border-radius: 2px;
         }
-
         .about-text p {
-            font-size: 1.1rem;
-            color: var(--text-grey);
-            line-height: 1.8;
-            margin-bottom: 15px;
-            text-align: justify;
+            font-size: 1.1rem; color: var(--text-grey);
+            line-height: 1.8; margin-bottom: 15px; text-align: left;
         }
-
         .about-text .outro {
-            font-weight: 600;
-            color: var(--brand-black);
-            margin-top: 40px;
-            padding: 20px 25px;
-            background-color: var(--pure-white);
+            font-weight: 600; color: var(--brand-black); margin-top: 40px;
+            padding: 20px 25px; background: var(--pure-white);
             border-left: 4px solid var(--brand-black);
             border-radius: 0 10px 10px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            font-style: italic;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); font-style: italic;
         }
 
+        /* ---------- JOURNEY ---------- */
         .journey-section {
-            padding: 100px 8%;
-            background-color: var(--pure-white);
-            scroll-margin-top: 80px;
+            padding: 100px 8%; background: var(--pure-white);
+            scroll-margin-top: var(--header-h);
         }
-
         .journey-title {
-            text-align: center;
-            font-size: 3.5rem;
-            color: var(--brand-black);
-            margin-bottom: 50px;
-            letter-spacing: -1px;
+            text-align: center; font-size: 3.5rem;
+            margin-bottom: 50px; letter-spacing: -1px;
         }
-
-        .accordion-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
+        .accordion-container { max-width: 900px; margin: 0 auto; }
         .accordion-item {
-            margin-bottom: 25px;
-            border-radius: 12px;
+            margin-bottom: 25px; border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            overflow: hidden;
-            scroll-margin-top: 120px; 
+            overflow: hidden; scroll-margin-top: var(--header-h);
         }
-
         .accordion-header {
-            width: 100%;
-            background-color: var(--light-grey);
-            color: var(--brand-black);
-            padding: 25px 30px;
-            font-size: 1.3rem;
-            font-weight: 600;
-            text-align: left;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: inherit;
+            width: 100%; background: var(--light-grey); color: var(--brand-black);
+            padding: 25px 30px; font-size: 1.3rem; font-weight: 600;
+            text-align: left; border: none; cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            display: flex; justify-content: space-between; align-items: center;
+            gap: 16px; font-family: inherit;
         }
-
-        .accordion-header:hover {
-            background-color: #ebeef0;
-        }
-
-        .accordion-header.active {
-            background-color: var(--brand-red);
-            color: var(--pure-white);
-        }
-
-        .accordion-header::after {
-            content: '\002B';
-            font-size: 1.8rem;
-            font-weight: normal;
-            transition: transform 0.3s ease;
-        }
-
-        .accordion-header.active::after {
-            content: '\2212';
-            transform: rotate(180deg);
-        }
+        .accordion-header:hover { background: #ebeef0; }
+        .accordion-header[aria-expanded="true"] { background: var(--brand-red); color: var(--pure-white); }
+        .accordion-header::after { content: '\002B'; font-size: 1.8rem; font-weight: normal; flex-shrink: 0; }
+        .accordion-header[aria-expanded="true"]::after { content: '\2212'; }
 
         .accordion-content {
-            background-color: var(--pure-white);
-            max-height: 0;
-            overflow: hidden;
+            background: var(--pure-white);
+            max-height: 0; overflow: hidden;
             transition: max-height 0.4s ease-out;
         }
-
         .accordion-inner {
-            padding: 30px;
-            display: flex;
-            gap: 30px;
-            align-items: flex-start;
-            border-top: 1px solid #eee;
+            padding: 30px; display: flex; gap: 30px;
+            align-items: flex-start; border-top: 1px solid #eee;
         }
-
-        .reverse-layout {
-            flex-direction: row-reverse;
-        }
-
-        .accordion-img {
-            flex: 1;
-            min-width: 250px;
-        }
-
+        .reverse-layout { flex-direction: row-reverse; }
+        .accordion-img { flex: 1; min-width: 250px; }
         .accordion-img img {
-            width: 100%;
-            border-radius: 12px;
+            width: 100%; height: auto; border-radius: 12px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-            display: block;
-            object-fit: cover;
+            display: block; object-fit: cover;
         }
-
-        .accordion-text {
-            flex: 1.5;
-        }
-
+        .accordion-text { flex: 1.5; }
         .accordion-text p {
-            font-size: 1.05rem;
-            color: var(--text-grey);
-            line-height: 1.7;
-            text-align: justify;
-            margin-bottom: 12px;
+            font-size: 1.05rem; color: var(--text-grey);
+            line-height: 1.7; text-align: left; margin-bottom: 12px;
         }
+        .accordion-text strong { color: var(--brand-black); }
 
-        .accordion-text strong {
-            color: var(--brand-black);
+        .social-follow-box { margin-top: 20px; padding-top: 15px; border-top: 1px dashed #d5d5d5; }
+        .accordion-text .social-follow-title {
+            font-size: 0.95rem; font-weight: 700; color: var(--brand-black);
+            margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;
         }
-
-        .social-follow-box {
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px dashed #d5d5d5;
-        }
-
-        .social-follow-title {
-            font-size: 0.95rem !important;
-            font-weight: 700;
-            color: var(--brand-black) !important;
-            margin-bottom: 10px !important;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .social-buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
+        .social-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
         .social-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background-color: var(--light-grey);
-            color: var(--brand-black);
-            text-decoration: none;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 1px solid #e0e0e0;
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 8px 16px; background: var(--light-grey);
+            color: var(--brand-black); text-decoration: none;
+            border-radius: 20px; font-size: 0.9rem; font-weight: 600;
+            transition: all 0.3s ease; border: 1px solid #e0e0e0;
         }
-
         .social-btn:hover {
-            background-color: var(--brand-red);
-            color: var(--pure-white);
-            border-color: var(--brand-red);
-            transform: translateY(-2px);
+            background: var(--brand-red); color: var(--pure-white);
+            border-color: var(--brand-red); transform: translateY(-2px);
         }
 
-        @media (max-width: 1024px) {
-            header {
-                flex-direction: column; 
-                padding: 20px 5%;
-                gap: 20px;
-            }
-            .logo img {
-                height: 55px; 
-            }
-            .nav-container {
-                flex-direction: column;
-                width: 100%;
-                gap: 20px;
-            }
-            nav ul {
-                display: flex; 
-                width: 100%;
-                justify-content: center;
-                gap: 30px;
-                flex-wrap: wrap;
-            }
-            .dropdown-content {
-                top: 40px; 
-            }
-            .hero { 
-                flex-direction: column; 
-                height: auto; 
-                min-height: auto; 
-                padding: 20px 5% 60px;
-                text-align: center; 
-                justify-content: center; 
-                gap: 40px; 
-            }
-            .hero-content h1 { 
-                font-size: 3.2rem; 
-                margin-bottom: 20px;
-            }
-            .hero-content p { 
-                margin: 0 auto; 
-                font-size: 1.05rem;
-            }
-            .play-icon-bg {
-                right: 50%;
-                transform: translateX(50%); 
-                top: -30px;
-            }
-            .hero-slider-container { 
-                width: 100%; 
-                height: 420px; 
-            }
-            .slider { 
-                max-width: 320px; 
-            } 
+        /* ---------- FOOTER ---------- */
+        footer {
+            padding: 60px 8%; text-align: center;
+            background: var(--light-grey); border-top: 1px solid #eaeaea;
+            scroll-margin-top: var(--header-h);
+        }
+        .footer-quote { font-size: 1.1rem; color: var(--text-grey); font-style: italic; font-weight: 500; line-height: 1.6; }
+        .footer-contact { margin-top: 30px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
 
-            .about-section, .journey-section {
-                padding: 60px 5%;
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 1024px) {
+            :root { --header-h: 90px; }
+            header { padding: 12px 5%; }
+            .logo img { height: 50px; }
+            .menu-toggle { display: flex; }
+
+            .nav-container {
+                display: none;
+                position: absolute; top: 100%; left: 0; right: 0;
+                flex-direction: column; align-items: stretch; gap: 20px;
+                background: var(--pure-white); padding: 20px 5% 30px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+                max-height: calc(100vh - 80px); overflow-y: auto;
             }
-            .about-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 40px;
+            .nav-container.open { display: flex; }
+            nav ul { flex-direction: column; align-items: stretch; gap: 0; }
+            nav li { flex-direction: column; align-items: stretch; border-bottom: 1px solid #eee; }
+            nav a, .dropbtn { padding: 14px 4px; justify-content: space-between; width: 100%; }
+            .dropdown::after { display: none; }
+            .dropdown-content {
+                position: static; transform: none; box-shadow: none;
+                border: none; border-radius: 0; background: var(--light-grey);
+                min-width: 0;
             }
-            .about-image {
-                max-width: 80%;
+            .dropdown-content a { text-align: left; padding: 12px 20px; }
+            .btn-start { text-align: center; }
+
+            .hero {
+                flex-direction: column; min-height: auto;
+                padding: 30px 5% 60px; text-align: center; gap: 40px;
             }
-            .about-text h2, .journey-title {
-                font-size: 3rem;
-                text-align: center;
-            }
-            .about-text .intro {
-                text-align: center;
-            }
-            .about-text p {
-                text-align: left;
-            }
-            .accordion-inner {
-                flex-direction: column !important;
-                padding: 20px;
-            }
-            .accordion-img {
-                width: 100%;
-            }
+            .hero-content h1 { font-size: 3.2rem; margin-bottom: 20px; }
+            .hero-content .lead { margin: 0 auto; font-size: 1.05rem; }
+            .play-icon-bg { right: 50%; transform: translateX(50%); top: -30px; }
+            .hero-slider-container { width: 100%; height: 420px; }
+            .slider { max-width: 320px; }
+
+            .about-section, .journey-section { padding: 60px 5%; }
+            .about-container { flex-direction: column; align-items: center; gap: 40px; }
+            .about-image { max-width: 80%; }
+            .about-text h2, .journey-title { font-size: 3rem; text-align: center; }
+            .about-text .intro { text-align: center; }
+            .accordion-inner { flex-direction: column !important; padding: 20px; }
+            .accordion-img { width: 100%; min-width: 0; }
+        }
+        @media (max-width: 480px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .about-text h2, .journey-title { font-size: 2.3rem; }
+            .accordion-header { font-size: 1.1rem; padding: 20px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition: none !important; animation: none !important; }
         }
     </style>
 </head>
@@ -683,337 +382,373 @@
 
     <header>
         <div class="logo">
-            <img src="png/2160px/logo-ch-original.png" alt="Ngô Văn Trường Logo">
+            <img src="png/2160px/logo-ch-original.png" alt="Ngô Văn Trường Logo" width="140" height="70">
         </div>
-        <div class="nav-container">
-            <nav>
+        <button class="menu-toggle" id="menuToggle" aria-label="Mở menu" aria-expanded="false" aria-controls="navContainer">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-container" id="navContainer">
+            <nav aria-label="Menu chính">
                 <ul>
                     <li><a href="#about">Về</a></li>
-                    
-                    <li class="dropdown">
-                        <a href="#journey" class="dropbtn">Hành trình ▾</a>
-                        <div class="dropdown-content">
-                            <a href="#journey-badminton" onclick="openAndScrollJourney('journey-badminton')">Cầu Lông</a>
-                            <a href="#journey-running" onclick="openAndScrollJourney('journey-running')">Chạy Bộ</a>
-                            <a href="#journey-ironman" onclick="openAndScrollJourney('journey-ironman')">Ironman</a>
-                            <a href="#journey-psychology" onclick="openAndScrollJourney('journey-psychology')">Phân Tích Tâm Lý</a>
-                        </div>
-                    </li>
-                    
-                    <li class="dropdown">
-                        <a href="#service" class="dropbtn">Dịch vụ ▾</a>
-                        <div class="dropdown-content">
-                            <a href="https://bapngotruong.github.io/bapngotruong.thietke/">Thiết Kế Theo Yêu Cầu</a>
-                            <a href="https://bapngotruong.github.io/bapngotruong.tuvan/">Tư Vấn Tình Cảm </a>
-                            <a href="https://bapngotruong.github.io/bapngotruong.aodau/">Áo Đấu</a>
-                            <a href="https://bapngotruong.github.io/bapngotruong.font/">Bộ Font Độc Quyền</a>
 
+                    <li class="dropdown">
+                        <button type="button" class="dropbtn" aria-expanded="false" aria-haspopup="true">Hành trình ▾</button>
+                        <div class="dropdown-content">
+                            <a href="#journey-badminton" data-journey="journey-badminton">Cầu Lông</a>
+                            <a href="#journey-running" data-journey="journey-running">Chạy Bộ</a>
+                            <a href="#journey-ironman" data-journey="journey-ironman">Ironman</a>
+                            <a href="#journey-psychology" data-journey="journey-psychology">Phân Tích Tâm Lý</a>
                         </div>
                     </li>
-                    
+
                     <li class="dropdown">
-                        <a href="#contact" class="dropbtn">Liên hệ ▾</a>
+                        <button type="button" class="dropbtn" aria-expanded="false" aria-haspopup="true">Dịch vụ ▾</button>
                         <div class="dropdown-content">
-                            <a href="https://web.facebook.com/truong.bapngo.2k6" target="_blank">Facebook</a>
-                            <a href="https://zalo.me/0337439799" target="_blank">Zalo</a>
-                            <a href="https://www.tiktok.com/@ngotruong2406" target="_blank">TikTok</a>
+                            <a href="https://bapngotruong.github.io/bapngotruong.thietke/" target="_blank" rel="noopener noreferrer">Thiết Kế Theo Yêu Cầu</a>
+                            <a href="https://bapngotruong.github.io/bapngotruong.tuvan/" target="_blank" rel="noopener noreferrer">Tư Vấn Tình Cảm</a>
+                            <a href="https://bapngotruong.github.io/bapngotruong.aodau/" target="_blank" rel="noopener noreferrer">Áo Đấu</a>
+                            <a href="https://bapngotruong.github.io/bapngotruong.font/" target="_blank" rel="noopener noreferrer">Bộ Font Độc Quyền</a>
+                        </div>
+                    </li>
+
+                    <li class="dropdown">
+                        <button type="button" class="dropbtn" aria-expanded="false" aria-haspopup="true">Liên hệ ▾</button>
+                        <div class="dropdown-content">
+                            <a href="https://web.facebook.com/truong.bapngo.2k6" target="_blank" rel="noopener noreferrer">Facebook</a>
+                            <a href="https://zalo.me/0337439799" target="_blank" rel="noopener noreferrer">Zalo</a>
+                            <a href="https://www.tiktok.com/@ngotruong2406" target="_blank" rel="noopener noreferrer">TikTok</a>
                             <a href="mailto:truonglofi006@gmail.com">Gmail</a>
                         </div>
                     </li>
                 </ul>
             </nav>
-            <a href="#about" class="btn-start">Bắt đầu &rarr;</a>
+            <a href="#journey" class="btn-start">Xem hành trình &rarr;</a>
         </div>
     </header>
 
-    <main class="hero">
-        <div class="hero-content">
-            <p class="tagline">ý tưởng / sản phẩm / dịch vụ</p>
-            <h1>
-                KHÔNG GIAN<br>SÁNG TẠO<br>TƯƠNG LAI.
-                <div class="play-icon-bg"></div>
-            </h1>
-            <p>Kỷ luật của thể thao, sự bay bổng của nghệ thuật, và một trạm dừng chân cho mọi ý tưởng của bạn.</p>
-        </div>
+    <main>
+        <section class="hero" aria-label="Giới thiệu">
+            <div class="hero-content">
+                <p class="tagline">ý tưởng / sản phẩm / dịch vụ</p>
+                <h1>
+                    KHÔNG GIAN<br>SÁNG TẠO<br>TƯƠNG LAI.
+                    <span class="play-icon-bg" aria-hidden="true"></span>
+                </h1>
+                <p class="lead">Kỷ luật của thể thao, sự bay bổng của nghệ thuật, và một trạm dừng chân cho mọi ý tưởng của bạn.</p>
+            </div>
 
-        <div class="hero-slider-container">
-            <div class="slider">
-                <div class="slides" id="slideTrack">
-                    <div class="slide">
-                        <a href="https://bapngotruong.github.io/bapngotruong.aodau/" target="_blank">
-                            <img src="aos dau nvt.png" alt="Áo Đấu NVT">
-                        </a>
+            <div class="hero-slider-container">
+                <div class="slider" id="slider" aria-roledescription="carousel" aria-label="Sản phẩm nổi bật">
+                    <div class="slides" id="slideTrack">
+                        <div class="slide">
+                            <a href="https://bapngotruong.github.io/bapngotruong.aodau/" target="_blank" rel="noopener noreferrer">
+                                <img src="aos dau nvt.png" alt="Áo Đấu NVT">
+                            </a>
+                        </div>
+                        <div class="slide">
+                            <a href="https://bapngotruong.github.io/bapngotruong.font/" target="_blank" rel="noopener noreferrer">
+                                <img src="banner font bnt do 5.png" alt="Font BNT" loading="lazy">
+                            </a>
+                        </div>
                     </div>
-                    <div class="slide">
-                        <a href="https://bapngotruong.github.io/bapngotruong.font/" target="_blank">
-                            <img src="banner font bnt do 5.png" alt="Font BNT">
-                        </a>
+
+                    <button type="button" class="slider-btn prev-btn" aria-label="Slide trước">&#10094;</button>
+                    <button type="button" class="slider-btn next-btn" aria-label="Slide sau">&#10095;</button>
+
+                    <div class="slider-dots">
+                        <button type="button" class="dot active" aria-label="Chuyển đến slide 1"></button>
+                        <button type="button" class="dot" aria-label="Chuyển đến slide 2"></button>
                     </div>
-                </div>
-
-                <button class="slider-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
-                <button class="slider-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
-
-                <div class="slider-dots">
-                    <div class="dot active" onclick="currentSlide(0)"></div>
-                    <div class="dot" onclick="currentSlide(1)"></div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="chan dung nvt.jpg" alt="Chân dung Ngô Văn Trường" loading="lazy" decoding="async">
+                </div>
+                <div class="about-text">
+                    <h2>Ngô Văn Trường</h2>
+                    <p class="intro">Chào bạn, mình là Ngô Văn Trường – người đứng sau không gian sáng tạo này.</p>
+                    <p>Xuất phát điểm là một sinh viên Thiết kế Đồ họa tại FPT Polytechnic Hà Nội, mình luôn tin rằng thiết kế không chỉ là việc sắp xếp màu sắc hay hình khối, mà là quá trình giải mã tâm lý và truyền tải thông điệp. Chào mừng bạn bước vào "Không gian sáng tạo tương lai" – nơi những ý tưởng thô sơ nhất sẽ được nhào nặn thành những sản phẩm hoàn chỉnh và mang đậm dấu ấn cá nhân.</p>
+
+                    <h3>Từ tư duy hình ảnh đến những thiết kế thực chiến</h3>
+                    <p>Như bạn có thể thấy qua những mẫu thiết kế thời trang cá tính hay các dự án nhận diện thương hiệu tại đây, mình đam mê việc tạo ra sự khác biệt. Mình sử dụng sự nhạy bén với hệ sinh thái Adobe (Illustrator, InDesign, After Effects) để cung cấp các dịch vụ thiết kế theo yêu cầu. Dù đó là việc sáng tạo ra những bộ font độc quyền, xây dựng concept nhận diện cho một thương hiệu lớn (như dự án BMW M4 GT3 EVO), hay dàn trang những ấn phẩm phức tạp, mọi thứ đều được thực hiện với tiêu chuẩn khắt khe nhất.</p>
+                    <p>Hơn thế nữa, các sản phẩm của mình luôn được khai thác dưới lăng kính tâm lý học, giúp hình ảnh không chỉ đẹp mắt mà còn chạm đến cảm xúc và hành vi của người xem.</p>
+
+                    <h3>Kỷ luật thép làm nên một nhà sáng tạo bền bỉ</h3>
+                    <p>Khác với suy nghĩ nghệ thuật là phải luôn ngẫu hứng, triết lý làm việc của mình được xây dựng trên nền tảng của sự kỷ luật. Là một người theo đuổi mục tiêu Marathon Sub-3, rèn luyện kỹ năng trên sân cầu lông, bơi lội và thấm nhuần tinh thần của Vovinam, mình mang nguyên vẹn ý chí của một "vận động viên" vào công việc.</p>
+                    <p>Thể thao dạy mình cách kiểm soát nhịp độ, quản lý thời gian và vượt qua giới hạn của bản thân. Sự bền bỉ ấy giúp mình luôn vững vàng trước mọi deadline, làm việc nhóm hiệu quả cùng những người cộng sự, và liên tục tối ưu hóa trải nghiệm trên chính website này.</p>
+
+                    <p class="outro">"Dù bạn đang tìm kiếm một thiết kế thời trang thể thao bùng nổ, một bộ font chữ mang đậm cái tôi, hay một chiến lược hình ảnh có chiều sâu – đây chính là trạm dừng chân cuối cùng cho mọi ý tưởng của bạn."</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="journey" class="journey-section">
+            <h2 class="journey-title">Hành trình &amp; Dự án</h2>
+
+            <div class="accordion-container">
+
+                <div class="accordion-item" id="journey-badminton">
+                    <button type="button" class="accordion-header" id="h-badminton" aria-expanded="false" aria-controls="c-badminton">Tinh thần Thể thao &amp; Cầu lông</button>
+                    <div class="accordion-content" id="c-badminton" role="region" aria-labelledby="h-badminton">
+                        <div class="accordion-inner">
+                            <div class="accordion-text">
+                                <p><strong>Kỷ luật tạo nên sự sáng tạo.</strong> Không chỉ dừng lại ở đam mê, cầu lông rèn luyện cho mình tính kiên nhẫn, khả năng quan sát và phản xạ nhạy bén. Những cú đập cầu quyết đoán trên sân cũng giống như cách mình đưa ra quyết định thiết kế: nhanh, chuẩn xác và mang đậm dấu ấn cá nhân.</p>
+                                <p>Sự am hiểu về thể thao giúp mình tạo ra những thiết kế áo đấu, nhận diện thương hiệu thể thao thực tế, năng động và bùng nổ năng lượng.</p>
+                                <div class="social-follow-box">
+                                    <p class="social-follow-title">Theo dõi hành trình:</p>
+                                    <div class="social-buttons">
+                                        <a href="https://www.tiktok.com/@ngotruong2406" target="_blank" rel="noopener noreferrer" class="social-btn">TikTok</a>
+                                        <a href="https://web.facebook.com/profile.php?id=61593709695105" target="_blank" rel="noopener noreferrer" class="social-btn">Page</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-img">
+                                <img src="2.jpg" alt="Áo đấu thể thao Ngô Văn Trường" loading="lazy" decoding="async">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item" id="journey-running">
+                    <button type="button" class="accordion-header" id="h-running" aria-expanded="false" aria-controls="c-running">Hành trình Chạy bộ &amp; Sub-3 Marathon</button>
+                    <div class="accordion-content" id="c-running" role="region" aria-labelledby="h-running">
+                        <div class="accordion-inner reverse-layout">
+                            <div class="accordion-text">
+                                <p><strong>Chinh phục từng kilomet.</strong> Chạy bộ không đơn thuần là một môn thể thao, đó là quá trình giao tiếp với chính bản thân. Từng bước chạy trên đường ray rèn luyện ý chí không bỏ cuộc và sự kiên trì theo đuổi mục tiêu Marathon Sub-3.</p>
+                                <p>Sự tập trung và tính nhất quán từ việc chạy bộ giúp mình luôn giữ được ngọn lửa đam mê và sự chỉn chu trong từng sản phẩm sáng tạo.</p>
+                                <div class="social-follow-box">
+                                    <p class="social-follow-title">Theo dõi hành trình Chạy bộ:</p>
+                                    <div class="social-buttons">
+                                        <a href="https://www.tiktok.com/@truongsub3" target="_blank" rel="noopener noreferrer" class="social-btn">TikTok</a>
+                                        <a href="https://web.facebook.com/profile.php?id=61589027391344" target="_blank" rel="noopener noreferrer" class="social-btn">Page</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-img">
+                                <img src="3.jpg" alt="Chạy bộ Trường Sub3" loading="lazy" decoding="async">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item" id="journey-ironman">
+                    <button type="button" class="accordion-header" id="h-ironman" aria-expanded="false" aria-controls="c-ironman">Thách thức Ironman &amp; 3 Môn Phối Hợp</button>
+                    <div class="accordion-content" id="c-ironman" role="region" aria-labelledby="h-ironman">
+                        <div class="accordion-inner">
+                            <div class="accordion-text">
+                                <p><strong>Bền bỉ như một vận động viên Ironman.</strong> Kết hợp bơi lội, đạp xe và chạy bộ đòi hỏi sự phân bổ thể lực thông minh và một tinh thần thép. Vượt qua những giới hạn khắc nghiệt nhất là cách mình chứng minh không gì là không thể.</p>
+                                <p>Hoàn thiện một dự án lớn từ khâu lên concept đến khi xuất xưởng là một đường chạy Ironman dài. Tinh thần thép giúp mình luôn vững vàng trước mọi bài toán khó từ khách hàng.</p>
+                                <div class="social-follow-box">
+                                    <p class="social-follow-title">Theo dõi hành trình Thể thao:</p>
+                                    <div class="social-buttons">
+                                        <!-- Lưu ý: đang dùng chung link với mục Chạy bộ, đổi nếu có kênh riêng -->
+                                        <a href="https://www.tiktok.com/@truongsub3" target="_blank" rel="noopener noreferrer" class="social-btn">TikTok</a>
+                                        <a href="https://web.facebook.com/profile.php?id=61589027391344" target="_blank" rel="noopener noreferrer" class="social-btn">Page</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-img">
+                                <img src="4.png" alt="Hành trình Ironman" loading="lazy" decoding="async">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item" id="journey-psychology">
+                    <button type="button" class="accordion-header" id="h-psychology" aria-expanded="false" aria-controls="c-psychology">Phân tích Tâm lý học Hành vi (Ôeng)</button>
+                    <div class="accordion-content" id="c-psychology" role="region" aria-labelledby="h-psychology">
+                        <div class="accordion-inner reverse-layout">
+                            <div class="accordion-text">
+                                <p><strong>Giải mã tư duy, thao túng thị giác.</strong> Một thiết kế đẹp là chưa đủ, nó còn phải biết cách kể chuyện và chạm đúng vào "Insight" (sự thật ngầm hiểu) của người xem.</p>
+                                <p>Bằng việc đào sâu vào Tâm lý học hành vi, dự án Ôeng (series "Ác quỷ Dopamine: Yêu người hay yêu Dopamine") được tạo ra không chỉ để ngắm, mà để điều hướng cảm xúc và hành vi người dùng, biến hình ảnh thành công cụ truyền thông sắc bén.</p>
+                                <div class="social-follow-box">
+                                    <p class="social-follow-title">Theo dõi kênh Ôeng:</p>
+                                    <div class="social-buttons">
+                                        <a href="https://web.facebook.com/profile.php?id=61592343882009" target="_blank" rel="noopener noreferrer" class="social-btn">Page</a>
+                                        <a href="https://www.youtube.com/@oeng287" target="_blank" rel="noopener noreferrer" class="social-btn">YouTube</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-img">
+                                <img src="Thumbnail yeu nguoi or yeu dopamine 2.png" alt="Bìa Tâm lý học hành vi: Yêu người hay yêu Dopamine" loading="lazy" decoding="async">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
     </main>
 
-    <section id="about" class="about-section">
-        <div class="about-container">
-            <div class="about-image">
-                <img src="chan dung nvt.jpg" alt="Chân dung Ngô Văn Trường">
-            </div>
-            <div class="about-text">
-                <h2>Ngô Văn Trường</h2>
-                <p class="intro">Chào bạn, mình là Ngô Văn Trường – người đứng sau không gian sáng tạo này.</p>
-                <p>Xuất phát điểm là một sinh viên Thiết kế Đồ họa tại FPT Polytechnic Hà Nội, mình luôn tin rằng thiết kế không chỉ là việc sắp xếp màu sắc hay hình khối, mà là quá trình giải mã tâm lý và truyền tải thông điệp. Chào mừng bạn bước vào "Không gian sáng tạo tương lai" – nơi những ý tưởng thô sơ nhất sẽ được nhào nặn thành những sản phẩm hoàn chỉnh và mang đậm dấu ấn cá nhân.</p>
-
-                <h3>Từ tư duy hình ảnh đến những thiết kế thực chiến</h3>
-                <p>Như bạn có thể thấy qua những mẫu thiết kế thời trang cá tính hay các dự án nhận diện thương hiệu tại đây, mình đam mê việc tạo ra sự khác biệt. Mình sử dụng sự nhạy bén với hệ sinh thái Adobe (Illustrator, InDesign, After Effects) để cung cấp các dịch vụ thiết kế theo yêu cầu. Dù đó là việc sáng tạo ra những bộ font độc quyền, xây dựng concept nhận diện cho một thương hiệu lớn (như dự án BMW M4 GT3 EVO), hay dàn trang những ấn phẩm phức tạp, mọi thứ đều được thực hiện với tiêu chuẩn khắt khe nhất.</p>
-                <p>Hơn thế nữa, các sản phẩm của mình luôn được khai thác dưới lăng kính tâm lý học, giúp hình ảnh không chỉ đẹp mắt mà còn chạm đến cảm xúc và hành vi của người xem.</p>
-
-                <h3>Kỷ luật thép làm nên một nhà sáng tạo bền bỉ</h3>
-                <p>Khác với suy nghĩ nghệ thuật là phải luôn ngẫu hứng, triết lý làm việc của mình được xây dựng trên nền tảng của sự kỷ luật. Là một người theo đuổi mục tiêu Marathon Sub-3, rèn luyện kỹ năng trên sân cầu lông, bơi lội và thấm nhuần tinh thần của Vovinam, mình mang nguyên vẹn ý chí của một "vận động viên" vào công việc.</p>
-                <p>Thể thao dạy mình cách kiểm soát nhịp độ, quản lý thời gian và vượt qua giới hạn của bản thân. Sự bền bỉ ấy giúp mình luôn vững vàng trước mọi deadline, làm việc nhóm hiệu quả cùng những người cộng sự, và liên tục tối ưu hóa trải nghiệm trên chính website này.</p>
-
-                <p class="outro">"Dù bạn đang tìm kiếm một thiết kế thời trang thể thao bùng nổ, một bộ font chữ mang đậm cái tôi, hay một chiến lược hình ảnh có chiều sâu – đây chính là trạm dừng chân cuối cùng cho mọi ý tưởng của bạn."</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="journey" class="journey-section">
-        <h2 class="journey-title">Hành trình & Dự án</h2>
-        
-        <div class="accordion-container">
-            
-            <div class="accordion-item" id="journey-badminton">
-                <button class="accordion-header">Tinh thần Thể thao & Cầu lông</button>
-                <div class="accordion-content">
-                    <div class="accordion-inner">
-                        <div class="accordion-text">
-                            <p><strong>Kỷ luật tạo nên sự sáng tạo.</strong> Không chỉ dừng lại ở đam mê, cầu lông rèn luyện cho mình tính kiên nhẫn, khả năng quan sát và phản xạ nhạy bén. Những cú đập cầu quyết đoán trên sân cũng giống như cách mình đưa ra quyết định thiết kế: nhanh, chuẩn xác và mang đậm dấu ấn cá nhân.</p>
-                            <p>Sự am hiểu về thể thao giúp mình tạo ra những thiết kế áo đấu, nhận diện thương hiệu thể thao thực tế, năng động và bùng nổ năng lượng.</p>
-                            
-                            <div class="social-follow-box">
-                                <p class="social-follow-title">Theo dõi hành trình:</p>
-                                <div class="social-buttons">
-                                    <a href="https://www.tiktok.com/@ngotruong2406" target="_blank" class="social-btn">TikTok</a>
-                                    <a href="https://web.facebook.com/profile.php?id=61593709695105" target="_blank" class="social-btn">Page</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-img">
-                            <img src="2.jpg" alt="Áo đấu thể thao Ngô Văn Trường">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item" id="journey-running">
-                <button class="accordion-header">Hành trình Chạy bộ & Sub-3 Marathon</button>
-                <div class="accordion-content">
-                    <div class="accordion-inner reverse-layout">
-                        <div class="accordion-text">
-                            <p><strong>Chinh phục từng kilomet.</strong> Chạy bộ không đơn thuần là một môn thể thao, đó là quá trình giao tiếp với chính bản thân. Từng bước chạy trên đường ray rèn luyện ý chí không bỏ cuộc và sự kiên trì theo đuổi mục tiêu Marathon Sub-3.</p>
-                            <p>Sự tập trung và tính nhất quán từ việc chạy bộ giúp mình luôn giữ được ngọn lửa đam mê và sự chỉn chu trong từng sản phẩm sáng tạo.</p>
-
-                            <div class="social-follow-box">
-                                <p class="social-follow-title">Theo dõi hành trình Chạy bộ:</p>
-                                <div class="social-buttons">
-                                    <a href="https://www.tiktok.com/@truongsub3" target="_blank" class="social-btn">TikTok</a>
-                                    <a href="https://web.facebook.com/profile.php?id=61589027391344" target="_blank" class="social-btn">Page</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-img">
-                            <img src="3.jpg" alt="Chạy bộ Trường Sub3">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item" id="journey-ironman">
-                <button class="accordion-header">Thách thức Ironman & 3 Môn Phối Hợp</button>
-                <div class="accordion-content">
-                    <div class="accordion-inner">
-                        <div class="accordion-text">
-                            <p><strong>Bền bỉ như một vận động viên Ironman.</strong> Kết hợp bơi lội, đạp xe và chạy bộ đòi hỏi sự phân bổ thể lực thông minh và một tinh thần thép. Vượt qua những giới hạn khắc nghiệt nhất là cách mình chứng minh không gì là không thể.</p>
-                            <p>Hoàn thiện một dự án lớn từ khâu lên concept đến khi xuất xưởng là một đường chạy Ironman dài. Tinh thần thép giúp mình luôn vững vàng trước mọi bài toán khó từ khách hàng.</p>
-                            
-                            <div class="social-follow-box">
-                                <p class="social-follow-title">Theo dõi hành trình Thể thao:</p>
-                                <div class="social-buttons">
-                                    <a href="https://www.tiktok.com/@truongsub3" target="_blank" class="social-btn">TikTok</a>
-                                    <a href="https://web.facebook.com/profile.php?id=61589027391344" target="_blank" class="social-btn">Page</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-img">
-                            <img src="4.png" alt="Hành trình Ironman">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item" id="journey-psychology">
-                <button class="accordion-header">Phân tích Tâm lý học Hành vi (Ôeng)</button>
-                <div class="accordion-content">
-                    <div class="accordion-inner reverse-layout">
-                        <div class="accordion-text">
-                            <p><strong>Giải mã tư duy, thao túng thị giác.</strong> Một thiết kế đẹp là chưa đủ, nó còn phải biết cách kể chuyện và chạm đúng vào "Insight" (sự thật ngầm hiểu) của người xem.</p>
-                            <p>Bằng việc đào sâu vào Tâm lý học hành vi, dự án Ôeng (series "Ác quỷ Dopamine: Yêu người hay yêu Dopamine") được tạo ra không chỉ để ngắm, mà để điều hướng cảm xúc và hành vi người dùng, biến hình ảnh thành công cụ truyền thông sắc bén.</p>
-
-                            <div class="social-follow-box">
-                                <p class="social-follow-title">Theo dõi kênh Ôeng:</p>
-                                <div class="social-buttons">
-                                    <a href="https://web.facebook.com/profile.php?id=61592343882009" target="_blank" class="social-btn">Page</a>
-                                    <a href="https://www.youtube.com/@oeng287" target="_blank" class="social-btn">YouTube</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-img">
-                            <img src="Thumbnail yeu nguoi or yeu dopamine 2.png" alt="Bìa Tâm lý học hành vi: Yêu người hay yêu Dopamine">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <footer id="contact" style="padding: 60px 8%; text-align: center; background-color: var(--light-grey); border-top: 1px solid #eaeaea;">
-        <p style="font-size: 1.1rem; color: var(--text-grey); font-style: italic; font-weight: 500;">
-            "Sự tự tin dám thể hiện bản thân không phải là khao khát sự chú ý, mà là quyền được cất lên tiếng nói của riêng mình."<br>---Ngô Văn Trường---
+    <footer id="contact">
+        <p class="footer-quote">
+            "Sự tự tin dám thể hiện bản thân không phải là khao khát sự chú ý, mà là quyền được cất lên tiếng nói của riêng mình."<br>— Ngô Văn Trường —
         </p>
+        <div class="footer-contact">
+            <a class="social-btn" href="https://web.facebook.com/truong.bapngo.2k6" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a class="social-btn" href="https://zalo.me/0337439799" target="_blank" rel="noopener noreferrer">Zalo</a>
+            <a class="social-btn" href="https://www.tiktok.com/@ngotruong2406" target="_blank" rel="noopener noreferrer">TikTok</a>
+            <a class="social-btn" href="mailto:truonglofi006@gmail.com">Gmail</a>
+        </div>
     </footer>
 
     <script>
-        // --- 1. LOGIC CHUYỂN SLIDE HERO ---
-        let slideIndex = 0;
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        const slideTrack = document.getElementById('slideTrack');
-        const totalSlides = slides.length;
+        // ---------- 1. SLIDER ----------
+        (function () {
+            const slider = document.getElementById('slider');
+            const track = document.getElementById('slideTrack');
+            const dots = slider.querySelectorAll('.dot');
+            const total = track.children.length;
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            let index = 0, timer = null;
 
-        function updateSlider() {
-            if (!slideTrack) return;
-            slideTrack.style.transform = `translateX(-${slideIndex * 100}%)`;
-            dots.forEach(dot => dot.classList.remove('active'));
-            if (dots[slideIndex]) {
-                dots[slideIndex].classList.add('active');
+            function render() {
+                track.style.transform = 'translateX(-' + (index * 100) + '%)';
+                dots.forEach((d, i) => d.classList.toggle('active', i === index));
             }
+            function go(n) { index = (n + total) % total; render(); }
+            function stop() { clearInterval(timer); timer = null; }
+            function start() {
+                if (reduceMotion) return;
+                stop();
+                timer = setInterval(() => go(index + 1), 6000);
+            }
+
+            slider.querySelector('.prev-btn').addEventListener('click', () => { go(index - 1); start(); });
+            slider.querySelector('.next-btn').addEventListener('click', () => { go(index + 1); start(); });
+            dots.forEach((d, i) => d.addEventListener('click', () => { go(i); start(); }));
+
+            // Tạm dừng khi rê chuột hoặc focus
+            slider.addEventListener('mouseenter', stop);
+            slider.addEventListener('mouseleave', start);
+            slider.addEventListener('focusin', stop);
+            slider.addEventListener('focusout', start);
+
+            // Vuốt trên điện thoại
+            let startX = 0, startY = 0;
+            slider.addEventListener('touchstart', e => {
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+                stop();
+            }, { passive: true });
+            slider.addEventListener('touchend', e => {
+                const dx = e.changedTouches[0].clientX - startX;
+                const dy = e.changedTouches[0].clientY - startY;
+                if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) go(index + (dx < 0 ? 1 : -1));
+                start();
+            }, { passive: true });
+
+            // Dừng khi tab bị ẩn
+            document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+
+            start();
+        })();
+
+        // ---------- 2. ACCORDION ----------
+        const accItems = document.querySelectorAll('.accordion-item');
+
+        function setAccordion(item, open) {
+            const header = item.querySelector('.accordion-header');
+            const content = item.querySelector('.accordion-content');
+            header.setAttribute('aria-expanded', open ? 'true' : 'false');
+            content.style.maxHeight = open ? content.scrollHeight + 'px' : null;
         }
-
-        function moveSlide(n) {
-            slideIndex += n;
-            if (slideIndex >= totalSlides) slideIndex = 0;
-            if (slideIndex < 0) slideIndex = totalSlides - 1;
-            updateSlider();
-            resetTimer(); 
-        }
-
-        function currentSlide(n) {
-            slideIndex = n;
-            updateSlider();
-            resetTimer();
-        }
-
-        let autoSlideInterval = setInterval(() => {
-            moveSlide(1);
-        }, 6000);
-
-        function resetTimer() {
-            clearInterval(autoSlideInterval);
-            autoSlideInterval = setInterval(() => {
-                moveSlide(1);
-            }, 6000);
-        }
-
-
-        // --- 2. LOGIC ACCORDION (MỞ / GẬP DỰ ÁN) ---
-        const accordions = document.querySelectorAll('.accordion-header');
-
-        accordions.forEach(acc => {
-            acc.addEventListener('click', function() {
-                toggleAccordion(this);
+        function refreshOpenAccordions() {
+            accItems.forEach(item => {
+                if (item.querySelector('.accordion-header').getAttribute('aria-expanded') === 'true') {
+                    const c = item.querySelector('.accordion-content');
+                    c.style.maxHeight = c.scrollHeight + 'px';
+                }
             });
-        });
-
-        function toggleAccordion(headerElement) {
-            headerElement.classList.toggle('active');
-            const content = headerElement.nextElementSibling;
-            
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
         }
+
+        accItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            header.addEventListener('click', () => {
+                setAccordion(item, header.getAttribute('aria-expanded') !== 'true');
+            });
+            // Ảnh tải xong thì tính lại chiều cao
+            item.querySelectorAll('img').forEach(img => img.addEventListener('load', refreshOpenAccordions));
+        });
+        window.addEventListener('resize', refreshOpenAccordions);
 
         function openAndScrollJourney(targetId) {
             const item = document.getElementById(targetId);
-            if (item) {
-                const header = item.querySelector('.accordion-header');
-                const content = item.querySelector('.accordion-content');
-                
-                if (header && content) {
-                    if (!header.classList.contains('active')) {
-                        header.classList.add('active');
-                        content.style.maxHeight = content.scrollHeight + "px";
-                    }
-                }
-
-                setTimeout(() => {
-                    const headerOffset = 100;
-                    const elementPosition = item.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }, 50);
-            }
+            if (!item) return;
+            setAccordion(item, true);
+            setTimeout(() => item.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
         }
 
+        // ---------- 3. MENU & DROPDOWN ----------
+        const menuToggle = document.getElementById('menuToggle');
+        const navContainer = document.getElementById('navContainer');
+        const needsClick = () => window.matchMedia('(hover: none), (max-width: 1024px)').matches;
 
-        // --- 3. LOGIC DROPDOWN MENU (CHẠY TỐT CẢ TRÊN MOBILE VÀ PC) ---
+        function closeDropdowns(except) {
+            document.querySelectorAll('.dropdown').forEach(dd => {
+                if (dd === except) return;
+                dd.querySelector('.dropdown-content').classList.remove('show');
+                dd.querySelector('.dropbtn').setAttribute('aria-expanded', 'false');
+            });
+        }
+        function closeMenu() {
+            navContainer.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.setAttribute('aria-label', 'Mở menu');
+            closeDropdowns();
+        }
+
+        menuToggle.addEventListener('click', () => {
+            const open = navContainer.classList.toggle('open');
+            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            menuToggle.setAttribute('aria-label', open ? 'Đóng menu' : 'Mở menu');
+        });
+
         document.querySelectorAll('.dropbtn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault(); 
-                const parentDropdown = this.closest('.dropdown');
-                const content = parentDropdown.querySelector('.dropdown-content');
-
-                document.querySelectorAll('.dropdown-content').forEach(other => {
-                    if (other !== content) {
-                        other.classList.remove('show');
-                    }
-                });
-
-                if (content) {
-                    content.classList.toggle('show');
-                }
+            btn.addEventListener('click', () => {
+                if (!needsClick()) return; // Desktop dùng hover / focus
+                const dd = btn.closest('.dropdown');
+                const content = dd.querySelector('.dropdown-content');
+                closeDropdowns(dd);
+                const show = content.classList.toggle('show');
+                btn.setAttribute('aria-expanded', show ? 'true' : 'false');
             });
         });
 
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.dropdown')) {
-                document.querySelectorAll('.dropdown-content').forEach(content => {
-                    content.classList.remove('show');
-                });
-            }
+        // Link hành trình: mở accordion và cuộn mượt (chặn nhảy neo mặc định)
+        document.querySelectorAll('[data-journey]').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                openAndScrollJourney(link.dataset.journey);
+                closeMenu();
+            });
         });
 
-        document.querySelectorAll('.dropdown-content a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelectorAll('.dropdown-content').forEach(content => {
-                    content.classList.remove('show');
-                });
-            });
+        // Các link khác trong menu: đóng menu mobile
+        document.querySelectorAll('nav a:not([data-journey]), .btn-start').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Bấm ra ngoài hoặc nhấn Esc để đóng
+        document.addEventListener('click', e => {
+            if (!e.target.closest('.dropdown')) closeDropdowns();
+            if (!e.target.closest('header')) closeMenu();
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') { closeMenu(); }
+        });
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) closeMenu();
+        });
+
+        // Vào từ trang khác với #journey-xxx thì tự mở mục tương ứng
+        window.addEventListener('load', () => {
+            if (location.hash.startsWith('#journey-')) openAndScrollJourney(location.hash.slice(1));
         });
     </script>
 </body>
