@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngô Văn Trường - Không gian sáng tạo tương lai</title>
+<meta name="description" content="Ngô Văn Trường - sinh viên Thiết kế Đồ họa FPT Polytechnic Hà Nội. Thiết kế theo yêu cầu, áo đấu, bộ font độc quyền, tư vấn tình cảm và hành trình thể thao.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ngô Văn Trường - Không gian sáng tạo tương lai">
+<meta property="og:description" content="Kỷ luật của thể thao, sự bay bổng của nghệ thuật, và một trạm dừng chân cho mọi ý tưởng của bạn.">
+<meta property="og:image" content="chan dung nvt.jpg">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8JM5VVPJ3H"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8JM5VVPJ3H');</script>
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","yrsd07ghmy");</script>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.hero{display:flex;align-items:center;justify-content:space-between;padding:40px 8% 100px;min-height:max(700px,calc(100vh - var(--header-h)))}
+.hero-content{flex:1;max-width:500px}
+.tagline{color:var(--text-grey);font-size:14px;font-weight:600;letter-spacing:1.5px;margin-bottom:30px;text-transform:uppercase}
+.hero-content h1{font-size:5rem;line-height:1.1;font-weight:800;color:#222;margin-bottom:30px;letter-spacing:-1px}
+.lead{font-size:1.25rem;color:var(--text-grey);line-height:1.6;max-width:450px}
+.hero-slider-container{flex:1;height:650px;display:flex;justify-content:center}
+.slider{width:100%;max-width:460px;height:100%;position:relative;overflow:hidden;border-radius:12px;box-shadow:0 15px 35px rgba(0,0,0,.15);background:#fff;touch-action:pan-y}
+.slides{display:flex;width:100%;height:100%;transition:transform .5s ease-in-out}
+.slide{min-width:100%;height:100%}.slide a{display:block;width:100%;height:100%}
+.slide img{width:100%;height:100%;object-fit:contain;display:block}
+.slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.4);color:#fff;border:none;width:40px;height:60px;cursor:pointer;font-size:24px;z-index:10;transition:background-color .3s}
+.slider-btn:hover{background:rgba(0,0,0,.8)}.prev-btn{left:0;border-radius:0 5px 5px 0}.next-btn{right:0;border-radius:5px 0 0 5px}
+.slider-dots{position:absolute;bottom:20px;width:100%;display:flex;justify-content:center;gap:10px;z-index:10}
+.dot{width:12px;height:12px;padding:0;border:none;background:rgba(0,0,0,.3);border-radius:50%;cursor:pointer;transition:.3s}
+.dot.active{background:var(--brand-red);transform:scale(1.2)}
+.about-section{padding:100px 8%;background:var(--light-grey)}
+.about-container{display:flex;align-items:flex-start;gap:80px;max-width:1200px;margin:0 auto}
+.about-image{flex:1;position:relative;max-width:450px}
+.about-image img{width:100%;height:auto;display:block;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,.1);position:relative;z-index:2}
+.about-image::before{content:'';position:absolute;top:-20px;left:-20px;width:50%;height:50%;background:var(--brand-red);border-radius:20px;z-index:1}
+.about-text{flex:1.5}
+.about-text h2{font-size:4rem;margin-bottom:20px;letter-spacing:-1px;line-height:1}
+.intro{font-size:1.3rem;font-weight:600;color:var(--brand-red);margin-bottom:25px;line-height:1.5}
+.about-text h3{font-size:1.4rem;margin:35px 0 15px;position:relative;padding-left:15px}
+.about-text h3::before{content:'';position:absolute;left:0;top:3px;bottom:3px;width:4px;background:var(--brand-red);border-radius:2px}
+.about-text p{font-size:1.1rem;color:var(--text-grey);line-height:1.8;margin-bottom:15px}
+.about-text .intro{color:var(--brand-red)}
+.about-text .outro{font-weight:600;color:var(--brand-black);margin-top:40px;padding:20px 25px;background:#fff;border-left:4px solid var(--brand-black);border-radius:0 10px 10px 0;box-shadow:0 5px 15px rgba(0,0,0,.05);font-style:italic}
+.journey-section{padding:100px 8%}
+.journey-title{text-align:center;font-size:3.5rem;margin-bottom:50px;letter-spacing:-1px}
+.accordion-container{max-width:900px;margin:0 auto}
+.accordion-item{margin-bottom:25px;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,.05);overflow:hidden}
+.accordion-header{width:100%;background:var(--light-grey);color:var(--brand-black);padding:25px 30px;font:inherit;font-size:1.3rem;font-weight:600;text-align:left;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:background-color .3s,color .3s}
+.accordion-header:hover{background:#ebeef0}
+.accordion-header[aria-expanded=true]{background:var(--brand-red);color:#fff}
+.accordion-header::after{content:'\002B';font-size:1.8rem;font-weight:400;flex-shrink:0}
+.accordion-header[aria-expanded=true]::after{content:'\2212'}
+.accordion-content{background:#fff;max-height:0;overflow:hidden;transition:max-height .4s ease-out}
+.accordion-inner{padding:30px;display:flex;gap:30px;align-items:flex-start;border-top:1px solid #eee}
+.reverse-layout{flex-direction:row-reverse}
+.accordion-img{flex:1;min-width:250px}
+.accordion-img img{width:100%;height:auto;border-radius:12px;box-shadow:0 10px 20px rgba(0,0,0,.08);display:block}
+.accordion-text{flex:1.5}
+.accordion-text p{font-size:1.05rem;color:var(--text-grey);line-height:1.7;margin-bottom:12px}
+.accordion-text strong{color:var(--brand-black)}
+.social-follow-box{margin-top:20px;padding-top:15px;border-top:1px dashed #d5d5d5}
+.accordion-text .social-follow-title{font-size:.95rem;font-weight:700;color:var(--brand-black);margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px}
+.social-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.social-buttons .social-btn{background:var(--light-grey)}
+@media (max-width:1024px){
+.hero{flex-direction:column;min-height:auto;padding:30px 5% 60px;text-align:center;gap:40px}
+.hero-content h1{font-size:3.2rem;margin-bottom:20px}.lead{margin:0 auto;font-size:1.05rem}
+.hero-slider-container{width:100%;height:420px}.slider{max-width:320px}
+.about-section,.journey-section{padding:60px 5%}
+.about-container{flex-direction:column;align-items:center;gap:40px}.about-image{max-width:80%}
+.about-text h2,.journey-title{font-size:3rem;text-align:center}.intro{text-align:center}
+.accordion-inner{flex-direction:column!important;padding:20px}.accordion-img{width:100%;min-width:0}}
+@media (max-width:480px){.hero-content h1{font-size:2.5rem}.about-text h2,.journey-title{font-size:2.3rem}.accordion-header{font-size:1.1rem;padding:20px}}
+</style>
+</head>
+<body>
+<div id="site-header"></div><script src="assets/site.js"></script>
+<main>
+<section class="hero" aria-label="Giới thiệu">
+  <div class="hero-content">
+    <p class="tagline">ý tưởng / sản phẩm / dịch vụ</p>
+    <h1>KHÔNG GIAN<br>SÁNG TẠO<br>TƯƠNG LAI.</h1>
+    <p class="lead">Kỷ luật của thể thao, sự bay bổng của nghệ thuật, và một trạm dừng chân cho mọi ý tưởng của bạn.</p>
+  </div>
+  <div class="hero-slider-container">
+    <div class="slider" id="slider" aria-roledescription="carousel" aria-label="Sản phẩm nổi bật">
+      <div class="slides" id="slideTrack">
+        <div class="slide"><a href="ao-dau.html"><img src="aos dau nvt.png" alt="Áo Đấu NVT"></a></div>
+        <div class="slide"><a href="font.html"><img src="banner font bnt do 5.png" alt="Font BNT" loading="lazy"></a></div>
+      </div>
+      <button type="button" class="slider-btn prev-btn" aria-label="Slide trước">&#10094;</button>
+      <button type="button" class="slider-btn next-btn" aria-label="Slide sau">&#10095;</button>
+      <div class="slider-dots"><button type="button" class="dot active" aria-label="Chuyển đến slide 1"></button><button type="button" class="dot" aria-label="Chuyển đến slide 2"></button></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about-section">
+  <div class="about-container">
+    <div class="about-image"><img src="chan dung nvt.jpg" alt="Chân dung Ngô Văn Trường" loading="lazy" decoding="async"></div>
+    <div class="about-text">
+      <h2>Ngô Văn Trường</h2>
+      <p class="intro">Chào bạn, mình là Ngô Văn Trường – người đứng sau không gian sáng tạo này.</p>
+      <p>Xuất phát điểm là một sinh viên Thiết kế Đồ họa tại FPT Polytechnic Hà Nội, mình luôn tin rằng thiết kế không chỉ là việc sắp xếp màu sắc hay hình khối, mà là quá trình giải mã tâm lý và truyền tải thông điệp. Chào mừng bạn bước vào "Không gian sáng tạo tương lai" – nơi những ý tưởng thô sơ nhất sẽ được nhào nặn thành những sản phẩm hoàn chỉnh và mang đậm dấu ấn cá nhân.</p>
+      <h3>Từ tư duy hình ảnh đến những thiết kế thực chiến</h3>
+      <p>Như bạn có thể thấy qua những mẫu thiết kế thời trang cá tính hay các dự án nhận diện thương hiệu tại đây, mình đam mê việc tạo ra sự khác biệt. Mình sử dụng sự nhạy bén với hệ sinh thái Adobe (Illustrator, InDesign, After Effects) để cung cấp các dịch vụ thiết kế theo yêu cầu. Dù đó là việc sáng tạo ra những bộ font độc quyền, xây dựng concept nhận diện cho một thương hiệu lớn (như dự án BMW M4 GT3 EVO), hay dàn trang những ấn phẩm phức tạp, mọi thứ đều được thực hiện với tiêu chuẩn khắt khe nhất.</p>
+      <p>Hơn thế nữa, các sản phẩm của mình luôn được khai thác dưới lăng kính tâm lý học, giúp hình ảnh không chỉ đẹp mắt mà còn chạm đến cảm xúc và hành vi của người xem.</p>
+      <h3>Kỷ luật thép làm nên một nhà sáng tạo bền bỉ</h3>
+      <p>Khác với suy nghĩ nghệ thuật là phải luôn ngẫu hứng, triết lý làm việc của mình được xây dựng trên nền tảng của sự kỷ luật. Là một người theo đuổi mục tiêu Marathon Sub-3, rèn luyện kỹ năng trên sân cầu lông, bơi lội và thấm nhuần tinh thần của Vovinam, mình mang nguyên vẹn ý chí của một "vận động viên" vào công việc.</p>
+      <p>Thể thao dạy mình cách kiểm soát nhịp độ, quản lý thời gian và vượt qua giới hạn của bản thân. Sự bền bỉ ấy giúp mình luôn vững vàng trước mọi deadline, làm việc nhóm hiệu quả cùng những người cộng sự, và liên tục tối ưu hóa trải nghiệm trên chính website này.</p>
+      <p class="outro">"Dù bạn đang tìm kiếm một thiết kế thời trang thể thao bùng nổ, một bộ font chữ mang đậm cái tôi, hay một chiến lược hình ảnh có chiều sâu – đây chính là trạm dừng chân cuối cùng cho mọi ý tưởng của bạn."</p>
+    </div>
+  </div>
+</section>
+
+<section id="journey" class="journey-section">
+  <h2 class="journey-title">Hành trình &amp; Dự án</h2>
+  <div class="accordion-container">
+
+    <div class="accordion-item" id="journey-badminton">
+      <button type="button" class="accordion-header" id="h-badminton" aria-expanded="false" aria-controls="c-badminton">Tinh thần Thể thao &amp; Cầu lông</button>
+      <div class="accordion-content" id="c-badminton" role="region" aria-labelledby="h-badminton"><div class="accordion-inner">
+        <div class="accordion-text">
+          <p><strong>Kỷ luật tạo nên sự sáng tạo.</strong> Không chỉ dừng lại ở đam mê, cầu lông rèn luyện cho mình tính kiên nhẫn, khả năng quan sát và phản xạ nhạy bén. Những cú đập cầu quyết đoán trên sân cũng giống như cách mình đưa ra quyết định thiết kế: nhanh, chuẩn xác và mang đậm dấu ấn cá nhân.</p>
+          <p>Sự am hiểu về thể thao giúp mình tạo ra những thiết kế áo đấu, nhận diện thương hiệu thể thao thực tế, năng động và bùng nổ năng lượng.</p>
+          <div class="social-follow-box"><p class="social-follow-title">Theo dõi hành trình:</p><div class="social-buttons">
+            <a href="https://www.tiktok.com/@ngotruong2406" target="_blank" rel="noopener noreferrer" class="social-btn">TikTok</a>
+            <a href="https://web.facebook.com/profile.php?id=61593709695105" target="_blank" rel="noopener noreferrer" class="social-btn">Page</a></div></div>
+        </div>
+        <div class="accordion-img"><img src="2.jpg" alt="Áo đấu thể thao Ngô Văn Trường" loading="lazy" decoding="async"></div>
+      </div></div>
+    </div>
+
+    <div class="accordion-item" id="journey-running">
+      <button type="button" class="accordion-header" id="h-running" aria-expanded="false" aria-controls="c-running">Hành trình Chạy bộ &amp; Sub-3 Marathon</button>
+      <div class="accordion-content" id="c-running" role="region" aria-labelledby="h-running"><div class="accordion-inner reverse-layout">
+        <div class="accordion-text">
+          <p><strong>Chinh phục từng kilomet.</strong> Chạy bộ không đơn thuần là một môn thể thao, đó là quá trình giao tiếp với chính bản thân. Từng bước chạy trên đường ray rèn luyện ý chí không bỏ cuộc và sự kiên trì theo đuổi mục tiêu Marathon Sub-3.</p>
+          <p>Sự tập trung và tính nhất quán từ việc chạy bộ giúp mình luôn giữ được ngọn lửa đam mê và sự chỉn chu trong từng sản phẩm sáng tạo.</p>
+          <div class="social-follow-box"><p class="social-follow-title">Theo dõi hành trình Chạy bộ:</p><div class="social-buttons">
+            <a href="https://www.tiktok.com/@truongsub3" target="_blank" rel="noopener noreferrer" class="social-btn">TikTok</a>
+            <a href="https://web.facebook.com/profile.php?id=61589027391344" target="_blank" rel="noopener noreferrer" class="social-btn">Page</a></div></div>
+        </div>
+        <div class="accordion-img"><img src="3.jpg" alt="Chạy bộ Trường Sub3" loading="lazy" decoding="async"></div>
+      </div></div>
+    </div>
+
+    <div class="accordion-item" id="journey-ironman">
+      <button type="button" class="accordion-header" id="h-ironman" aria-expanded="false" aria-controls="c-ironman">Thách thức Ironman &amp; 3 Môn Phối Hợp</button>
+      <div class="accordion-content" id="c-ironman" role="region" aria-labelledby="h-ironman"><div class="accordion-inner">
+        <div class="accordion-text">
+          <p><strong>Bền bỉ như một vận động viên Ironman.</strong> Kết hợp bơi lội, đạp xe và chạy bộ đòi hỏi sự phân bổ thể lực thông minh và một tinh thần thép. Vượt qua những giới hạn khắc nghiệt nhất là cách mình chứng minh không gì là không thể.</p>
+          <p>Hoàn thiện một dự án lớn từ khâu lên concept đến khi xuất xưởng là một đường chạy Ironman dài. Tinh thần thép giúp mình luôn vững vàng trước mọi bài toán khó từ khách hàng.</p>
+          <div class="social-follow-box"><p class="social-follow-title">Theo dõi hành trình Thể thao:</p><div class="social-buttons">
+            <a href="https://www.tiktok.com/@truongsub3" target="_blank" rel="noopener noreferrer" class="social-btn">TikTok</a>
+            <a href="https://web.facebook.com/profile.php?id=61589027391344" target="_blank" rel="noopener noreferrer" class="social-btn">Page</a></div></div>
+        </div>
+        <div class="accordion-img"><img src="4.png" alt="Hành trình Ironman" loading="lazy" decoding="async"></div>
+      </div></div>
+    </div>
+
+    <div class="accordion-item" id="journey-psychology">
+      <button type="button" class="accordion-header" id="h-psychology" aria-expanded="false" aria-controls="c-psychology">Phân tích Tâm lý học Hành vi (Ôeng)</button>
+      <div class="accordion-content" id="c-psychology" role="region" aria-labelledby="h-psychology"><div class="accordion-inner reverse-layout">
+        <div class="accordion-text">
+          <p><strong>Giải mã tư duy, thao túng thị giác.</strong> Một thiết kế đẹp là chưa đủ, nó còn phải biết cách kể chuyện và chạm đúng vào "Insight" (sự thật ngầm hiểu) của người xem.</p>
+          <p>Bằng việc đào sâu vào Tâm lý học hành vi, dự án Ôeng (series "Ác quỷ Dopamine: Yêu người hay yêu Dopamine") được tạo ra không chỉ để ngắm, mà để điều hướng cảm xúc và hành vi người dùng, biến hình ảnh thành công cụ truyền thông sắc bén.</p>
+          <div class="social-follow-box"><p class="social-follow-title">Theo dõi kênh Ôeng:</p><div class="social-buttons">
+            <a href="https://web.facebook.com/profile.php?id=61592343882009" target="_blank" rel="noopener noreferrer" class="social-btn">Page</a>
+            <a href="https://www.youtube.com/@oeng287" target="_blank" rel="noopener noreferrer" class="social-btn">YouTube</a></div></div>
+        </div>
+        <div class="accordion-img"><img src="Thumbnail yeu nguoi or yeu dopamine 2.png" alt="Bìa Tâm lý học hành vi: Yêu người hay yêu Dopamine" loading="lazy" decoding="async"></div>
+      </div></div>
+    </div>
+
+  </div>
+</section>
+</main>
+<div id="site-footer"></div>
+
+<script>
+// Slider
+(function(){
+  const s=document.getElementById('slider'),t=document.getElementById('slideTrack'),dots=s.querySelectorAll('.dot'),n=t.children.length;
+  const still=matchMedia('(prefers-reduced-motion: reduce)').matches;let i=0,timer=null;
+  const render=()=>{t.style.transform='translateX(-'+i*100+'%)';dots.forEach((d,k)=>d.classList.toggle('active',k===i));};
+  const go=k=>{i=(k+n)%n;render();};
+  const stop=()=>{clearInterval(timer);timer=null;};
+  const start=()=>{if(still)return;stop();timer=setInterval(()=>go(i+1),6000);};
+  s.querySelector('.prev-btn').onclick=()=>{go(i-1);start();};
+  s.querySelector('.next-btn').onclick=()=>{go(i+1);start();};
+  dots.forEach((d,k)=>d.onclick=()=>{go(k);start();});
+  s.addEventListener('mouseenter',stop);s.addEventListener('mouseleave',start);
+  s.addEventListener('focusin',stop);s.addEventListener('focusout',start);
+  let x0=0,y0=0;
+  s.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY;stop();},{passive:true});
+  s.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy))go(i+(dx<0?1:-1));start();},{passive:true});
+  document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
+  start();
+})();
+
+// Accordion (openAndScrollJourney được site.js gọi khi bấm menu Hành trình)
+const accItems=document.querySelectorAll('.accordion-item');
+function setAccordion(item,open){
+  item.querySelector('.accordion-header').setAttribute('aria-expanded',open?'true':'false');
+  const c=item.querySelector('.accordion-content');c.style.maxHeight=open?c.scrollHeight+'px':null;
+}
+function refreshOpenAccordions(){
+  accItems.forEach(item=>{if(item.querySelector('.accordion-header').getAttribute('aria-expanded')==='true'){const c=item.querySelector('.accordion-content');c.style.maxHeight=c.scrollHeight+'px';}});
+}
+accItems.forEach(item=>{
+  const h=item.querySelector('.accordion-header');
+  h.addEventListener('click',()=>setAccordion(item,h.getAttribute('aria-expanded')!=='true'));
+  item.querySelectorAll('img').forEach(img=>img.addEventListener('load',refreshOpenAccordions));
+});
+addEventListener('resize',refreshOpenAccordions);
+function openAndScrollJourney(id){
+  const item=document.getElementById(id);if(!item)return;
+  setAccordion(item,true);
+  setTimeout(()=>item.scrollIntoView({behavior:'smooth',block:'start'}),50);
+}
+addEventListener('load',()=>{if(location.hash.startsWith('#journey-'))openAndScrollJourney(location.hash.slice(1));});
+</script>
+</body>
+</html>

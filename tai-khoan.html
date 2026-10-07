@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài khoản | Ngô Văn Trường</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        /* Phần riêng của trang tài khoản (style.css chưa có) */
+        [hidden] { display: none !important; }
+        body { background: var(--light-grey); }
+        .auth-card h1 { font-size: 2.6rem; line-height: 1.1; color: var(--brand-red); margin-bottom: 20px; }
+        .btn-ghost { width: 100%; margin-top: 12px; padding: 14px; border-radius: 30px; border: 2px solid var(--brand-black); background: none; font: inherit; font-weight: 700; cursor: pointer; transition: background-color .3s, color .3s; }
+        .btn-ghost:hover { background: var(--brand-black); color: #fff; }
+        .note { margin-top: 20px; padding: 14px; background: var(--light-grey); border-radius: 10px; font-size: .88rem; color: var(--text-grey); }
+        .note button { margin-top: 10px; padding: 8px 16px; border-radius: 20px; border: 1px solid var(--border-color); background: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+        .who { color: var(--text-grey); }
+        .card .empty a, .card a.link { color: var(--brand-red); font-weight: 600; text-decoration: underline; }
+        .row .end { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+        .tag.confirmed { background: #dcfce7; color: #15803d; }
+        .dl-note { color: var(--text-grey); font-size: .92rem; margin-bottom: 14px; }
+    </style>
+</head>
+<body>
+
+    <div id="site-header" data-cta-text="Xem hành trình &rarr;" data-cta-href="index.html#journey"></div>
+
+    <main class="account">
+        <!-- ĐĂNG NHẬP / ĐĂNG KÝ -->
+        <section class="card auth-card" id="authView" hidden>
+            <h1 class="bnt-display" id="authTitle">Đăng nhập</h1>
+            <div class="seg" role="group" aria-label="Chọn hành động">
+                <button type="button" id="segIn" class="on">Đăng nhập</button>
+                <button type="button" id="segUp">Đăng ký</button>
+            </div>
+            <form id="authForm" novalidate>
+                <label class="field" id="nameWrap" hidden>Tên của bạn
+                    <input id="fName" type="text" autocomplete="name">
+                </label>
+                <label class="field">Email
+                    <input id="fEmail" type="email" autocomplete="email" required>
+                </label>
+                <label class="field">Mật khẩu (ít nhất 6 ký tự)
+                    <input id="fPass" type="password" autocomplete="current-password" required minlength="6">
+                </label>
+                <button class="btn-main" id="btnSubmit" type="submit">Đăng nhập</button>
+            </form>
+            <button class="btn-ghost" id="btnGoogle" type="button" hidden>Tiếp tục với Google</button>
+            <p id="msg" role="alert" hidden></p>
+            <div class="note" id="demoNote" hidden>
+                <strong>Chế độ demo.</strong> Dữ liệu chỉ nằm trong trình duyệt của bạn, chưa bảo mật thật. Nhập email bất kỳ để xem tài khoản trống, hoặc dùng tài khoản mẫu có sẵn đơn hàng.
+                <br><button type="button" id="btnDemoFill">Dùng tài khoản mẫu</button>
+            </div>
+        </section>
+
+        <!-- BẢNG ĐIỀU KHIỂN -->
+        <section id="dashView" hidden>
+            <div class="dash-head">
+                <div>
+                    <h1 class="bnt-display">Tài khoản của bạn</h1>
+                    <p class="who" id="who"></p>
+                </div>
+                <button class="btn-out" id="btnOut" type="button">Đăng xuất</button>
+            </div>
+            <div class="grid">
+                <div class="card"><h2>Đơn hàng</h2><div id="p-orders"></div></div>
+                <div class="card"><h2>Lịch tư vấn</h2><div id="p-book"></div></div>
+                <div class="card"><h2>Tải font</h2><div id="p-dl"></div></div>
+            </div>
+        </section>
+
+        <p class="empty" id="loading">Đang tải...</p>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <!-- site.js phải chạy TRƯỚC script bên dưới (vì nó tạo header chứa #navAuth) -->
+    <script src="assets/site.js"></script>
+    <script>
+    // =====================================================================
+    // CẤU HÌNH SUPABASE (Project Settings > API).
+    // Để trống cả 2 giá trị = chế độ DEMO (dữ liệu giả, KHÔNG bảo mật).
+    // Khóa "publishable/anon" được phép để lộ ở web nếu đã bật RLS.
+    // TUYỆT ĐỐI không dán khóa "service_role" vào file này.
+    // =====================================================================
+    const SUPABASE_URL = 'https://yhwmzmyzcnbwqnlbygcd.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_6smDpnX4yROemNgAbXMmoA_Ss0aQn1R';
+    const FONT_FILE = 'BNTFONT-Regular.otf';   // tên file trong bucket riêng "fonts"
+    const DEMO_EMAIL = 'demo@bnt.vn';
+
+    const LIVE = !!(SUPABASE_URL && SUPABASE_ANON_KEY);
+    const $ = id => document.getElementById(id);
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const money = n => Number(n).toLocaleString('vi-VN') + 'đ';
+    const day = d => d ? new Date(d).toLocaleDateString('vi-VN') : '';
+    const dayTime = d => d ? new Date(d).toLocaleString('vi-VN', { dateStyle: 'short', timeStyle: 'short' }) : 'Chưa xếp lịch';
+    const ORDER_ST = { pending: 'Chờ xác nhận', paid: 'Đã thanh toán', cancelled: 'Đã hủy' };
+    const BOOK_ST = { pending: 'Chờ xác nhận', confirmed: 'Đã xác nhận', done: 'Đã hoàn thành', cancelled: 'Đã hủy' };
+
+    // ---------- DỮ LIỆU: DEMO ----------
+    const demo = {
+        async user() { const e = localStorage.getItem('bnt_demo_user'); return e ? { email: e } : null; },
+        async signIn(email) { localStorage.setItem('bnt_demo_user', email); },
+        async signUp(email) { localStorage.setItem('bnt_demo_user', email); },
+        async signOut() { localStorage.removeItem('bnt_demo_user'); },
+        async orders(u) {
+            if (u.email !== DEMO_EMAIL) return [];
+            return [
+                { id: 'DH002', kind: 'shirt', item: 'Áo đấu BNT Exclusive (Pre-order)', amount: 499000, status: 'pending', date: '2026-10-05' },
+                { id: 'DH001', kind: 'font', item: 'BNT FONT - Gói đầy đủ', amount: 2475000, status: 'paid', date: '2026-09-20' }
+            ];
+        },
+        async bookings(u) {
+            if (u.email !== DEMO_EMAIL) return [];
+            return [{ id: 1, plan: 'Tư vấn chiến lược (60 phút)', date: '2026-10-15T20:00:00', status: 'confirmed' }];
+        },
+        async download() { alert('Demo: ở bản thật, nút này tạo link tải tạm thời (hết hạn sau 60 giây) chỉ cho người đã mua font.'); }
+    };
+
+    // ---------- DỮ LIỆU: SUPABASE THẬT ----------
+    let sb = null;
+    const live = {
+        async user() {
+            const { data } = await sb.auth.getUser();
+            const u = data && data.user;
+            return u ? { email: u.email, name: u.user_metadata && u.user_metadata.name } : null;
+        },
+        async signIn(email, pw) {
+            const { error } = await sb.auth.signInWithPassword({ email, password: pw });
+            if (error) throw error;
+        },
+        async signUp(email, pw, name) {
+            const { data, error } = await sb.auth.signUp({ email, password: pw, options: { data: { name } } });
+            if (error) throw error;
+            if (!data.session) return 'confirm';
+        },
+        async google() {
+            const { error } = await sb.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: location.origin + location.pathname } });
+            if (error) throw error;
+        },
+        async signOut() { await sb.auth.signOut(); },
+        async orders() {
+            const { data, error } = await sb.from('orders').select('*').order('created_at', { ascending: false });
+            if (error) throw error;
+            return data.map(o => ({ id: o.id, kind: o.kind, item: o.item, amount: o.amount, status: o.status, date: o.created_at }));
+        },
+        async bookings() {
+            const { data, error } = await sb.from('bookings').select('*').order('created_at', { ascending: false });
+            if (error) throw error;
+            return data.map(b => ({ id: b.id, plan: b.plan, date: b.scheduled_at, status: b.status }));
+        },
+        async download() {
+            const { data, error } = await sb.storage.from('fonts').createSignedUrl(FONT_FILE, 60);
+            if (error) throw error;
+            location.href = data.signedUrl;
+        }
+    };
+    let api = demo;
+
+    // ---------- FORM ĐĂNG NHẬP / ĐĂNG KÝ ----------
+    let mode = 'in';
+    function setMode(m) {
+        mode = m;
+        $('segIn').classList.toggle('on', m === 'in');
+        $('segUp').classList.toggle('on', m === 'up');
+        $('authTitle').textContent = m === 'in' ? 'Đăng nhập' : 'Tạo tài khoản';
+        $('btnSubmit').textContent = m === 'in' ? 'Đăng nhập' : 'Đăng ký';
+        $('nameWrap').hidden = m === 'in';
+        $('fPass').autocomplete = m === 'in' ? 'current-password' : 'new-password';
+        showMsg('');
+    }
+    function showMsg(text, ok) {
+        const el = $('msg');
+        el.hidden = !text;
+        el.textContent = text || '';
+        el.className = ok ? 'ok' : 'err';
+    }
+    function friendly(e) {
+        const m = (e && e.message) || '';
+        if (/Invalid login/i.test(m)) return 'Sai email hoặc mật khẩu.';
+        if (/already registered/i.test(m)) return 'Email này đã có tài khoản. Hãy đăng nhập.';
+        if (/Email not confirmed/i.test(m)) return 'Bạn chưa xác nhận email. Hãy kiểm tra hộp thư.';
+        if (/rate limit/i.test(m)) return 'Bạn thao tác quá nhanh. Vui lòng thử lại sau ít phút.';
+        return m || 'Có lỗi xảy ra. Vui lòng thử lại.';
+    }
+
+    $('segIn').onclick = () => setMode('in');
+    $('segUp').onclick = () => setMode('up');
+    $('btnDemoFill').onclick = () => { $('fEmail').value = DEMO_EMAIL; $('fPass').value = 'demo1234'; setMode('in'); };
+    $('btnGoogle').onclick = async () => { try { await api.google(); } catch (e) { showMsg(friendly(e)); } };
+
+    $('authForm').addEventListener('submit', async e => {
+        e.preventDefault();
+        const email = $('fEmail').value.trim(), pw = $('fPass').value, name = $('fName').value.trim();
+        if (!/^\S+@\S+\.\S+$/.test(email)) return showMsg('Email chưa đúng định dạng.');
+        if (pw.length < 6) return showMsg('Mật khẩu cần ít nhất 6 ký tự.');
+        $('btnSubmit').disabled = true;
+        try {
+            if (mode === 'in') await api.signIn(email, pw);
+            else if (await api.signUp(email, pw, name) === 'confirm') {
+                showMsg('Đã gửi email xác nhận. Hãy bấm vào link trong email rồi quay lại đăng nhập.', true);
+                return;
+            }
+            await boot();
+        } catch (err) {
+            showMsg(friendly(err));
+        } finally {
+            $('btnSubmit').disabled = false;
+        }
+    });
+
+    // ---------- BẢNG ĐIỀU KHIỂN ----------
+    function tag(map, st) {
+        return '<span class="tag ' + esc(st) + '">' + esc(map[st] || st) + '</span>';
+    }
+
+    async function renderDash(user) {
+        $('who').textContent = (user.name ? user.name + ' · ' : '') + user.email;
+        $('navAuth').textContent = 'Tài khoản';
+
+        let orders = [], books = [], failed = false;
+        try {
+            [orders, books] = await Promise.all([api.orders(user), api.bookings(user)]);
+        } catch (e) {
+            failed = true;
+        }
+
+        if (failed) {
+            $('p-orders').innerHTML = '<p class="empty">Không tải được dữ liệu. Vui lòng thử lại sau.</p>';
+            $('p-book').innerHTML = '<p class="empty">Không tải được dữ liệu. Vui lòng thử lại sau.</p>';
+        } else {
+            $('p-orders').innerHTML = orders.length
+                ? orders.map(o =>
+                    '<div class="row"><div><strong>' + esc(o.item) + '</strong><small>Mã đơn ' + esc(o.id) + ' · ' + day(o.date) + '</small></div>' +
+                    '<div class="end"><strong>' + money(o.amount) + '</strong>' + tag(ORDER_ST, o.status) + '</div></div>').join('')
+                : '<p class="empty">Bạn chưa có đơn hàng nào. Xem <a href="font.html">Bộ font</a> hoặc <a href="ao-dau.html">Áo đấu</a>.<br>Sau khi bạn gửi bill, đơn sẽ xuất hiện ở đây khi được xác nhận.</p>';
+
+            $('p-book').innerHTML = books.length
+                ? books.map(b =>
+                    '<div class="row"><div><strong>' + esc(b.plan) + '</strong><small>' + dayTime(b.date) + '</small></div>' +
+                    '<div class="end">' + tag(BOOK_ST, b.status) + '</div></div>').join('')
+                : '<p class="empty">Bạn chưa có lịch tư vấn nào. Xem <a href="tu-van.html">các gói tư vấn</a>.</p>';
+        }
+
+        const hasFont = orders.some(o => o.kind === 'font' && o.status === 'paid');
+        $('p-dl').innerHTML =
+            '<p class="dl-note">' + (hasFont
+                ? 'Đơn font của bạn đã được xác nhận. Link tải có hiệu lực 60 giây mỗi lần bấm.'
+                : 'Cần có đơn font đã thanh toán và được xác nhận để tải.') + '</p>' +
+            '<button class="btn-main" id="btnDl" type="button"' + (hasFont ? '' : ' disabled') + '>Tải font</button>' +
+            (hasFont ? '' : '<p class="empty" style="margin-top:12px"><a href="font.html">Mua BNT FONT</a></p>');
+
+        const dl = $('btnDl');
+        if (dl) dl.onclick = async () => {
+            try { await api.download(); }
+            catch (e) { alert('Không tải được font. Bạn có thể chưa đủ quyền hoặc phiên đăng nhập đã hết hạn.'); }
+        };
+    }
+
+    $('btnOut').onclick = async () => {
+        await api.signOut();
+        $('navAuth').textContent = 'Đăng nhập';
+        await boot();
+    };
+
+    // ---------- KHỞI ĐỘNG ----------
+    async function boot() {
+        const user = await api.user();
+        $('loading').hidden = true;
+        $('authView').hidden = !!user;
+        $('dashView').hidden = !user;
+        if (user) await renderDash(user);
+        else $('fPass').value = '';
+    }
+
+    function loadScript(src) {
+        return new Promise((ok, no) => {
+            const s = document.createElement('script');
+            s.src = src; s.onload = ok; s.onerror = no;
+            document.head.appendChild(s);
+        });
+    }
+
+    (async function init() {
+        $('demoNote').hidden = LIVE;
+        $('btnGoogle').hidden = !LIVE;   // Chỉ bật khi đã cấu hình Google trong Supabase (Authentication > Providers)
+        if (LIVE) {
+            try {
+                await loadScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2');
+                sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+                api = live;
+            } catch (e) {
+                $('loading').textContent = 'Không kết nối được dịch vụ đăng nhập. Vui lòng thử lại sau.';
+                return;
+            }
+        }
+        await boot();
+    })();
+    </script>
+</body>
+</html>
