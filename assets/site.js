@@ -19,7 +19,7 @@
     <div class="nav-container" id="navContainer"><nav aria-label="Menu chính"><ul>
       <li>${a('index.html#about', 'Về')}</li>
       ${dd('Hành trình', a('index.html#journey-badminton', 'Cầu Lông') + a('index.html#journey-running', 'Chạy Bộ') + a('index.html#journey-ironman', 'Ironman') + a('index.html#journey-psychology', 'Phân Tích Tâm Lý'))}
-      ${dd('Dịch vụ', a('thiet-ke.html', 'Thiết Kế Theo Yêu Cầu') + a('tu-van.html', 'Tư Vấn Tình Cảm') + a('ao-dau.html', 'Áo Đấu') + a('livestream', 'Quay &amp; Livestream') + a('font.html', 'Bộ Font Độc Quyền'))}
+      ${dd('Dịch vụ', a('thiet-ke.html', 'Thiết Kế Theo Yêu Cầu') + a('tu-van.html', 'Tư Vấn Tình Cảm') + a('ao-dau.html', 'Áo Đấu') + a('livestream-dich-vu.html', 'Quay &amp; Livestream') + a('font.html', 'Bộ Font Độc Quyền'))}
       ${dd('Liên hệ', ext('https://web.facebook.com/truong.bapngo.2k6', 'Facebook') + ext('https://zalo.me/0337439799', 'Zalo') + ext('https://www.tiktok.com/@ngotruong2406', 'TikTok') + '<a href="mailto:truonglofi006@gmail.com">Gmail</a>')}
       <li><a href="tai-khoan.html" id="navAuth"${cur('tai-khoan.html')}>Đăng nhập</a></li>
     </ul></nav><a href="${ctaHref}" class="btn-start">${ctaText}</a></div></header>`;
