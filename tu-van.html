@@ -15,6 +15,28 @@
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","yrsd07ghmy");</script>
 <link rel="stylesheet" href="assets/style.css">
 <style>
+/* --- HIỆU ỨNG KÉO ĐẾN ĐÂU HIỆN ĐẾN ĐÓ --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+    will-change: opacity, transform;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 0.8s ease-out;
+}
+.reveal-left.active { opacity: 1; transform: translateX(0); }
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+/* --------------------------------------- */
+
 :root{--consult-bg:#fff0f5;--consult-dark:#1a0b2e;--consult-pink:#ed5581;--consult-pink-dark:#c92f5c;--consult-border:#f4b6c7;--accent:#c92f5c}
 body{background:var(--consult-bg)}
 img{max-width:100%}
@@ -94,7 +116,7 @@ button.price-box:hover{border-color:var(--consult-pink)}
 <main class="consulting-wrapper">
 
   <section class="intro-section">
-    <div class="intro-text">
+    <div class="intro-text reveal">
       <h1>Suốt 4 năm nghiên cứu Tâm lý học hành vi, Ôeng nhận ra một sự thật: <br><span class="highlight-pink">Phản xạ theo bản năng thường hủy hoại mối quan hệ.</span></h1>
       <p>Khi đối mặt với sự im lặng, sự lạnh nhạt hay lời chia tay, cảm xúc hỗn loạn khiến chúng ta liên tục mắc sai lầm:</p>
       <ul>
@@ -105,37 +127,37 @@ button.price-box:hover{border-color:var(--consult-pink)}
       </ul>
       <p><strong>Bạn đã thử tự tìm cách chưa?</strong> Hỏi bạn bè, xem bói, đọc lời khuyên trên mạng... Nhưng càng tìm kiếm, bạn lại càng rơi vào ngõ cụt. Đó là lúc bạn cần một lộ trình khoa học, phân tích đúng hành vi và tâm lý của người ấy.</p>
     </div>
-    <div class="intro-image-wrapper"><img src="Thumbnail yeu nguoi or yeu dopamine.png" alt="Bạn đang yêu hay đang nghiện Dopamine?" fetchpriority="high" decoding="async"></div>
+    <div class="intro-image-wrapper reveal delay-1"><img src="Thumbnail yeu nguoi or yeu dopamine.png" alt="Bạn đang yêu hay đang nghiện Dopamine?" fetchpriority="high" decoding="async"></div>
   </section>
 
   <section class="video-section">
-    <h2>Giải Mã Bản Chất Tâm Lý Của Bạn</h2>
-    <p>Hãy xem video này để hiểu não bộ của bạn đang bị đánh lừa như thế nào.</p>
-    <div class="video-container"><iframe src="https://www.youtube.com/embed/x0GdoyIVHPY?start=23" title="Video: Yêu người hay yêu Dopamine" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+    <h2 class="reveal">Giải Mã Bản Chất Tâm Lý Của Bạn</h2>
+    <p class="reveal delay-1">Hãy xem video này để hiểu não bộ của bạn đang bị đánh lừa như thế nào.</p>
+    <div class="video-container reveal delay-2"><iframe src="https://www.youtube.com/embed/x0GdoyIVHPY?start=23" title="Video: Yêu người hay yêu Dopamine" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
   </section>
 
   <section class="feature-block">
-    <div class="feature-image"><img src="cau.png" alt="Phân tích tâm lý giai đoạn đầu" loading="lazy" decoding="async"></div>
-    <div class="feature-text">
+    <div class="feature-image reveal-left"><img src="cau.png" alt="Phân tích tâm lý giai đoạn đầu" loading="lazy" decoding="async"></div>
+    <div class="feature-text reveal delay-1">
       <h3>Góc nhìn từ 4 năm nghiên cứu</h3>
       <p>Mỗi cuộc tình kết thúc đều để lại những "điểm mù tâm lý" mà người trong cuộc không thể tự nhận ra. Dựa trên phân tích hành vi chuyên sâu, Ôeng sẽ giúp bạn nhìn thấu nguyên nhân thực sự đằng sau những câu nói phũ phàng hay sự im lặng của đối phương. Không phải là đoán mò, mà là đọc vị tâm lý dựa trên cơ sở dữ liệu thực tế.</p>
     </div>
   </section>
 
   <section class="feature-block reverse">
-    <div class="feature-image"><img src="2.png" alt="Bẫy Dopamine" loading="lazy" decoding="async"></div>
-    <div class="feature-text">
+    <div class="feature-image reveal"><img src="2.png" alt="Bẫy Dopamine" loading="lazy" decoding="async"></div>
+    <div class="feature-text reveal-left delay-1">
       <h3>Thoát khỏi "Bẫy Dopamine"</h3>
       <p>Nỗi nhớ nhung dai dẳng, cảm giác bồn chồn muốn nhắn tin... Thực chất đây là hội chứng cai nghiện Dopamine của não bộ. Ôeng không chỉ khuyên bạn "hãy quên đi", Ôeng cung cấp cho bạn phương pháp tâm lý để "cắt cơn nghiện", lấy lại sự bình tĩnh và làm chủ lại cuộc sống cũng như cảm xúc của chính mình.</p>
     </div>
   </section>
 
   <section class="pricing-section" id="booking">
-    <h2>Lộ Trình Tư Vấn Chuyên Biệt Cùng Ôeng</h2>
-    <p class="sub-title">Chọn gói tư vấn 1-1 phù hợp với tình trạng của bạn hiện tại</p>
+    <h2 class="reveal">Lộ Trình Tư Vấn Chuyên Biệt Cùng Ôeng</h2>
+    <p class="sub-title reveal delay-1">Chọn gói tư vấn 1-1 phù hợp với tình trạng của bạn hiện tại</p>
     <div class="pricing-grid">
 
-      <div class="price-card" data-name="Tư vấn chiến lược">
+      <div class="price-card reveal delay-1" data-name="Tư vấn chiến lược">
         <div class="price-card-content">
           <div class="badge-star" aria-hidden="true">★</div>
           <h3>Tư vấn chiến lược</h3>
@@ -148,7 +170,7 @@ button.price-box:hover{border-color:var(--consult-pink)}
         <button type="button" class="btn-choose">CHỌN GÓI NÀY</button>
       </div>
 
-      <div class="price-card highlight" data-name="Tư vấn khẩn cấp">
+      <div class="price-card highlight reveal delay-2" data-name="Tư vấn khẩn cấp">
         <div class="price-card-content">
           <h3>Tư vấn khẩn cấp</h3>
           <span class="view-details">Xử lý khủng hoảng ngay lập tức</span>
@@ -160,7 +182,7 @@ button.price-box:hover{border-color:var(--consult-pink)}
         <button type="button" class="btn-choose">CHỌN GÓI NÀY</button>
       </div>
 
-      <div class="price-card" data-name="Gói 3 buổi tư vấn chuyên sâu">
+      <div class="price-card reveal delay-3" data-name="Gói 3 buổi tư vấn chuyên sâu">
         <div class="price-card-content">
           <h3>Gói 3 buổi tư vấn<br>chuyên sâu</h3>
           <span class="view-details">Phân tích hành vi chuỗi</span>
@@ -169,7 +191,7 @@ button.price-box:hover{border-color:var(--consult-pink)}
         <button type="button" class="btn-choose">CHỌN GÓI NÀY</button>
       </div>
 
-      <div class="price-card" data-name="Gói đồng hành 2 tháng">
+      <div class="price-card reveal delay-1" data-name="Gói đồng hành 2 tháng">
         <div class="price-card-content">
           <div class="badge-star" aria-hidden="true">★</div>
           <h3>Gói đồng hành<br>2 Tháng</h3>
@@ -183,25 +205,25 @@ button.price-box:hover{border-color:var(--consult-pink)}
   </section>
 
   <section class="feature-block">
-    <div class="feature-image"><img src="img/tu-van/3.jpg" alt="Bước đi tiếp theo" loading="lazy" decoding="async"></div>
-    <div class="feature-text">
+    <div class="feature-image reveal-left"><img src="img/tu-van/3.jpg" alt="Bước đi tiếp theo" loading="lazy" decoding="async"></div>
+    <div class="feature-text reveal delay-1">
       <h3>Sự đồng hành vững chắc</h3>
       <p>Một quyết định sai lầm trong lúc nóng giận có thể đánh mất đi cơ hội hàn gắn mãi mãi. Đừng để bản thân phải hối hận vì những hành động bồng bột. Ôeng ở đây, không phán xét, chỉ lắng nghe và dùng nền tảng 4 năm nghiên cứu để cung cấp cho bạn những bước đi vững chắc và an toàn nhất.</p>
     </div>
   </section>
 
   <section class="feature-block reverse last">
-    <div class="feature-image"><img src="img/tu-van/4.png" alt="Kết quả tư vấn" loading="lazy" decoding="async"></div>
-    <div class="feature-text">
+    <div class="feature-image reveal"><img src="img/tu-van/4.png" alt="Kết quả tư vấn" loading="lazy" decoding="async"></div>
+    <div class="feature-text reveal-left delay-1">
       <h3>Vượt qua giới hạn của chính mình</h3>
       <p>Bạn không thể mong một kết quả mới nếu vẫn làm theo những thói quen hành vi cũ. Việc đầu tư vào một buổi tư vấn 1-1 không chỉ là để cứu vãn một mối quan hệ, mà là để tái thiết lập lại bản đồ tư duy, biến bạn trở thành một phiên bản tự chủ, hấp dẫn và có giá trị cao hơn trong mắt đối phương.</p>
     </div>
   </section>
 
   <section class="cta-section">
-    <h2>Nếu bạn đang cảm thấy bế tắc...</h2>
-    <p>Và không biết nên làm gì tiếp theo... 👉 đừng cố tự xoay sở một mình.<br>Chỉ cần bạn làm sai thêm một lần nữa, mọi thứ có thể đi rất xa.</p>
-    <div class="cta-box">
+    <h2 class="reveal">Nếu bạn đang cảm thấy bế tắc...</h2>
+    <p class="reveal delay-1">Và không biết nên làm gì tiếp theo... 👉 đừng cố tự xoay sở một mình.<br>Chỉ cần bạn làm sai thêm một lần nữa, mọi thứ có thể đi rất xa.</p>
+    <div class="cta-box reveal delay-2">
       <h3>Quỹ thời gian hỗ trợ của Ôeng có giới hạn.</h3>
       <a class="btn-pink" href="https://web.facebook.com/truong.bapngo.2k6" target="_blank" rel="noopener noreferrer">Đặt Lịch Tư Vấn Cùng Ôeng 💬</a>
       <div class="secure-text">🔒 Mọi câu chuyện của bạn được bảo mật tuyệt đối</div>
@@ -231,6 +253,29 @@ button.price-box:hover{border-color:var(--consult-pink)}
 <div id="site-footer" data-note="Dịch vụ chia sẻ góc nhìn về hành vi và các mối quan hệ, không thay thế chẩn đoán hay điều trị tâm lý, y tế. Nếu bạn đang gặp khủng hoảng nghiêm trọng về sức khỏe tinh thần, hãy liên hệ chuyên gia y tế hoặc người thân tin cậy ngay."></div>
 
 <script>
+// --- SCRIPT QUAN SÁT KÉO TRANG (INTERSECTION OBSERVER) ---
+document.addEventListener("DOMContentLoaded", function() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal, .reveal-left').forEach((el) => {
+        observer.observe(el);
+    });
+});
+// ---------------------------------------------------------
+
 // Chọn thời lượng trong từng gói
 document.querySelectorAll('.price-card').forEach(card=>{
   const boxes=card.querySelectorAll('button.price-box');
