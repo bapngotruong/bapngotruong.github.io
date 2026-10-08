@@ -3,25 +3,25 @@
 (function () {
   const host = document.getElementById('site-header');
   if (!host) return;
-  const P = location.pathname.split('/').pop() || 'index.html';
-  // So sánh không phân biệt đuôi .html, để link sạch ("livestream") và link cũ ("ao-dau.html") đều đánh dấu đúng trang hiện tại
+  const P = location.pathname.split('/').pop() || '';
+  // So sánh không phân biệt đuôi .html, để link sạch và link cũ đều đánh dấu đúng trang hiện tại
   const norm = s => s.replace(/\.html$/, '');
   const cur = h => (norm(h) === norm(P) ? ' aria-current="page"' : '');
   const a = (h, t) => `<a href="${h}"${cur(h)}>${t}</a>`;
   const ext = (h, t) => `<a href="${h}" target="_blank" rel="noopener noreferrer">${t}</a>`;
   const dd = (t, items) => `<li class="dropdown"><button type="button" class="dropbtn" aria-expanded="false" aria-haspopup="true">${t} ▾</button><div class="dropdown-content">${items}</div></li>`;
   const ctaText = host.dataset.ctaText || 'Xem hành trình →';
-  const ctaHref = host.dataset.ctaHref || 'index.html#journey';
+  const ctaHref = host.dataset.ctaHref || '/#journey';
 
   host.outerHTML = `<header>
-    <div class="logo"><a href="index.html" aria-label="Về trang chủ"><img src="png/2160px/logo-ch-original.png" alt="Ngô Văn Trường Logo" width="140" height="70"></a></div>
+    <div class="logo"><a href="/" aria-label="Về trang chủ"><img src="png/2160px/logo-ch-original.png" alt="Ngô Văn Trường Logo" width="140" height="70"></a></div>
     <button class="menu-toggle" id="menuToggle" aria-label="Mở menu" aria-expanded="false" aria-controls="navContainer"><span></span><span></span><span></span></button>
     <div class="nav-container" id="navContainer"><nav aria-label="Menu chính"><ul>
-      <li>${a('index.html#about', 'Về')}</li>
-      ${dd('Hành trình', a('index.html#journey-badminton', 'Cầu Lông') + a('index.html#journey-running', 'Chạy Bộ') + a('index.html#journey-ironman', 'Ironman') + a('index.html#journey-psychology', 'Phân Tích Tâm Lý'))}
-      ${dd('Dịch vụ', a('thiet-ke.html', 'Thiết Kế Theo Yêu Cầu') + a('tu-van.html', 'Tư Vấn Tình Cảm') + a('ao-dau.html', 'Áo Đấu') + a('livestream-dich-vu.html', 'Quay &amp; Livestream') + a('font.html', 'Bộ Font Độc Quyền'))}
+      <li>${a('/#about', 'Về')}</li>
+      ${dd('Hành trình', a('/#journey-badminton', 'Cầu Lông') + a('/#journey-running', 'Chạy Bộ') + a('/#journey-ironman', 'Ironman') + a('/#journey-psychology', 'Phân Tích Tâm Lý'))}
+      ${dd('Dịch vụ', a('thiet-ke', 'Thiết Kế Theo Yêu Cầu') + a('tu-van', 'Tư Vấn Tình Cảm') + a('ao-dau', 'Áo Đấu') + a('livestream-dich-vu', 'Quay &amp; Livestream') + a('font', 'Bộ Font Độc Quyền'))}
       ${dd('Liên hệ', ext('https://web.facebook.com/truong.bapngo.2k6', 'Facebook') + ext('https://zalo.me/0337439799', 'Zalo') + ext('https://www.tiktok.com/@ngotruong2406', 'TikTok') + '<a href="mailto:truonglofi006@gmail.com">Gmail</a>')}
-      <li><a href="tai-khoan.html" id="navAuth"${cur('tai-khoan.html')}>Đăng nhập</a></li>
+      <li><a href="tai-khoan" id="navAuth"${cur('tai-khoan')}>Đăng nhập</a></li>
     </ul></nav><a href="${ctaHref}" class="btn-start">${ctaText}</a></div></header>`;
 
   const H = document.querySelector('header'), T = H.querySelector('.menu-toggle'), N = H.querySelector('.nav-container');
@@ -55,6 +55,7 @@
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
   addEventListener('resize', () => { if (innerWidth > 1024) closeMenu(); });
+  
   // Đang ở trang chủ mà bấm "Hành trình > ..." thì mở đúng mục accordion
   addEventListener('hashchange', () => {
     if (window.openAndScrollJourney && location.hash.startsWith('#journey-')) openAndScrollJourney(location.hash.slice(1));
