@@ -15,6 +15,28 @@
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","yrsd07ghmy");</script>
 <link rel="stylesheet" href="assets/style.css">
 <style>
+/* --- HIỆU ỨNG KÉO ĐẾN ĐÂU HIỆN ĐẾN ĐÓ --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+    will-change: opacity, transform;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 0.8s ease-out;
+}
+.reveal-left.active { opacity: 1; transform: translateX(0); }
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+/* --------------------------------------- */
+
 .myfonts-container{max-width:1440px;margin:0 auto;padding:40px 8%}
 .breadcrumb{font-size:14px;color:var(--text-grey);margin-bottom:25px;font-weight:500}
 .breadcrumb a:hover{color:var(--brand-red)}
@@ -78,22 +100,22 @@
 <div id="site-header"></div><script src="assets/site.js"></script>
 
 <main class="myfonts-container">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
+  <nav class="breadcrumb reveal" aria-label="Breadcrumb">
     <a href="index.html">Trang chủ</a> / <span>Dịch vụ</span> / <span aria-current="page">BNT Font</span>
   </nav>
 
   <div class="product-header-wrapper">
     <div class="product-title">
-      <h1 class="bnt-display">BNT FONT</h1>
-      <p class="author">BNT by <a href="index.html">Ngô Văn Trường</a></p>
+      <h1 class="bnt-display reveal">BNT FONT</h1>
+      <p class="author reveal delay-1">BNT by <a href="index.html">Ngô Văn Trường</a></p>
     </div>
-    <div class="product-pricing">
+    <div class="product-pricing reveal delay-2">
       <div class="price-main">Individual Styles from <span class="usd bnt-display">129$</span> <span class="usd-red bnt-display">99$</span> <span class="price-badge">23% Off</span></div>
       <div class="price-sub">Complete family pack: <del>3.225.000 VNĐ</del> <span class="vnd-red bnt-display">2.475.000 VNĐ</span></div>
     </div>
   </div>
 
-  <div class="gallery-wrapper">
+  <div class="gallery-wrapper reveal">
     <div class="main-display">
       <video id="mainVideo" autoplay loop muted playsinline controls preload="metadata">
         <source src="BNT font.mp4" type="video/mp4">
@@ -112,11 +134,11 @@
     </div>
   </div>
 
-  <div class="product-description">
+  <div class="product-description reveal">
     <p>Bộ <strong>BNT FONT</strong> độc quyền được thiết kế bởi Ngô Văn Trường. Dành cho những ai tìm kiếm sự phá cách trong thể thao, sắc nét trong công nghệ và thanh lịch trong thiết kế cá nhân. Font chữ bao gồm đầy đủ các định dạng, tích hợp chuẩn xác tiếng Việt và cho phép tuỳ biến cao (Variable Options).</p>
   </div>
 
-  <div class="action-bar">
+  <div class="action-bar reveal delay-1">
     <div class="tabs-container" role="tablist" aria-label="Thông tin sản phẩm">
       <button type="button" class="tab-item" role="tab" id="tab-family" aria-selected="true" aria-controls="panel-family">Family Packages<small>Gói Đầy Đủ</small></button>
       <button type="button" class="tab-item" role="tab" id="tab-single" aria-selected="false" aria-controls="panel-single" tabindex="-1">Individual Styles<small>Mua Từng Kiểu</small></button>
@@ -129,10 +151,10 @@
     </div>
   </div>
 
-  <div class="tab-panel" id="panel-family" role="tabpanel" aria-labelledby="tab-family"><p><strong>Gói đầy đủ (Complete family pack):</strong> 2.475.000 VNĐ, giảm từ 3.225.000 VNĐ.</p></div>
-  <div class="tab-panel" id="panel-single" role="tabpanel" aria-labelledby="tab-single" hidden><p><strong>Mua từng kiểu (Individual Styles):</strong> từ 99$, giảm từ 129$. Liên hệ để chọn kiểu phù hợp.</p></div>
-  <div class="tab-panel" id="panel-specs" role="tabpanel" aria-labelledby="tab-specs" hidden><p>Đầy đủ các định dạng, hỗ trợ chuẩn tiếng Việt và tuỳ biến cao (Variable Options). Danh sách định dạng chi tiết đang được cập nhật.</p></div>
-  <div class="tab-panel" id="panel-license" role="tabpanel" aria-labelledby="tab-license" hidden><p>Phạm vi sử dụng (cá nhân, thương mại, số lượng thiết bị) đang được cập nhật. Vui lòng liên hệ qua Facebook hoặc Zalo trước khi mua.</p></div>
+  <div class="tab-panel reveal delay-2" id="panel-family" role="tabpanel" aria-labelledby="tab-family"><p><strong>Gói đầy đủ (Complete family pack):</strong> 2.475.000 VNĐ, giảm từ 3.225.000 VNĐ.</p></div>
+  <div class="tab-panel reveal delay-2" id="panel-single" role="tabpanel" aria-labelledby="tab-single" hidden><p><strong>Mua từng kiểu (Individual Styles):</strong> từ 99$, giảm từ 129$. Liên hệ để chọn kiểu phù hợp.</p></div>
+  <div class="tab-panel reveal delay-2" id="panel-specs" role="tabpanel" aria-labelledby="tab-specs" hidden><p>Đầy đủ các định dạng, hỗ trợ chuẩn tiếng Việt và tuỳ biến cao (Variable Options). Danh sách định dạng chi tiết đang được cập nhật.</p></div>
+  <div class="tab-panel reveal delay-2" id="panel-license" role="tabpanel" aria-labelledby="tab-license" hidden><p>Phạm vi sử dụng (cá nhân, thương mại, số lượng thiết bị) đang được cập nhật. Vui lòng liên hệ qua Facebook hoặc Zalo trước khi mua.</p></div>
 </main>
 
 <div id="paymentModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -152,6 +174,29 @@
 <div id="site-footer"></div>
 
 <script>
+// --- SCRIPT QUAN SÁT KÉO TRANG (INTERSECTION OBSERVER) ---
+document.addEventListener("DOMContentLoaded", function() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal, .reveal-left').forEach((el) => {
+        observer.observe(el);
+    });
+});
+// ---------------------------------------------------------
+
 // Gallery
 const mainVideo=document.getElementById('mainVideo'),mainImage=document.getElementById('mainImage'),thumbs=document.querySelectorAll('.thumbnail-item');
 thumbs.forEach(thumb=>thumb.addEventListener('click',()=>{
