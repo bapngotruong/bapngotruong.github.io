@@ -15,6 +15,29 @@
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","yrsd07ghmy");</script>
 <link rel="stylesheet" href="assets/style.css">
 <style>
+/* --- HIỆU ỨNG KÉO ĐẾN ĐÂU HIỆN ĐẾN ĐÓ --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+    will-change: opacity, transform;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 0.8s ease-out;
+}
+.reveal-left.active { opacity: 1; transform: translateX(0); }
+/* Delay để các dòng chữ hiện nối tiếp nhau */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+/* --------------------------------------- */
+
 .product-container{max-width:1440px;margin:0 auto;padding:40px 8%}
 .breadcrumb{font-size:14px;color:var(--text-grey);margin-bottom:25px;font-weight:500}
 .breadcrumb a:hover{color:var(--brand-red)}
@@ -69,28 +92,30 @@
 <div id="site-header"></div><script src="assets/site.js"></script>
 
 <main class="product-container">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
+  <nav class="breadcrumb reveal" aria-label="Breadcrumb">
     <a href="index.html">Trang chủ</a> / <span>Dịch vụ</span> / <span aria-current="page">Thời Trang Cá Tính</span>
   </nav>
 
   <div class="product-header-wrapper">
     <div class="product-title">
-      <h1 class="bnt-display">ÁO ĐẤU BNT EXCLUSIVE</h1>
-      <p class="author">Thiết kế bởi <a href="index.html">Ngô Văn Trường</a></p>
+      <h1 class="bnt-display reveal">ÁO ĐẤU BNT EXCLUSIVE</h1>
+      <p class="author reveal delay-1">Thiết kế bởi <a href="index.html">Ngô Văn Trường</a></p>
     </div>
-    <div class="product-pricing">
+    <div class="product-pricing reveal delay-2">
       <div class="price-main">Giá Đặt Trước: <span class="usd bnt-display">799k</span> <span class="usd-red bnt-display">499k</span> <span class="price-badge">Pre-Order Ưu Đãi</span></div>
       <div class="price-sub">Tiết kiệm ngay 300.000 VNĐ khi đặt trước</div>
     </div>
   </div>
 
-  <div class="gallery-wrapper"><img src="aos dau nvt.png" alt="Áo Đấu BNT Exclusive" fetchpriority="high" decoding="async"></div>
+  <div class="gallery-wrapper reveal">
+      <img src="aos dau nvt.png" alt="Áo Đấu BNT Exclusive" fetchpriority="high" decoding="async">
+  </div>
 
-  <div class="product-description">
+  <div class="product-description reveal">
     <p>Tỏa sáng trên sân với thiết kế <strong>ÁO ĐẤU BNT EXCLUSIVE</strong>. Được thiết kế cá nhân hóa từ Typography BNT Font độc quyền, kết hợp cùng chất liệu vải mè lạnh thể thao cao cấp. Trọng lượng áo siêu nhẹ, độ co giãn 4 chiều và khả năng thấm hút mồ hôi cực nhanh giúp duy trì sự thoải mái tối đa trong từng bước chạy và những pha đập cầu đầy uy lực.</p>
   </div>
 
-  <div class="action-bar">
+  <div class="action-bar reveal delay-1">
     <div class="tabs-container" role="tablist" aria-label="Thông tin sản phẩm">
       <button type="button" class="tab-item" role="tab" id="tab-size" aria-selected="true" aria-controls="panel-size">Bảng Size<small>Chuẩn Form Châu Á</small></button>
       <button type="button" class="tab-item" role="tab" id="tab-fabric" aria-selected="false" aria-controls="panel-fabric" tabindex="-1">Chất Liệu<small>Vải Mè Thể Thao</small></button>
@@ -102,7 +127,7 @@
     </div>
   </div>
 
-  <div class="tab-panel" id="panel-size" role="tabpanel" aria-labelledby="tab-size"><p>Form áo chuẩn châu Á. Bảng số đo chi tiết từng size (ngang vai, dài áo, cân nặng gợi ý) đang được cập nhật. Bạn có thể nhắn tư vấn size qua Facebook trước khi đặt.</p></div>
+  <div class="tab-panel reveal delay-2" id="panel-size" role="tabpanel" aria-labelledby="tab-size"><p>Form áo chuẩn châu Á. Bảng số đo chi tiết từng size (ngang vai, dài áo, cân nặng gợi ý) đang được cập nhật. Bạn có thể nhắn tư vấn size qua Facebook trước khi đặt.</p></div>
   <div class="tab-panel" id="panel-fabric" role="tabpanel" aria-labelledby="tab-fabric" hidden><p><strong>Vải mè lạnh thể thao cao cấp:</strong> trọng lượng siêu nhẹ, co giãn 4 chiều, thấm hút mồ hôi nhanh.</p></div>
   <div class="tab-panel" id="panel-custom" role="tabpanel" aria-labelledby="tab-custom" hidden><p><strong>In tên và số riêng</strong> theo yêu cầu, thiết kế từ typography BNT Font độc quyền. Nhắn tư vấn để chốt nội dung in.</p></div>
 </main>
@@ -128,6 +153,29 @@
 <div id="site-footer"></div>
 
 <script>
+// --- SCRIPT QUAN SÁT KÉO TRANG (INTERSECTION OBSERVER) ---
+document.addEventListener("DOMContentLoaded", function() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1 // Để ngưỡng 10% là hiện, cho nhạy hơn một chút trên trang sản phẩm
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal, .reveal-left').forEach((el) => {
+        observer.observe(el);
+    });
+});
+// ---------------------------------------------------------
+
 // Tabs
 const tabs=Array.from(document.querySelectorAll('[role="tab"]'));
 function selectTab(tab,focus){
