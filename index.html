@@ -15,6 +15,30 @@
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","yrsd07ghmy");</script>
 <link rel="stylesheet" href="assets/style.css">
 <style>
+/* --- HIỆU ỨNG KÉO ĐẾN ĐÂU HIỆN ĐẾN ĐÓ --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px); /* Đẩy xuống dưới 40px ban đầu */
+    transition: all 0.8s ease-out; /* Thời gian chuyển động mượt 0.8s */
+    will-change: opacity, transform;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0); /* Trở về vị trí gốc */
+}
+/* Hiệu ứng trượt từ trái sang cho ảnh */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease-out;
+}
+.reveal-left.active { opacity: 1; transform: translateX(0); }
+/* Delay một chút để các dòng chữ hiện ra nối tiếp nhau (stagger) */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+/* --------------------------------------- */
+
 .hero{display:flex;align-items:center;justify-content:space-between;padding:40px 8% 100px;min-height:max(700px,calc(100vh - var(--header-h)))}
 .hero-content{flex:1;max-width:500px}
 .tagline{color:var(--text-grey);font-size:14px;font-weight:600;letter-spacing:1.5px;margin-bottom:30px;text-transform:uppercase}
@@ -78,17 +102,18 @@
 <body>
 <div id="site-header"></div><script src="assets/site.js"></script>
 <main>
+
 <section class="hero" aria-label="Giới thiệu">
   <div class="hero-content">
-    <p class="tagline">ý tưởng / sản phẩm / dịch vụ</p>
-    <h1>KHÔNG GIAN<br>SÁNG TẠO<br>TƯƠNG LAI.</h1>
-    <p class="lead">Kỷ luật của thể thao, sự bay bổng của nghệ thuật, và một trạm dừng chân cho mọi ý tưởng của bạn.</p>
+    <p class="tagline reveal">ý tưởng / sản phẩm / dịch vụ</p>
+    <h1 class="reveal delay-1">KHÔNG GIAN<br>SÁNG TẠO<br>TƯƠNG LAI.</h1>
+    <p class="lead reveal delay-2">Kỷ luật của thể thao, sự bay bổng của nghệ thuật, và một trạm dừng chân cho mọi ý tưởng của bạn.</p>
   </div>
-  <div class="hero-slider-container">
+  <div class="hero-slider-container reveal delay-3">
     <div class="slider" id="slider" aria-roledescription="carousel" aria-label="Sản phẩm nổi bật">
       <div class="slides" id="slideTrack">
-        <div class="slide"><a href="ao-dau"><img src="aos dau nvt.png" alt="Áo Đấu NVT"></a></div>
-        <div class="slide"><a href="font"><img src="banner font bnt do 5.png" alt="Font BNT" loading="lazy"></a></div>
+        <div class="slide"><a href="ao-dau.html"><img src="aos dau nvt.png" alt="Áo Đấu NVT"></a></div>
+        <div class="slide"><a href="font.html"><img src="banner font bnt do 5.png" alt="Font BNT" loading="lazy"></a></div>
       </div>
       <button type="button" class="slider-btn prev-btn" aria-label="Slide trước">&#10094;</button>
       <button type="button" class="slider-btn next-btn" aria-label="Slide sau">&#10095;</button>
@@ -99,27 +124,27 @@
 
 <section id="about" class="about-section">
   <div class="about-container">
-    <div class="about-image"><img src="chan dung nvt.jpg" alt="Chân dung Ngô Văn Trường" loading="lazy" decoding="async"></div>
+    <div class="about-image reveal-left"><img src="chan dung nvt.jpg" alt="Chân dung Ngô Văn Trường" loading="lazy" decoding="async"></div>
     <div class="about-text">
-      <h2>Ngô Văn Trường</h2>
-      <p class="intro">Chào bạn, mình là Ngô Văn Trường – người đứng sau không gian sáng tạo này.</p>
-      <p>Xuất phát điểm là một sinh viên Thiết kế Đồ họa tại FPT Polytechnic Hà Nội, mình luôn tin rằng thiết kế không chỉ là việc sắp xếp màu sắc hay hình khối, mà là quá trình giải mã tâm lý và truyền tải thông điệp. Chào mừng bạn bước vào "Không gian sáng tạo tương lai" – nơi những ý tưởng thô sơ nhất sẽ được nhào nặn thành những sản phẩm hoàn chỉnh và mang đậm dấu ấn cá nhân.</p>
-      <h3>Từ tư duy hình ảnh đến những thiết kế thực chiến</h3>
-      <p>Như bạn có thể thấy qua những mẫu thiết kế thời trang cá tính hay các dự án nhận diện thương hiệu tại đây, mình đam mê việc tạo ra sự khác biệt. Mình sử dụng sự nhạy bén với hệ sinh thái Adobe (Illustrator, InDesign, After Effects) để cung cấp các dịch vụ thiết kế theo yêu cầu. Dù đó là việc sáng tạo ra những bộ font độc quyền, xây dựng concept nhận diện cho một thương hiệu lớn (như dự án BMW M4 GT3 EVO), hay dàn trang những ấn phẩm phức tạp, mọi thứ đều được thực hiện với tiêu chuẩn khắt khe nhất.</p>
-      <p>Hơn thế nữa, các sản phẩm của mình luôn được khai thác dưới lăng kính tâm lý học, giúp hình ảnh không chỉ đẹp mắt mà còn chạm đến cảm xúc và hành vi của người xem.</p>
-      <h3>Kỷ luật thép làm nên một nhà sáng tạo bền bỉ</h3>
-      <p>Khác với suy nghĩ nghệ thuật là phải luôn ngẫu hứng, triết lý làm việc của mình được xây dựng trên nền tảng của sự kỷ luật. Là một người theo đuổi mục tiêu Marathon Sub-3, rèn luyện kỹ năng trên sân cầu lông, bơi lội và thấm nhuần tinh thần của Vovinam, mình mang nguyên vẹn ý chí của một "vận động viên" vào công việc.</p>
-      <p>Thể thao dạy mình cách kiểm soát nhịp độ, quản lý thời gian và vượt qua giới hạn của bản thân. Sự bền bỉ ấy giúp mình luôn vững vàng trước mọi deadline, làm việc nhóm hiệu quả cùng những người cộng sự, và liên tục tối ưu hóa trải nghiệm trên chính website này.</p>
-      <p class="outro">"Dù bạn đang tìm kiếm một thiết kế thời trang thể thao bùng nổ, một bộ font chữ mang đậm cái tôi, hay một chiến lược hình ảnh có chiều sâu – đây chính là trạm dừng chân cuối cùng cho mọi ý tưởng của bạn."</p>
+      <h2 class="reveal">Ngô Văn Trường</h2>
+      <p class="intro reveal delay-1">Chào bạn, mình là Ngô Văn Trường – người đứng sau không gian sáng tạo này.</p>
+      <p class="reveal delay-2">Xuất phát điểm là một sinh viên Thiết kế Đồ họa tại FPT Polytechnic Hà Nội, mình luôn tin rằng thiết kế không chỉ là việc sắp xếp màu sắc hay hình khối, mà là quá trình giải mã tâm lý và truyền tải thông điệp. Chào mừng bạn bước vào "Không gian sáng tạo tương lai" – nơi những ý tưởng thô sơ nhất sẽ được nhào nặn thành những sản phẩm hoàn chỉnh và mang đậm dấu ấn cá nhân.</p>
+      <h3 class="reveal">Từ tư duy hình ảnh đến những thiết kế thực chiến</h3>
+      <p class="reveal delay-1">Như bạn có thể thấy qua những mẫu thiết kế thời trang cá tính hay các dự án nhận diện thương hiệu tại đây, mình đam mê việc tạo ra sự khác biệt. Mình sử dụng sự nhạy bén với hệ sinh thái Adobe (Illustrator, InDesign, After Effects) để cung cấp các dịch vụ thiết kế theo yêu cầu. Dù đó là việc sáng tạo ra những bộ font độc quyền, xây dựng concept nhận diện cho một thương hiệu lớn (như dự án BMW M4 GT3 EVO), hay dàn trang những ấn phẩm phức tạp, mọi thứ đều được thực hiện với tiêu chuẩn khắt khe nhất.</p>
+      <p class="reveal delay-2">Hơn thế nữa, các sản phẩm của mình luôn được khai thác dưới lăng kính tâm lý học, giúp hình ảnh không chỉ đẹp mắt mà còn chạm đến cảm xúc và hành vi của người xem.</p>
+      <h3 class="reveal">Kỷ luật thép làm nên một nhà sáng tạo bền bỉ</h3>
+      <p class="reveal delay-1">Khác với suy nghĩ nghệ thuật là phải luôn ngẫu hứng, triết lý làm việc của mình được xây dựng trên nền tảng của sự kỷ luật. Là một người theo đuổi mục tiêu Marathon Sub-3, rèn luyện kỹ năng trên sân cầu lông, bơi lội và thấm nhuần tinh thần của Vovinam, mình mang nguyên vẹn ý chí của một "vận động viên" vào công việc.</p>
+      <p class="reveal delay-2">Thể thao dạy mình cách kiểm soát nhịp độ, quản lý thời gian và vượt qua giới hạn của bản thân. Sự bền bỉ ấy giúp mình luôn vững vàng trước mọi deadline, làm việc nhóm hiệu quả cùng những người cộng sự, và liên tục tối ưu hóa trải nghiệm trên chính website này.</p>
+      <p class="outro reveal delay-3">"Dù bạn đang tìm kiếm một thiết kế thời trang thể thao bùng nổ, một bộ font chữ mang đậm cái tôi, hay một chiến lược hình ảnh có chiều sâu – đây chính là trạm dừng chân cuối cùng cho mọi ý tưởng của bạn."</p>
     </div>
   </div>
 </section>
 
 <section id="journey" class="journey-section">
-  <h2 class="journey-title">Hành trình &amp; Dự án</h2>
+  <h2 class="journey-title reveal">Hành trình &amp; Dự án</h2>
   <div class="accordion-container">
 
-    <div class="accordion-item" id="journey-badminton">
+    <div class="accordion-item reveal delay-1" id="journey-badminton">
       <button type="button" class="accordion-header" id="h-badminton" aria-expanded="false" aria-controls="c-badminton">Tinh thần Thể thao &amp; Cầu lông</button>
       <div class="accordion-content" id="c-badminton" role="region" aria-labelledby="h-badminton"><div class="accordion-inner">
         <div class="accordion-text">
@@ -133,7 +158,7 @@
       </div></div>
     </div>
 
-    <div class="accordion-item" id="journey-running">
+    <div class="accordion-item reveal delay-2" id="journey-running">
       <button type="button" class="accordion-header" id="h-running" aria-expanded="false" aria-controls="c-running">Hành trình Chạy bộ &amp; Sub-3 Marathon</button>
       <div class="accordion-content" id="c-running" role="region" aria-labelledby="h-running"><div class="accordion-inner reverse-layout">
         <div class="accordion-text">
@@ -147,7 +172,7 @@
       </div></div>
     </div>
 
-    <div class="accordion-item" id="journey-ironman">
+    <div class="accordion-item reveal delay-1" id="journey-ironman">
       <button type="button" class="accordion-header" id="h-ironman" aria-expanded="false" aria-controls="c-ironman">Thách thức Ironman &amp; 3 Môn Phối Hợp</button>
       <div class="accordion-content" id="c-ironman" role="region" aria-labelledby="h-ironman"><div class="accordion-inner">
         <div class="accordion-text">
@@ -161,7 +186,7 @@
       </div></div>
     </div>
 
-    <div class="accordion-item" id="journey-psychology">
+    <div class="accordion-item reveal delay-2" id="journey-psychology">
       <button type="button" class="accordion-header" id="h-psychology" aria-expanded="false" aria-controls="c-psychology">Phân tích Tâm lý học Hành vi (Ôeng)</button>
       <div class="accordion-content" id="c-psychology" role="region" aria-labelledby="h-psychology"><div class="accordion-inner reverse-layout">
         <div class="accordion-text">
@@ -181,6 +206,30 @@
 <div id="site-footer"></div>
 
 <script>
+// --- SCRIPT QUAN SÁT KÉO TRANG (INTERSECTION OBSERVER) ---
+document.addEventListener("DOMContentLoaded", function() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15 // Kích hoạt khi phần tử hiện lên 15% màn hình
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active'); // Thêm class active để kích hoạt CSS
+                observer.unobserve(entry.target); // Chỉ chạy 1 lần để web không bị nặng
+            }
+        });
+    }, observerOptions);
+
+    // Bắt đầu quan sát tất cả các phần tử có class 'reveal' hoặc 'reveal-left'
+    document.querySelectorAll('.reveal, .reveal-left').forEach((el) => {
+        observer.observe(el);
+    });
+});
+// ---------------------------------------------------------
+
 // Slider
 (function(){
   const s=document.getElementById('slider'),t=document.getElementById('slideTrack'),dots=s.querySelectorAll('.dot'),n=t.children.length;
@@ -201,7 +250,7 @@
   start();
 })();
 
-// Accordion (openAndScrollJourney được site.js gọi khi bấm menu Hành trình)
+// Accordion
 const accItems=document.querySelectorAll('.accordion-item');
 function setAccordion(item,open){
   item.querySelector('.accordion-header').setAttribute('aria-expanded',open?'true':'false');
