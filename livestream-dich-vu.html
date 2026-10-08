@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- 1. SEO & META -->
+<title>Dịch Vụ Quay & Livestream Giải Đấu Thể Thao - Ngô Văn Trường</title>
+<meta name="description" content="Quay và livestream giải đấu thể thao trọn gói: đa góc máy HD/4K, hình ảnh sắc nét, mượt mà. Nhận báo giá qua Zalo.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dịch Vụ Quay & Livestream Giải Đấu Thể Thao - Ngô Văn Trường">
+<meta property="og:description" content="Tối ưu hình ảnh chuẩn truyền hình, không lo gậy bản quyền. Đặt lịch quay và livestream giải đấu cùng BNT Sports Media.">
+<meta property="og:image" content="chan dung nvt.jpg">
+
+<!-- 2. TÀI NGUYÊN HỆ THỐNG -->
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- 3. ANALYTICS ĐỒNG BỘ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8JM5VVPJ3H"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8JM5VVPJ3H');</script>
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","yrsd07ghmy");</script>
+
+<link rel="stylesheet" href="assets/style.css">
+
+<style>
+/* ===== HIỆU ỨNG REVEAL ===== */
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.5, 0, 0, 1); }
+.reveal-left { opacity: 0; transform: translateX(-30px); transition: all 0.7s cubic-bezier(0.5, 0, 0, 1); }
+.reveal.active, .reveal-left.active { opacity: 1; transform: translate(0, 0); }
+.delay-1 { transition-delay: 0.15s; }
+.delay-2 { transition-delay: 0.3s; }
+.delay-3 { transition-delay: 0.45s; }
+
+/* ===== Trang livestream-dich-vu ===== */
+html{scroll-behavior:smooth}
+.ls-wrap{max-width:1180px;margin:0 auto}
+.ls-sec{padding:90px 8%;scroll-margin-top:calc(var(--header-h,80px) + 10px)}
+.ls-sec.ls-alt{background:var(--light-grey,#f5f5f5)}
+.ls-h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;line-height:1.2;color:var(--brand-black,#222);margin:0 0 14px}
+.ls-lead{color:var(--text-grey,#666);font-size:1.08rem;line-height:1.7;max-width:640px;margin:0 0 44px}
+.ls-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:10px;border:2px solid var(--brand-red,#e11d2e);background:var(--brand-red,#e11d2e);color:#fff;font:700 1rem/1 'Inter',sans-serif;text-decoration:none;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.ls-btn:hover{transform:translateY(-2px)}
+.ls-btn.ls-ghost{background:transparent;color:var(--brand-black,#222);border-color:var(--brand-black,#222)}
+.ls-btn.ls-ghost:hover{background:var(--brand-black,#222);color:#fff}
+.ls-btn:focus-visible,.ls-input:focus-visible,.ls-crumb a:focus-visible{outline:3px solid var(--brand-red,#e11d2e);outline-offset:3px}
+
+/* Breadcrumb (liền mạch với nền Hero) */
+.ls-crumb{background:var(--brand-black,#222);padding:calc(var(--header-h,80px) + 20px) 8% 0}
+.ls-crumb ol{list-style:none;margin:0 auto;padding:0;max-width:1180px;display:flex;flex-wrap:wrap;gap:8px;font-size:.9rem;color:#9a9a9a}
+.ls-crumb li+li::before{content:"/";margin-right:8px;color:#666}
+.ls-crumb a{color:#d8d8d8;text-decoration:none}
+.ls-crumb a:hover{color:#fff;text-decoration:underline}
+.ls-crumb [aria-current="page"]{color:#fff;font-weight:600}
+
+/* Hero */
+.ls-hero{padding:48px 8% 80px;background:var(--brand-black,#222);color:#fff}
+.ls-hero .ls-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.ls-hero h1{font-size:clamp(2.1rem,4.6vw,3.6rem);font-weight:800;line-height:1.1;margin:0 0 20px}
+.ls-hero p{font-size:1.2rem;line-height:1.65;color:#cfcfcf;margin:0 0 32px;max-width:520px}
+.ls-cta{display:flex;flex-wrap:wrap;gap:14px}
+.ls-hero .ls-ghost{color:#fff;border-color:#fff}
+.ls-hero .ls-ghost:hover{background:#fff;color:var(--brand-black,#222)}
+.ls-mini{position:relative;aspect-ratio:16/10;border-radius:16px;background:radial-gradient(circle at 30% 20%,#3a3a3a,#111 70%);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.ls-mini::before{content:"";position:absolute;inset:14px;border:2px solid rgba(255,255,255,.35);border-radius:6px;clip-path:polygon(0 0,18% 0,18% 3px,3px 3px,3px 22%,0 22%,0 0)}
+.ls-mini .ls-rec{position:absolute;top:22px;left:24px;display:flex;align-items:center;gap:8px;font-weight:700;font-size:.85rem}
+.ls-dot{width:10px;height:10px;border-radius:50%;background:var(--brand-red,#e11d2e);animation:ls-pulse 1.4s infinite}
+@keyframes ls-pulse{50%{opacity:.25}}
+.ls-mini .ls-spec{position:absolute;left:24px;bottom:22px;right:24px;display:flex;justify-content:space-between;font-size:.85rem;color:#bbb}
+
+/* Demo Player - Video Livestream */
+.ls-player{max-width:960px;margin:0 auto;border-radius:18px;overflow:hidden;background:#0d0d0d;box-shadow:0 20px 50px rgba(0,0,0,.2)}
+.ls-video{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+.ls-video-bg{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Hậu trường & Dự án thực tế */
+.ls-gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:16px}
+.ls-gal figure{position:relative;margin:0;border-radius:14px;overflow:hidden;background:#d9d9d9}
+.ls-gal figure:first-child{grid-column:span 2;grid-row:span 2}
+.ls-gal figure:nth-child(4){grid-column:3 / 5}
+.ls-gal img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.ls-gal figure:hover img{transform:scale(1.04)}
+.ls-gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;color:#fff;font-weight:600;font-size:.95rem;background:linear-gradient(transparent,rgba(0,0,0,.72))}
+.ls-proof{list-style:none;padding:0;margin:36px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ls-proof li{background:#fff;border-left:5px solid var(--brand-red,#e11d2e);border-radius:10px;padding:18px 20px;line-height:1.55;color:var(--text-grey,#666);font-size:.95rem}
+.ls-proof strong{display:block;color:var(--brand-black,#222);font-size:1.02rem;margin-bottom:4px}
+
+/* Pricing */
+.ls-price{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+.ls-card{position:relative;display:flex;flex-direction:column;background:#fff;border:2px solid #e6e6e6;border-radius:18px;padding:32px 28px}
+.ls-card.ls-hot{border-color:var(--brand-red,#e11d2e);box-shadow:0 18px 44px rgba(225,29,46,.16)}
+.ls-tag{position:absolute;top:-14px;left:28px;background:var(--brand-red,#e11d2e);color:#fff;font-weight:800;font-size:.8rem;padding:6px 14px;border-radius:999px}
+.ls-card h3{font-size:1.3rem;margin:0 0 6px;color:var(--brand-black,#222)}
+.ls-for{color:var(--text-grey,#666);font-size:.95rem;margin:0 0 18px}
+.ls-amount{font-size:1.7rem;font-weight:800;color:var(--brand-black,#222);margin:0}
+.ls-amount small{display:block;font-size:.85rem;font-weight:500;color:var(--text-grey,#666);margin-top:4px}
+.ls-list{list-style:none;padding:0;margin:22px 0 28px;display:grid;gap:12px;flex:1}
+.ls-list li{padding-left:28px;position:relative;line-height:1.5;color:#333}
+.ls-list li::before{content:"";position:absolute;left:0;top:.35em;width:16px;height:9px;border-left:3px solid var(--brand-red,#e11d2e);border-bottom:3px solid var(--brand-red,#e11d2e);transform:rotate(-45deg) scale(.8)}
+.ls-card .ls-btn{width:100%}
+.ls-card:not(.ls-hot) .ls-btn{background:transparent;color:var(--brand-black,#222);border-color:var(--brand-black,#222)}
+.ls-card:not(.ls-hot) .ls-btn:hover{background:var(--brand-black,#222);color:#fff}
+
+/* Add-ons */
+.ls-add{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.ls-add article{background:#fff;border-left:5px solid var(--brand-red,#e11d2e);border-radius:10px;padding:24px 22px;box-shadow:0 4px 18px rgba(0,0,0,.06)}
+.ls-add .ls-ico{font-size:1.8rem;display:block;margin-bottom:10px}
+.ls-add h3{font-size:1.08rem;margin:0 0 8px;color:var(--brand-black,#222)}
+.ls-add p{margin:0;color:var(--text-grey,#666);line-height:1.6;font-size:.95rem}
+
+/* FAQ - Accordion */
+.ls-faq{max-width:820px;margin:0 auto;display:grid;gap:12px}
+.ls-faq-item{background:#fff;border:2px solid #e6e6e6;border-radius:14px;overflow:hidden;transition:border-color .25s}
+.ls-faq-item.is-open{border-color:var(--brand-red,#e11d2e)}
+.ls-faq-h{margin:0;font-size:1rem}
+.ls-faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 22px;background:none;border:0;text-align:left;font:700 1.05rem/1.4 'Inter',sans-serif;color:var(--brand-black,#222);cursor:pointer}
+.ls-faq-q:focus-visible{outline:3px solid var(--brand-red,#e11d2e);outline-offset:-3px}
+.ls-faq-ico{flex:none;position:relative;width:18px;height:18px}
+.ls-faq-ico::before,.ls-faq-ico::after{content:"";position:absolute;left:0;top:50%;width:100%;height:2px;margin-top:-1px;background:var(--brand-red,#e11d2e);transition:transform .3s}
+.ls-faq-ico::after{transform:rotate(90deg)}
+.ls-faq-item.is-open .ls-faq-ico::after{transform:rotate(0)}
+.ls-faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.ls-faq-item.is-open .ls-faq-a{grid-template-rows:1fr}
+.ls-faq-a > div{overflow:hidden;visibility:hidden;transition:visibility .35s}
+.ls-faq-item.is-open .ls-faq-a > div{visibility:visible}
+.ls-faq-a p{margin:0;padding:0 22px 22px;color:var(--text-grey,#666);line-height:1.7}
+
+/* Form */
+.ls-formbox{max-width:760px;margin:0 auto;background:#fff;border-radius:18px;padding:40px;box-shadow:0 16px 44px rgba(0,0,0,.08)}
+.ls-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ls-field{display:flex;flex-direction:column;gap:6px}
+.ls-field label{font-weight:600;font-size:.92rem;color:var(--brand-black,#222)}
+.ls-input{width:100%;padding:13px 14px;border:2px solid #ddd;border-radius:10px;font:500 1rem 'Inter',sans-serif;background:#fff;color:var(--brand-black,#222)}
+.ls-input[aria-invalid="true"]{border-color:var(--brand-red,#e11d2e)}
+.ls-err{color:var(--brand-red,#e11d2e);font-size:.82rem;min-height:1.1em}
+.ls-full{grid-column:1/-1}
+.ls-formbox .ls-btn{width:100%;margin-top:6px}
+
+/* Thông báo Form (lỗi / hướng dẫn) */
+.ls-status{display:flex;align-items:flex-start;gap:10px;margin:16px 0 0;padding:14px 16px;border-radius:10px;border-left:5px solid transparent;font-size:.95rem;font-weight:500;line-height:1.55;text-align:left;animation:ls-pop .3s ease-out}
+.ls-status:empty{display:none}
+.ls-status::before{flex:none;font-size:1.15rem;line-height:1.35}
+.ls-status--error{background:#fdecee;border-color:var(--brand-red,#e11d2e);color:#8c1420}
+.ls-status--error::before{content:"⚠️"}
+.ls-status--info{background:#fff6d6;border-color:#f2b705;color:#6b5000}
+.ls-status--info::before{content:"📋"}
+@keyframes ls-pop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* Responsive */
+@media (max-width:1024px){
+  .ls-sec{padding:70px 6%}
+  .ls-crumb{padding:calc(var(--header-h,80px) + 16px) 6% 0}
+  .ls-hero{padding:36px 6% 60px}
+  .ls-hero .ls-wrap{grid-template-columns:1fr;gap:40px}
+  .ls-gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:190px}
+  .ls-gal figure:first-child{grid-column:span 2;grid-row:span 1}
+  .ls-gal figure:nth-child(4){grid-column:auto}
+  .ls-proof{grid-template-columns:1fr}
+  .ls-price{grid-template-columns:1fr;max-width:520px;margin:0 auto}
+  .ls-add{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:480px){
+  .ls-sec{padding:56px 5%}
+  .ls-crumb{padding:calc(var(--header-h,80px) + 14px) 5% 0}
+  .ls-cta .ls-btn{width:100%}
+  .ls-gal{grid-template-columns:1fr;grid-auto-rows:200px}
+  .ls-gal figure:first-child{grid-column:auto}
+  .ls-add{grid-template-columns:1fr}
+  .ls-grid{grid-template-columns:1fr}
+  .ls-formbox{padding:24px 18px}
+  .ls-faq-q{padding:16px 16px;font-size:1rem}
+  .ls-faq-a p{padding:0 16px 18px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .ls-dot,.ls-status{animation:none}
+  .ls-faq-a,.ls-faq-a > div,.ls-faq-ico::after,.ls-gal img{transition:none}
+}
+</style>
+</head>
+<body>
+
+<!-- 4. HEADER HỆ THỐNG -->
+<div id="site-header"></div><script src="assets/site.js"></script>
+
+<!-- ========================================== -->
+<!-- 5. NỘI DUNG TRANG -->
+<!-- ========================================== -->
+<main>
+
+  <!-- BREADCRUMB -->
+  <nav class="ls-crumb reveal" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Trang chủ</a></li>
+      <li><a href="tu-van">Dịch vụ</a></li>
+      <li aria-current="page">Quay &amp; Livestream</li>
+    </ol>
+  </nav>
+
+  <!-- HERO -->
+  <section class="ls-hero" aria-labelledby="ls-hero-title">
+    <div class="ls-wrap">
+      <div>
+        <h1 id="ls-hero-title" class="reveal">Dịch Vụ Quay &amp; Livestream Giải Đấu Thể Thao Chuyên Nghiệp</h1>
+        <p class="reveal delay-1">Tối ưu hình ảnh, mượt mà chuẩn truyền hình, không lo gậy bản quyền.</p>
+        <div class="ls-cta reveal delay-2">
+          <a class="ls-btn" href="#ls-form">Đặt Lịch Ngay</a>
+          <a class="ls-btn ls-ghost" href="live">Xem Kênh Live Demo</a>
+        </div>
+      </div>
+      <div class="ls-mini reveal-left delay-2" role="img" aria-label="Khung hình minh họa máy quay đang phát trực tiếp giải đấu">
+        <div class="ls-rec"><span class="ls-dot"></span>REC · LIVE</div>
+        <div class="ls-spec"><span>BNT Sports Media</span><span>HD / 4K</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO VIDEO LIVESTREAM THỰC TẾ -->
+  <section class="ls-sec" id="ls-demo" aria-labelledby="ls-demo-title">
+    <div class="ls-wrap">
+      <h2 class="ls-h2 reveal" id="ls-demo-title">Demo chất lượng Livestream thực tế</h2>
+      <p class="ls-lead reveal delay-1">Hình ảnh sắc nét, mượt mà trực tiếp từ các giải đấu do BNT Sports Media thực hiện.</p>
+
+      <div class="ls-player reveal delay-2">
+        <div class="ls-video">
+          <!-- FILE VIDEO DEMO LIVESTREAM -->
+          <video class="ls-video-bg" src="live.mp4" poster="img/livestream/poster-demo.jpg" preload="metadata" aria-label="Video demo livestream giải đấu thể thao" controls autoplay loop muted playsinline>
+            Trình duyệt của bạn không hỗ trợ phát video.
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HẬU TRƯỜNG & DỰ ÁN THỰC TẾ -->
+  <section class="ls-sec ls-alt" id="ls-proof" aria-labelledby="ls-proof-title">
+    <div class="ls-wrap">
+      <h2 class="ls-h2 reveal" id="ls-proof-title">Hậu trường &amp; dự án thực tế</h2>
+      <p class="ls-lead reveal delay-1">Mỗi giải đều được setup máy quay, kiểm tra tín hiệu và bảng tỉ số từ trước giờ phát. Thiết bị HD/4K cùng đội ngũ tác nghiệp có mặt sớm để mọi thứ sẵn sàng khi trận đấu bắt đầu.</p>
+
+      <div class="ls-gal">
+        <figure class="reveal">
+          <img src="img/livestream/hau-truong-1.jpg" alt="Setup máy quay chính tại sân thi đấu trước giờ phát sóng" width="1200" height="800" loading="lazy" decoding="async">
+          <figcaption>Setup máy quay chính trước giờ phát</figcaption>
+        </figure>
+        <figure class="reveal delay-1">
+          <img src="img/livestream/hau-truong-2.jpg" alt="Đội ngũ kỹ thuật viên đang tác nghiệp tại giải đấu" width="800" height="600" loading="lazy" decoding="async">
+          <figcaption>Đội ngũ tác nghiệp</figcaption>
+        </figure>
+        <figure class="reveal delay-2">
+          <img src="img/livestream/hau-truong-3.jpg" alt="Kiểm tra tín hiệu và bảng tỉ số trên màn hình điều khiển" width="800" height="600" loading="lazy" decoding="async">
+          <figcaption>Kiểm tra tín hiệu và bảng tỉ số</figcaption>
+        </figure>
+        <figure class="reveal delay-3">
+          <img src="img/livestream/hau-truong-4.jpg" alt="Góc hậu trường khu vực điều phối phát sóng trực tiếp" width="1200" height="600" loading="lazy" decoding="async">
+          <figcaption>Khu vực điều phối phát sóng</figcaption>
+        </figure>
+      </div>
+
+      <ul class="ls-proof">
+        <li class="reveal"><strong>Thiết bị hiện đại</strong>Máy quay HD/4K, hỗ trợ đa góc máy cho mọi quy mô giải.</li>
+        <li class="reveal delay-1"><strong>Đội ngũ chuyên nghiệp</strong>Kỹ thuật viên có mặt sớm, chạy thử toàn bộ hệ thống trước giờ thi đấu.</li>
+        <li class="reveal delay-2"><strong>Phát sóng ổn định</strong>Hình ảnh mượt, bảng tỉ số hiển thị chuẩn truyền hình từ đầu đến cuối trận.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- BẢNG GIÁ -->
+  <section class="ls-sec" id="ls-pricing" aria-labelledby="ls-price-title">
+    <div class="ls-wrap">
+      <h2 class="ls-h2 reveal" id="ls-price-title">Bảng giá dịch vụ</h2>
+      <p class="ls-lead reveal delay-1">Chọn gói theo quy mô giải. Cần phối hợp thêm thiết bị hoặc nhân sự, mình tư vấn riêng.</p>
+      <div class="ls-price">
+        <article class="ls-card reveal">
+          <h3>Gói Cơ Bản</h3>
+          <p class="ls-for">Trận giao lưu, giải nội bộ nhỏ.</p>
+          <p class="ls-amount">2.500.000đ - 3.500.000đ<small>mỗi ngày</small></p>
+          <ul class="ls-list">
+            <li>1 máy quay HD</li>
+            <li>1 kỹ thuật viên</li>
+            <li>Bảng tỉ số cơ bản</li>
+            <li>Phát 1 kênh</li>
+          </ul>
+          <a class="ls-btn" href="#ls-form" data-plan="Gói Cơ Bản">Chọn gói này</a>
+        </article>
+        <article class="ls-card ls-hot reveal delay-1">
+          <span class="ls-tag">Phổ biến nhất</span>
+          <h3>Gói Chuyên Nghiệp</h3>
+          <p class="ls-for">Giải phong trào, hội thao doanh nghiệp.</p>
+          <p class="ls-amount">5.000.000đ - 8.000.000đ<small>mỗi ngày</small></p>
+          <ul class="ls-list">
+            <li>2-3 máy quay HD/4K</li>
+            <li>Bảng tỉ số Real-time chuyên nghiệp</li>
+            <li>Lưu VOD HD xem lại sau giải</li>
+            <li>3 nhân sự tác nghiệp</li>
+          </ul>
+          <a class="ls-btn" href="#ls-form" data-plan="Gói Chuyên Nghiệp">Chọn gói này</a>
+        </article>
+        <article class="ls-card reveal delay-2">
+          <h3>Gói Toàn Diện</h3>
+          <p class="ls-for">Giải quy mô lớn, cần trọn gói truyền hình.</p>
+          <p class="ls-amount">Liên hệ<small>báo giá theo quy mô giải</small></p>
+          <ul class="ls-list">
+            <li>Đa góc máy, multi-stream</li>
+            <li>Đồ họa nhà tài trợ và VĐV riêng</li>
+            <li>Tùy chọn nâng cao: Flycam, Replay, BLV</li>
+          </ul>
+          <a class="ls-btn" href="#ls-form" data-plan="Gói Toàn Diện">Chọn gói này</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADD-ONS -->
+  <section class="ls-sec ls-alt" id="ls-addons" aria-labelledby="ls-add-title">
+    <div class="ls-wrap">
+      <h2 class="ls-h2 reveal" id="ls-add-title">Dịch vụ mở rộng</h2>
+      <p class="ls-lead reveal delay-1">Thêm vào bất kỳ gói nào để giải đấu của bạn giống một chương trình truyền hình.</p>
+      <div class="ls-add">
+        <article class="reveal"><span class="ls-ico" aria-hidden="true">🎙️</span><h3>Cho thuê bình luận viên</h3><p>BLV dẫn dắt trận đấu, giữ nhịp cho khán giả theo dõi trực tuyến.</p></article>
+        <article class="reveal delay-1"><span class="ls-ico" aria-hidden="true">🚁</span><h3>Flycam toàn cảnh</h3><p>Góc quay từ trên cao cho lễ khai mạc, chạy bộ đường dài, sân lớn.</p></article>
+        <article class="reveal delay-2"><span class="ls-ico" aria-hidden="true">⏪</span><h3>Bảng quay chậm Replay</h3><p>Phát lại pha bóng, cú chạm đích quan trọng ngay trong trận.</p></article>
+        <article class="reveal delay-3"><span class="ls-ico" aria-hidden="true">🎨</span><h3>Thiết kế banner, overlay giải đấu</h3><p>Bộ đồ họa mang logo giải và nhà tài trợ, đồng bộ trên mọi khung hình.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="ls-sec" id="ls-faq" aria-labelledby="ls-faq-title">
+    <div class="ls-wrap">
+      <h2 class="ls-h2 reveal" id="ls-faq-title" style="text-align:center">Câu hỏi thường gặp</h2>
+      <p class="ls-lead reveal delay-1" style="margin-left:auto;margin-right:auto;text-align:center">Những điều BTC hay hỏi trước khi chốt lịch quay.</p>
+      <div class="ls-faq reveal delay-2">
+
+        <div class="ls-faq-item is-open">
+          <h3 class="ls-faq-h"><button type="button" class="ls-faq-q" id="ls-faq-q1" aria-expanded="true" aria-controls="ls-faq-a1">Team có tự chuẩn bị mạng Internet không?<span class="ls-faq-ico" aria-hidden="true"></span></button></h3>
+          <div class="ls-faq-a" id="ls-faq-a1" role="region" aria-labelledby="ls-faq-q1"><div><p>Có. Team mang theo đường truyền riêng (4G/5G) để phát sóng, không phụ thuộc hoàn toàn vào mạng của nhà thi đấu. Nếu địa điểm có mạng cáp quang ổn định, BTC cho team biết trước để tận dụng làm đường dự phòng.</p></div></div>
+        </div>
+
+        <div class="ls-faq-item">
+          <h3 class="ls-faq-h"><button type="button" class="ls-faq-q" id="ls-faq-q2" aria-expanded="false" aria-controls="ls-faq-a2">Trời mưa thì giải quyết thế nào?<span class="ls-faq-ico" aria-hidden="true"></span></button></h3>
+          <div class="ls-faq-a" id="ls-faq-a2" role="region" aria-labelledby="ls-faq-q2"><div><p>Với giải ngoài trời, team theo dõi thời tiết trước ngày diễn ra và che chắn thiết bị bằng áo mưa máy quay, lều mái. Nếu BTC phải dời hoặc hoãn giải, hãy báo sớm để hai bên thống nhất lịch mới, điều khoản đổi lịch sẽ được chốt rõ khi xác nhận đặt lịch.</p></div></div>
+        </div>
+
+        <div class="ls-faq-item">
+          <h3 class="ls-faq-h"><button type="button" class="ls-faq-q" id="ls-faq-q3" aria-expanded="false" aria-controls="ls-faq-a3">Bảng tỉ số có làm theo màu nhà tài trợ được không?<span class="ls-faq-ico" aria-hidden="true"></span></button></h3>
+          <div class="ls-faq-a" id="ls-faq-a3" role="region" aria-labelledby="ls-faq-q3"><div><p>Được. BTC gửi logo và mã màu, bảng tỉ số sẽ được thiết kế khớp nhận diện của giải. Mức tùy biến sâu hơn như đồ họa riêng cho nhà tài trợ và VĐV nằm trong Gói Toàn Diện, hoặc đặt thêm dịch vụ thiết kế banner, overlay.</p></div></div>
+        </div>
+
+        <div class="ls-faq-item">
+          <h3 class="ls-faq-h"><button type="button" class="ls-faq-q" id="ls-faq-q4" aria-expanded="false" aria-controls="ls-faq-a4">Khán giả có xem lại được trận đấu sau khi kết thúc không?<span class="ls-faq-ico" aria-hidden="true"></span></button></h3>
+          <div class="ls-faq-a" id="ls-faq-a4" role="region" aria-labelledby="ls-faq-q4"><div><p>Có. Gói Chuyên Nghiệp trở lên có lưu VOD HD để xem lại các trận sau giải. Nếu BTC muốn bản lưu cho gói Cơ Bản, hãy ghi chú khi đặt lịch để được tư vấn thêm.</p></div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="ls-sec ls-alt" id="ls-form" aria-labelledby="ls-form-title">
+    <div class="ls-wrap">
+      <h2 class="ls-h2 reveal" id="ls-form-title" style="text-align:center">Đặt lịch nhận báo giá</h2>
+      <p class="ls-lead reveal delay-1" style="margin-left:auto;margin-right:auto;text-align:center">Điền thông tin, nội dung sẽ được soạn sẵn để gửi qua Zalo.</p>
+      <div class="ls-formbox reveal delay-2">
+        <form id="ls-booking" novalidate>
+          <div class="ls-grid">
+            <div class="ls-field">
+              <label for="ls-name">Họ tên BTC</label>
+              <input class="ls-input" id="ls-name" name="name" type="text" autocomplete="name" required aria-describedby="ls-err-name">
+              <span class="ls-err" id="ls-err-name"></span>
+            </div>
+            <div class="ls-field">
+              <label for="ls-phone">Số điện thoại</label>
+              <input class="ls-input" id="ls-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="ls-err-phone">
+              <span class="ls-err" id="ls-err-phone"></span>
+            </div>
+            <div class="ls-field">
+              <label for="ls-sport">Môn thể thao</label>
+              <select class="ls-input" id="ls-sport" name="sport" required aria-describedby="ls-err-sport">
+                <option value="">Chọn môn</option>
+                <option>Cầu lông</option>
+                <option>Bơi</option>
+                <option>Chạy</option>
+                <option>Khác</option>
+              </select>
+              <span class="ls-err" id="ls-err-sport"></span>
+            </div>
+            <div class="ls-field">
+              <label for="ls-date">Ngày diễn ra giải</label>
+              <input class="ls-input" id="ls-date" name="date" type="date" required aria-describedby="ls-err-date">
+              <span class="ls-err" id="ls-err-date"></span>
+            </div>
+            <div class="ls-field ls-full">
+              <label for="ls-plan">Gói quan tâm (không bắt buộc)</label>
+              <select class="ls-input" id="ls-plan" name="plan">
+                <option value="">Chưa chọn, cần tư vấn</option>
+                <option>Gói Cơ Bản</option>
+                <option>Gói Chuyên Nghiệp</option>
+                <option>Gói Toàn Diện</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="ls-btn">Gửi Yêu Cầu Qua Zalo</button>
+          <p class="ls-status" id="ls-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+<!-- ========================================== -->
+
+<!-- 6. FOOTER HỆ THỐNG -->
+<div id="site-footer"></div>
+
+<!-- Script riêng của trang -->
+<script>
+(function () {
+  /* ---------- FAQ Accordion ---------- */
+  document.querySelectorAll('.ls-faq-q').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.ls-faq-item');
+      var open = !item.classList.contains('is-open');
+      item.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
+  /* ---------- Chọn gói -> điền sẵn vào form ---------- */
+  document.querySelectorAll('[data-plan]').forEach(function (a) {
+    a.addEventListener('click', function () { document.getElementById('ls-plan').value = a.getAttribute('data-plan'); });
+  });
+
+  /* ---------- Form gửi qua Zalo ---------- */
+  var form = document.getElementById('ls-booking'), status = document.getElementById('ls-status');
+  var ZALO = 'https://zalo.me/0337439799';
+  var today = new Date(); today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+  document.getElementById('ls-date').min = today.toISOString().slice(0, 10);
+
+  function setErr(id, msg) {
+    document.getElementById('ls-err-' + id).textContent = msg;
+    document.getElementById('ls-' + id).setAttribute('aria-invalid', msg ? 'true' : 'false');
+    return !msg;
+  }
+  function showStatus(type, text) {
+    status.className = 'ls-status';
+    void status.offsetWidth; /* khởi động lại animation */
+    status.className = 'ls-status ls-status--' + type;
+    status.textContent = text;
+    status.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('ls-name').value.trim(),
+        phone = document.getElementById('ls-phone').value.replace(/[\s.\-]/g, ''),
+        sportV = document.getElementById('ls-sport').value,
+        dateV = document.getElementById('ls-date').value,
+        plan = document.getElementById('ls-plan').value;
+
+    var ok = [
+      setErr('name', name ? '' : 'Vui lòng nhập họ tên.'),
+      setErr('phone', /^(\+84|0)\d{9}$/.test(phone) ? '' : 'Số điện thoại chưa đúng (ví dụ 0337xxxxxx).'),
+      setErr('sport', sportV ? '' : 'Vui lòng chọn môn thể thao.'),
+      setErr('date', dateV ? '' : 'Vui lòng chọn ngày diễn ra giải.')
+    ].every(Boolean);
+
+    if (!ok) {
+      showStatus('error', 'Chưa gửi được: vui lòng kiểm tra các ô báo đỏ phía trên.');
+      var bad = form.querySelector('[aria-invalid="true"]');
+      if (bad) { bad.focus(); }
+      return;
+    }
+
+    var d = dateV.split('-').reverse().join('/');
+    var msg = 'Chào BNT Sports Media, mình muốn đặt lịch quay & livestream giải đấu.\n' +
+      '- BTC: ' + name + '\n- SĐT: ' + phone + '\n- Môn: ' + sportV + '\n- Ngày diễn ra: ' + d +
+      (plan ? '\n- Gói quan tâm: ' + plan : '') + '\nNhờ bạn báo giá giúp mình.';
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      /* Sao chép và mở Zalo trong cùng thao tác bấm để trình duyệt không chặn cửa sổ mới */
+      var copying = navigator.clipboard.writeText(msg);
+      window.open(ZALO, '_blank', 'noopener');
+      copying.then(function () {
+        showStatus('info', 'Đã sao chép nội dung yêu cầu. Zalo đang mở, hãy dán (paste) vào ô chat rồi gửi nhé.');
+      }, function () {
+        showStatus('error', 'Không sao chép tự động được. Hãy chép nội dung này rồi gửi qua Zalo: ' + msg.replace(/\n/g, ' '));
+      });
+    } else {
+      window.open(ZALO, '_blank', 'noopener');
+      showStatus('error', 'Trình duyệt chưa hỗ trợ sao chép tự động. Hãy chép nội dung này rồi gửi qua Zalo: ' + msg.replace(/\n/g, ' '));
+    }
+  });
+})();
+</script>
+
+<!-- 7. SCRIPT HIỆU ỨNG CHUẨN HỆ THỐNG -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15 
+    };
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active'); 
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, observerOptions);
+    document.querySelectorAll('.reveal, .reveal-left').forEach((el) => {
+        observer.observe(el);
+    });
+});
+</script>
+
+</body>
+</html>
